@@ -1,0 +1,59 @@
+<!DOCTYPE html> <!--声明文档类型，DOCTYPE不是html标签-->
+<html>
+  <head>
+    <!-- 网页头部内容 -->
+    <title>文本的标题和内容</title>
+    <!--解决网页显示出现乱码；
+       属性：1.文本类型 2.内容是html文件，编码类型是utf-8
+      【utf-8：可以支持中文，日文，韩文，英文等等  gb2312:仅支持简体中文】
+    -->
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
+  </head>
+
+  <body bgcolor="yellow">
+    <!-- 网页主体内容 -->
+    hello html!
+    HTML是超文本标记语言！
+    <!-- 文档标签 -->
+    <h1>什么是HTML</h1>
+    <h2>什么是HTML</h2>
+    <h3>什么是HTML</h3>
+    <h4>什么是HTML</h4>
+    <h5>什么是HTML</h5>
+    <h6>什么是HTML</h6>
+
+    <!--文字段落标签，一对p标签是一个段落-->
+    <!--align文本的对齐方式-->
+    <p align="left">超文本标记语言（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。您可以使用 HTML 来建立自己的 WEB站点，HTML运行在浏览器上，由浏览器来解析。在本教程中，您将学习如何使用 HTML 来创建站点。HTML 很容易学习！相信您能很快学会它！</p>
+    <p align="center">超文本标记语言（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。您可以使用 HTML 来建立自己的 WEB站点，HTML运行在浏览器上，由浏览器来解析。在本教程中，您将学习如何使用 HTML 来创建站点。HTML 很容易学习！相信您能很快学会它！</p>
+    <p align="right">超文本标记语言（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。您可以使用 HTML 来建立自己的 WEB站点，HTML运行在浏览器上，由浏览器来解析。在本教程中，您将学习如何使用 HTML 来创建站点。HTML 很容易学习！相信您能很快学会它！</p>
+    <p align="justify">超文本标记语言（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。您可以使用 HTML 来建立自己的WEB站点，HTML运行在浏览器上，由浏览器来解析。在本教程中，您将学习如何使用 HTML 来创建站点。HTML 很容易学习！相信您能很快学会它！</p>
+
+    <!--&nbsp; 表示空格-->
+    <p> &nbsp;&nbsp;&nbsp;&nbsp;超文本标记语言（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。<br/> <!--br换行-->
+    您可以使用 HTML 来建立自己的 WEB站点，HTML运行在浏览器上，由浏览器来解析。<br/>
+    在本教程中，您将学习如何使用HTML 来创建站点。<br/>
+    HTML 很容易学习！相信您能很快学会它！</p>
+
+    <!--在pre标签中，输入的格式是什么样子的，浏览器中就展示什么样子-->
+    <pre>
+          超文本标记语言（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。
+      您可以使用 HTML 来建立自己的 WEB站点，HTML运行在浏览器上，由浏览器来解析。
+      在本教程中，您将学习如何使用HTML 来创建站点。
+      HTML 很容易学习！相信您能很快学会它！
+    </pre>
+
+    <!-- hr是水平线 ，可以使用单个标签-->
+    <hr width="80%" color="#666666" align="left"/>
+
+    <!--修饰标签-->
+    <p><i>超文本标记语言</i>（英语：HyperText Markup Language，简称：<em>>HTML</em>）是一种用于创建网页的<ins>标准标记语言</ins>。
+    您可以使用 HTML来建立自己的<b>WEB站点</b> ，HTML运行在浏览器上，由<strong>浏览器来解析</strong>。
+    在本教程中，您将<sup>学习</sup>如何使用 HTML 来<sub>创建站点</sub>。
+    <del>HTML 很容易学习！</del>相信您能很快学会它！</p>
+
+    <!--特殊符号-->
+    <p>标签是成对出现，比如&lt;b&gt;常&lt;/b&gt;</p>
+    <p>Copyright &copy; 2013-2019 菜鸟教程  runoob.com All Rights Reserved.</p>
+  </body>
+</html>
