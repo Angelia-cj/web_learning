@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>css使用方法的优先级</title>
+  <link rel="stylesheet" type="text/css" href="css_priority.css" />
+  <style type="text/css">
+    @import url(css-优先级.css);
+    p{color:blue;}
+  </style>
+</head>
+<body>
+  <p style="color:yellowgreen";><b>css使用方法</b></p>
+</body>
+</html>
+
+<!-- 
+  优先级：
+  行内样式 > 内部样式 > 外部样式
+  说明：
+    1.链入外部样式表与内部样式表之间的优先级取决于所处位置的先后
+    2.最后定义的优先级最高（就近原则）
+-->
