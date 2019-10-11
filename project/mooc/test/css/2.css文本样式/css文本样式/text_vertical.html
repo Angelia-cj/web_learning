@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文本垂直属性</title>
+  <style type="text/css">
+    p{background-color: #ececec; height: 80px;font-size: 20px;}
+    span{color: red;font-size: 14px;}
+    .sub{vertical-align: sub;}
+    .super{vertical-align: super;}
+
+    .baseline{vertical-align: baseline;}
+    .top{vertical-align: top;}
+    .text-top{vertical-align: text-top;}
+    .middle{vertical-align: middle;}
+    .text-bottom{vertical-align: text-bottom;}
+    .bottom{vertical-align: bottom;}
+
+    td{height: 80px;width: 60px;}
+
+  </style>
+</head>
+<body>
+  <b>------sub和super值-------</b>
+  <p>CSS层叠样式表<span class="sub">sub</span></p>
+  <p class="sub">CSS层叠样式表<span>sub</span></p>
+  <p>CSS层叠样式表<span class="super">super</></p>
+
+
+  <b>----baseline、top、text-top、middle、bottom、text-bottom值----</b>
+  <p>
+    CSS层叠样式表
+    <span>（Cascading Style Sheets）</span>
+    <img src="../img/logo.png" />
+  </p>
+  <p>
+    CSS层叠样式表
+    <span class="baseline">基线baseline</span>
+    <img src="../img/logo.png" />
+  </p>
+  <p>
+    CSS层叠样式表
+    <span class="top">顶端对齐top</span>
+    <img src="../img/logo.png" />
+  </p>
+  <p>
+    CSS层叠样式表
+    <span class="text-top">文本的顶端对齐text-top</span>
+    <img src="../img/logo.png" />
+  </p>
+  <p>
+    CSS层叠样式表
+    <span class="middle">中部对齐middle）</span>
+    <img src="../img/logo.png" class="middle" />
+  </p>
+  <p>
+    CSS层叠样式表
+    <span class="text-bottom">文本的底端对齐text-bottom</span>
+    <img src="../img/logo.png" />
+  </p>
+  <p>
+    CSS层叠样式表
+    <span class="bottom">底端对齐bottom</span>
+    <img src="../img/logo.png" />
+  </p>
+
+  <b>----长度和百分比的值----</b>
+  <p>
+    CSS层叠样式表
+    <span style="vertical-align: -15px;">长度值</span>
+    <img src="../img/logo.png" />
+  </p>
+  <p style="line-height: 1.5em;">
+    CSS层叠样式表
+    <span style="vertical-align: -100%;">百分比</span>
+    <img src="../img/logo.png" />
+  </p>
+ 
+  <b>----应用于单元格元素----</b>
+  <table border="1px" class="one" cellspacing="0">
+    <tr>
+      <td class="top"><span>top</span></td>
+      <td class="middle"><span>middle</span></td>
+      <td class="bottom"><span>bottom</span></td>
+    </tr>
+  </table>
+
+</body>
+</html>
