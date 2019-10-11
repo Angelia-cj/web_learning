@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>双飞翼布局</title>
+  <style type="text/css">
+    *{margin: 0;padding: 0;}
+    body{min-width: 700px;}
+    .header,
+    .bottom{
+      border: 1px solid #333333;
+      background: #dddddd;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+    }
+    .sub,
+    .extra,
+    .main{
+      float: left;
+      min-height: 130px;
+    }
+    .sub{
+      width: 200px;
+      background: green;
+      margin-left: -100%;
+    }
+    .extra{
+      width: 220px;
+      background: indianred;
+      margin-left: -220px;
+    }
+    .main{
+      width: 100%;
+    }
+    .main-inner{
+      margin-left: 200px;
+      margin-right: 220px;
+      min-height: 130px;
+      background: firebrick;
+      word-break: break-all;
+    }
+    .bottom{
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h4>header</h4>
+  </div>
+
+  <div class="main">
+    <div class="main-inner">
+      <h4>main</h4>
+      <p>
+        这是页面的主体内容
+        这是页面的主体内容
+        这是页面的主体内容
+        这是页面的主体内容
+        这是页面的主体内容
+        这是页面的主体内容
+        这是页面的主体内容
+        这是页面的主体内容
+      </p>
+    </div>
+  </div>
+  <div class="sub">
+    <h4>sub</h4>
+    <p>
+      这是页面的左边
+      这是页面的左边
+      这是页面的左边
+      这是页面的左边
+      这是页面的左边
+      这是页面的左边
+    </p>
+  </div>
+  <div class="extra">
+    <h4>extra</h4>
+    <p>
+      这是页面的右边
+      这是页面的右边
+      这是页面的右边
+      这是页面的右边
+    </p>
+  </div>
+
+  <div class="bottom">
+    <h4>bottom</h4>
+  </div>
+</body>
+</html>

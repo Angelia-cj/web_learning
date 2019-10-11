@@ -1,0 +1,67 @@
+<!-- 
+  布局要求：
+    1.三列布局，中间宽度自适应，两边定宽
+    2.中间栏要在浏览器中优先展示渲染
+    3.允许任意列的高度最高
+    4.用最简单的CSS、最少的HACK语句
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>圣杯布局</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-width: 700px;
+      /* color: #ffffff; */
+    }
+
+    .left,
+    .middle,
+    .right {
+      position: relative;
+      float: left;
+      min-height: 130px;
+    }
+
+    .container {
+      padding: 0 220px 0 200px;
+      overflow: hidden;
+    }
+
+    .left {
+      width: 200px;
+      background: chocolate;
+      margin-left: -100%;
+      left: -200px;
+    }
+
+    .middle {
+      width: 100%;
+      background: cornflowerblue;
+    }
+
+    .right {
+      width: 220px;
+      background: lightgreen;
+      margin-left: -220px;
+      right: -220px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="middle">这是页面的中部</div>
+    <div class="left">这是页面的左侧</div>
+    
+    <div class="right">这是页面的右侧</div>
+  </div>
+</body>
+</html>
