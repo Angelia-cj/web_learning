@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>解决float的副作用</title>
+  <style type="text/css">
+    .per{
+      width: 500px;
+      height: auto;
+      border:1px #000000 solid;
+      overflow: hidden;
+      zoom: 1;
+    }
+
+    .test{
+      width: 100px;
+      height: 30px;
+      background-color: aqua;
+      border: 1px #eeeeee solid;
+      float: left;
+      /* clear: both; */
+    }
+  </style>
+</head>
+<body>
+  <div class="per">
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>  
+  </div>
+</body>
+</html>
