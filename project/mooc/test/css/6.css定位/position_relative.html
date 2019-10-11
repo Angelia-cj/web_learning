@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>定位的relative属性</title>
+  <style type="text/css">
+  /* 
+    left和top一起使用：以左上角为原点，向右和向下为x轴和y轴
+    right和bottom一起使用：以左上角为原点，向左和向上为x轴和y轴   
+   */
+    .div1{
+      width: 100px;
+      height: 100px;
+      background-color: aquamarine;
+      border: 1px #ffffff solid;
+      position: relative;
+      left: 0;
+      top: 100px;
+    }
+    .div2{
+      width: 100px;
+      height: 100px;
+      background-color: rosybrown;
+      border: 1px #ffffff solid;
+      position: relative;
+      left: 0;
+      top: -50px;
+    } 
+
+  </style>
+</head>
+<body>
+  <div class="div1"></div>
+  <div class="div2"></div>
+</body>
+</html>

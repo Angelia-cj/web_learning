@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>定位的z-index属性</title>
+  <style type="text/css">
+    .div1{
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: relative;
+      z-index: 1
+    }
+    .div2{
+      width: 100px;
+      height: 100px;
+      background: blue;
+      position: relative;
+      top: -50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="div1"></div>
+  <div class="div2"></div>
+</body>
+</html>
