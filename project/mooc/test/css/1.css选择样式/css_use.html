@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>css使用方法</title>   
+  
+  <style type="text/css">
+  /* 低版本的浏览器不识别style标签，需要把style标签用HTML注释，不然标签内容会显示在浏览器页面上*/
+  /*  内部样式引用  */
+    p{color:blue;}
+    /* 导入样式 */
+    @import url(css_use.css);
+  </style>
+
+  <!-- 外部样式引用 -->
+  <link href="css_use.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <!-- 行内样式 -->
+  <h1 style="color:red;font-size:20px;">css使用方法</h1>
+  
+  <!-- 嵌入样式 -->
+  <p>行内样式</p>
+  <p>嵌入样式</p>
+  <p>外部样式</p>
+  <p>导入样式</p>
+
+  <!-- 外部样式 -->
+  <h4>行内样式</h4>
+  <h4>嵌入样式</h4>
+  <h4>外部样式</h4>
+  <h4>导入样式</h4>
+
+  <!-- 导入样式 -->
+  <h5>行内样式</h5>
+  <h5>嵌入样式</h5>
+  <h5>外部样式</h5>
+  <h5>导入样式</h5>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>css选择器——伪类选择器</title>
+  <style type="text/css">
+  /* 伪类 */
+    a:link{color: blue;}      /* 未访问状态 */
+    a:visited{color: gray;}   /* 已访问状态 */
+    a:hover{color: green;}    /* 鼠标悬停状态 */
+    a:active{color: orange;}  /* 激活状态 */
+
+    p:hover{color: red;}
+    p:active{font-size: 20px;}
+
+    a.one:link{color: blue;}
+    a.one:visited{color: green;}
+    a.one:hover{color: gray;}
+    a.one:active{color: orange;}
+
+    a.two:link{color: orange;}
+    a.two:visited{color: gray;}
+    a.two:hover{color: green;}
+    a.two:active{color: blue;}
+  </style>
+</head>
+<body>
+  <!-- 链接伪类
+    链接的4种状态：
+      1.激活状态  :link
+      2.已访问状态  :visited 
+      3.未访问状态  :hover
+      4.鼠标悬停状态  :active
+  -->
+  <a href="http://www.immoc.com" target="_blank" class="one">css使用方法</a>
+  <br/>
+  <a href="http://coding.immoc.com" target="_blank" class="two">css选择器</a>
+  <p>慕课网</p>
+</body>
+</html>
+
+<!-- 链接伪类的顺序：
+  :link > :visited > :hover > :active
+  说明：
+    1.a:hover必须置于a:link和a:visited之后，才有效
+    2.a:active必须置于a:hover之后，才有效
+    3.伪类名称对大小写不敏感
+ -->
