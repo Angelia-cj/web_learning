@@ -1,0 +1,53 @@
+<!-- 
+  递增和递减：
+    递增：
+      ++a与a++都是对a进行递增的操作
+    区别：
+      1.++a先返回递增之后的a的值
+      2.a++先返回a的原值，再返回递增之后的值
+
+    递减同理
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>算数操作符</title>
+ </head>
+ <body>
+   <script>
+    var num1=10,num2=20;
+    console.log(num1*num2);
+
+    var num3 = "a";
+    console.log(num1 * num3);
+    // number 是NaN
+
+    var num4 = "5";
+    console.log(num1 * num4);
+    // 浏览器隐式类型转换
+
+
+    // 递增操作
+    var num5=++num1+num2; //++num1 等于 num1=num1+1
+    console.log(num1); //11
+    console.log(num5); //31
+
+    var num6 = num1++ - num2; //num1++ 等于 num1=num1+1
+      console.log(num1); //12
+      console.log(num6); //-9 用原值进行操作运算再返回结果
+
+    var x1=20,
+      x2=30,
+      x3=--x1+x2--;
+
+      console.log(x1); //19
+      console.log(x2); //29
+      console.log(x3); //19+30=49
+
+   </script>
+ </body>
+ </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>UserAgent使用方法</title>
+</head>
+<body>
+  <script>
+    /* var explorer=navigator.userAgent;
+    alert(explorer); */
+    // 检测浏览器类型  封装
+    function getBrowser() {
+      // 获取userAgent属性
+      var explorer=navigator.userAgent.toLowerCase(),browser;
+      // indexOf()方法返回某个指定的字符串值在字符串中首次出现的位置，如果没有出现过，返回-1
+      if(explorer.indexOf("msie")>-1){
+        browser="IE";
+      }else if(explorer.indexOf("chrome") > -1){
+        browser = "chrome";
+      }else if(explorer.indexOf("opera") > -1){
+         browser = "opera";
+      }else if(explorer.indexOf("safari") > -1){
+         browser = "safari";
+      } else if (explorer.indexOf("firefox") > -1) {
+        browser = "firefox";
+      }
+      return browser;
+    }
+
+    var explorer=getBrowser();
+    console.log("您当前使用的是："+explorer+"浏览器");
+  </script>
+</body>
+</html>

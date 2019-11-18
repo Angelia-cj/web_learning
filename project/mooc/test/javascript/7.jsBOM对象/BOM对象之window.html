@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>window使用方法</title>
+</head>
+<body>
+  <div id="box">
+    <span>iphone6s</span>
+    <input type="button" value="删除" id="btn">
+  </div>
+  <script>
+    var age=15;
+    function sayAge(){
+      alert("我"+age);
+    }
+    // 声明一个全局变量
+    window.username="marry"; //等价于 var usernam="marry"
+    // 生命一个全局方法
+    window.sayName=function(){
+      alert("我是"+this.username);
+    }
+    // sayAge();
+    // window.sayName();
+
+    // confirm
+    // 获取按钮
+    var btn=document.getElementById("btn");
+    btn.onclick=function(){
+      // 弹出确认对话框
+      var result=window.confirm("您确定要删除嘛？删除之后该信息将不可恢复！");
+      console.log(result);
+      if(result){
+        document.getElementById("box").style.display='none';
+      }
+    }
+    // 输入弹入框
+    var message=prompt("请输入您的星座","狮子座");
+    console.log(message);
+  </script>
+</body>
+</html>

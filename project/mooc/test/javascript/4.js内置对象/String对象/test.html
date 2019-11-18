@@ -1,0 +1,26 @@
+<!-- 
+  编写js函数，用于获得输入参数的后缀名，如输入abc.txt，返回.txt
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>综合应用</title>
+ </head>
+ <body>
+   <script>
+    //  获取扩展名
+     var url="http://baidu.com/index.txt";
+     function getFileFormat(url) {
+       var pos=url.lastIndexOf(".");
+       return url.substr(pos);
+     }
+     var formName=getFileFormat(url);
+     var picFormat=getFileFormat("1123423.jpg");
+     console.log(formName);
+     console.log(picFormat);
+   </script>
+ </body>
+ </html>

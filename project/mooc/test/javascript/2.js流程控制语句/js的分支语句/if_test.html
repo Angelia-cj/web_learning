@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>if语句测试题</title>
+</head>
+<body>
+  <script>
+    var str="abc123";
+    // num为NaN
+    var num=parseInt(str); //parseInt()只能转换以数字开头的字符串
+    if(num==NaN){ //NaN和任何内容都不相等，包括它本身
+      alert(NaN);
+    }else if (num==123) {
+      alert(123);
+    }else if(typeof num=="number"){ //NaN属于number类型
+      alert("num");
+    }else{
+      alert("str");
+    }
+    //结果返回num
+  </script>
+</body>
+</html>

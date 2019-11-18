@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>求任意一组数的平均值</title>
+</head>
+<body>
+  <script>
+    // 求任意一组数的平均值
+    function getAvg() {
+      // 对所有参数进行求和
+      var sum=0,len=arguments.length,i;
+      for(i=0;i<len;i++){
+        console.log(arguments[i]);
+        sum+=arguments[i];
+      }
+      // console.log(sum);
+      return sum/len;
+    }
+    var avg=getAvg(5,66,45,32,88,24,40);
+    console.log(avg);
+  </script>
+</body>
+</html>

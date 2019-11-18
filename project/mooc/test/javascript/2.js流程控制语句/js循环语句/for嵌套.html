@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>for循环嵌套</title>
+ </head>
+ <body>
+  <!-- 
+    for嵌套：
+    当循环与循环发生嵌套时遵循下列规则：
+      1.外层为假时，内层不执行；
+      2.先执行外层再执行内层，直至内层的条件为假时再返回外层去执行。 
+  -->
+   <script>
+     for(var i=1;i<=3;i++){
+       document.write(i+'<br />');
+       document.write('<hr>');
+       for(var j=1;j<=5;j++){
+          document.write(j+'<br />');
+       }
+     }
+   </script>
+ </body>
+ </html>

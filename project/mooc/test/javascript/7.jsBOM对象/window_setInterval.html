@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>setInterval使用方法</title>
+</head>
+<body>
+  <script>
+    // 间歇打印
+   /* var intervalId= setInterval(function(){
+      console.log('你好');
+    },1000);
+    // 10秒之后停止打印
+    setTimeout(function(){
+      clearInterval(intervalId);
+    },10000); */
+
+    // 小案例
+    var num=1,
+        max=10,
+        timer=null; //null——释放内存
+
+    // 每隔1秒钟num递增一次，直到num的值等于max清除
+    timer=setInterval(function() {
+      console.log(num);
+      num++;
+      if(num>max){
+        clearInterval(timer);
+      }
+    },1000)    
+  </script>
+</body>
+</html>

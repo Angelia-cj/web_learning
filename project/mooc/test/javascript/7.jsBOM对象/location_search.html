@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+   <a href="location_search.html"></a>
+   <p>这是location_search.html</p>
+	<script>
+       // 解析地址栏中的参数(查询字符串)
+       function getParam(){
+          // 获取参数信息
+          var url=location.search;
+          if(!url)return null;
+          // 将?号却掉
+          url=url.substr(1);
+          // 以&号为分隔符分割url地址
+          var params,param={},arr;
+          params=url.split("&");
+          // ["city_id=28","city_name=北京"]
+          //console.log(params);
+          // 遍历params这个数组
+          for(var i=0,len=params.length;i<len;i++){
+             arr=params[i].split("=");
+             // 将arr[0]作为param这个对象的属性,
+             // 将arr[1]作为param这个对象的属性值
+             param[arr[0]]=decodeURIComponent(arr[1]);
+          }
+          return param;
+       }
+       var params=getParam();
+       console.log(params);
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM设置元素样式</title>
+</head>
+<body>
+  <div class="box" id="box">
+    元素1
+  </div>
+  <ul id="list1">
+    <li>前端开发</li>
+    <li>服务器端开发</li>
+    <li>UI设计</li>
+  </ul>
+  <ol>
+    <li>JavaScript原生</li>
+    <li>JavaScript框架</li>
+  </ol>
+  <script>
+    // 获取id为box的这个元素的文字颜色
+    var box=document.getElementById("box");
+    box.style.color="red";
+    box.style.fontWeight='bold';
+
+    // 获取id为list1中的所有li
+    var lis=document.getElementById("list1").getElementsByTagName("li");
+    // 遍历每一个li
+    for(var i=0,len=lis.length;i<len;i++){
+      console.log(lis[i]);
+      lis[i].style.color="#00f";
+      if(i==0){
+        lis[i].style.backgroundColor="#ccc";
+      }else if(i==1){
+        lis[i].style.backgroundColor = "#666";
+      }else if(i==2){
+        lis[i].style.backgroundColor = "#999";
+      }else{
+        lis[i].style.backgroundColor = "#333";
+      }
+    }
+  </script>
+</body>
+</html>

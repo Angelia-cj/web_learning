@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数的返回值</title>
+</head>
+<body>
+  <script>
+    // 声明一个带有参数的函数
+    function add(num1, num2) {
+      var sum = num1 + num2;
+      // alert(num1 + "和" + num2 + "的和是" + sum);
+      // 函数的返回值
+      return sum;
+    }
+    /* console.log(add(3, 5));
+    alert(add(99, 789));
+    var s=add(-1,-9);
+    console.log(s);
+    document.write("-1 + -9 ="+s); */
+    function myFunction(arg) {
+      // 如果arg是非数字，不做任何操作；否则返回arg的2倍
+      if (isNaN(arg)) return;
+        return arg*2;     
+    }
+    console.log(myFunction("abc"));
+  </script>
+</body>
+</html>

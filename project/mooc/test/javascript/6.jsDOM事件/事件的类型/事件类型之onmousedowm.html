@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>onmousedown的使用方法</title>
+  <style type="text/css">
+    body{
+      height: 2000px;
+    }
+    .box{
+      width:200px;
+      height: 200px;
+      background: #f00;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="box">
+    <p>拖动</p>
+    <p>拖动</p>
+    <p>拖动</p>
+    <p>拖动</p>
+    <p>拖动</p>
+    <p>拖动</p>
+    <p>拖动</p>
+    <p>拖动</p>
+    <p>拖动</p>
+  </div>
+  <script>
+    var box=document.getElementById("box");
+    // 绑定一个按下的事件
+    box.onmousedown=function(){
+      console.log('我被按下了');
+    }
+    // 绑定移动的事件
+    box.onmouseover=function(){
+      console.log('我被移动了');
+    }
+
+    //绑定松开事件
+    box.onmouseup=function(){
+      console.log('我被松开了');
+    }
+    // 绑定点击事件
+    box.onclick=function(){
+      console.log('我被点击了');
+    }
+
+    // 浏览器窗口尺寸发生改变时
+    window.onresize=function(){
+      console.log('我的尺寸被改变了');
+    }
+    // 拖动滚动条
+    window.onscroll=function(){
+      console.log('我被拖动了');
+    }
+    box.onscroll=function(){
+      console.log('我时DIV的滚动条');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>setTimeout方法的使用</title>
+</head>
+<body>
+  <script>
+    // setTimeout("alert('hello')",4000);
+    // 自定义函数
+    var fnCall=function(){
+      alert("world");
+    }
+    // 匿名函数
+    var timeout1=setTimeout(function () {
+        alert("hello");
+      }, 2000);
+      clearTimeout(timeout1);
+    // setTimeout(fnCall,5000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>字符串使用方法之split</title>
+</head>
+<body>
+  <script>
+    var str="welcome-to-beijing";
+    //使用split将str转换为数组
+    var arr=str.split("-");
+    var date="2016/05/05";
+    var dateArr=date.split("/");
+    console.log(arr); 
+    console.log(dateArr);
+    // 替换
+    var tel="010-62971268,400-100-9098,010-86789889";
+    // newTel被替换之后的字符串
+    var newTel=tel.replace(","," ");
+    console.log(newTel);
+  </script>
+</body>
+</html>

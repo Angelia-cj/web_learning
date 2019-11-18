@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>onchange的使用方法</title>
+  <script>
+    // 页面加载
+    window.onload=init;
+    // 初始化
+    function init(){
+      // 获取下拉菜单
+      var menu=document.getElementById("menu");
+      // 给菜单绑定change事件,一般作用于select或者checkbox或者radio
+      menu.onchange=function(){
+        // 获取当前选中的值
+        // var bgcolor=this.value;
+        var bgcolor=menu.options[menu.selectedIndex].value;
+        // 如果bgcolor为空，下面的脚本将不执行
+        // if(bgcolor=="") return;
+        // 设置body的背景色
+        // 如果bgcolor为空，将背景色设为白色，否色时选择的颜色
+        if(bgcolor==""){
+          // 设置body的背景色
+          document.body.style.backgroundColor = "#fff";
+        }else{
+          document.body.style.backgroundColor = bgcolor;
+        }
+
+        // 设置body的背景色
+        document.body.style.backgroundColor=bgcolor;
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="box">
+    请选择你喜欢的背景色：
+    <select name="" id="menu">
+      <option value="">请选择：</option>
+      <option value="#f00">红色</option>
+      <option value="#0f0">绿色</option>
+      <option value="#00f" selected>蓝色</option>
+      <option value="#ff0">黄色</option>
+      <option value="#ccc">灰色</option>
+    </select>
+  </div>
+</body>
+</html>

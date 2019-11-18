@@ -1,0 +1,77 @@
+<!-- 
+  获取星期：
+    语法：new Date().getDay()
+    功能：获取星期
+    返回值：number(0-6)
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>switch输出星期</title>
+ </head>
+ <body>
+   <script>
+    //var week=new Date().getDate(); //返回日期
+     var week = new Date().getDay(); //返回星期几
+    //  console.log(week);
+    //  多条件判断语句 switch
+     /* 输出内容：
+           语法：document.write("内容")
+           功能：向浏览器输出内容
+       */
+     /* switch (week) {
+     
+      case 0:
+        document.write("今天是星期日！");
+        break; //退出
+      case 1:
+        document.write("今天是星期一！");
+        break; //退出
+      case 2:
+        document.write("今天是星期二！");
+        break; //退出
+      case 3:
+        document.write("今天是星期三！");
+        break; //退出
+      case 4:
+        document.write("今天是星期四！");
+        break; //退出
+      case 5:
+        document.write("今天是星期五！");
+        break; //退出
+      default:
+        document.write("今天是星期六！");
+        break;
+    } */
+
+    var weekstr="";
+    switch (week) {
+        case 0:
+          weekstr="日";
+          break; 
+        case 1:
+          weekstr = "一";
+          break; 
+        case 2:
+          weekstr = "二";
+          break; 
+        case 3:
+          weekstr = "三";
+          break; 
+        case 4:
+          weekstr = "四";
+          break; 
+        case 5:
+          weekstr = "五";
+          break; 
+        default:
+          weekstr = "六";
+          break;
+      }
+      document.write("今天是星期"+weekstr);
+   </script>
+ </body>
+ </html>

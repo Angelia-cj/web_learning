@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM0级事件</title>
+  <style>
+    .lock{
+      width: 140px;
+      height: 30px;
+      line-height: 30px;
+      background-color:#00f;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+    .unlock{
+       width: 140px;
+      height: 30px;
+      line-height: 30px;
+      background-color: #666;
+      color: #ccc;
+      font-size: 14px;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="lock" id="btn">锁定</div>
+  <script>
+    // 获取按钮
+    var btn=document.getElementById("btn");
+    //自定义函数
+    function clickBtn(){
+      alert("我是按钮");
+    }
+    
+    // 点击按钮调用clickBtn这个函数,函数clickBtn后不加括号，加括号后更新浏览器就直接调用了
+    btn.onclick=clickBtn;
+
+    // 匿名函数：
+
+    //给按钮绑定事件 ,this是对该DOM元素的引用
+   /*  btn.onclick=function(){
+      // 判断如果按钮是锁定，则显示为解锁，变为灰色；否则显示为锁定，变为蓝色
+      // 方法一：
+      if(this.className == "lock"){
+        this.className = "unlock"; //修改类名
+        this.innerHTML = "解锁";  //修改内容
+      }else{
+        this.className = "lock"; //修改类名
+        this.innerHTML = "锁定";  //修改内容
+      }
+      // 方法二：
+      if (this.innerHTML == "锁定") {
+        this.className = "unlock"; //修改类名
+        this.innerHTML = "解锁";  //修改内容
+      } else {
+        this.className = "lock"; //修改类名
+        this.innerHTML = "锁定";  //修改内容
+      }
+    } */
+  </script>
+</body>
+</html>

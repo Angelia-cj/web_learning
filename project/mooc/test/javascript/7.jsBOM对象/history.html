@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>history</title>
+</head>
+<body>
+  <div>
+    <p>这是history.html</p>
+    <p>
+      <a href="history_1.html">history_1.html</a>
+    </p>
+    <p><input type="button" value="后退" id="btn"></p>
+    <p><input type="button" value="前进" id="btn2"></p>
+    <script>
+      var btn=document.getElementById("btn");
+
+      // 点击btn按钮时回到历史记录的上一条
+      btn.onclick=function(){history.go(-2);
+        // history.back();
+        history.go(-2);
+      }
+      // 点击btn2按钮来到历史记录的下一条
+      btn2.onclick=function(){
+        // history.forward();
+        history.go(1);
+      }
+    </script>
+  </div>
+</body>
+</html>

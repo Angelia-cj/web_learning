@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>onload的使用方法</title>
+  <script>
+    // 页面加载时执行
+    //window.onload：所有的body体加载完毕才开始执行js脚本
+    window.onload=function(){ 
+      // 获取box
+      var box = document.getElementById("box");
+      var clicked = function () {
+        alert("我被点击了");
+      }
+      box.onclick = clicked;
+    }
+  </script>
+</head>
+<body>
+  <div id="box">这是一个DIV</div>
+  <!-- <script>
+    // 获取box
+    var box = document.getElementById("box");
+    var clicked = function () {
+      alert("我被点击了");
+    }
+    box.onclick = clicked;
+  </script> -->
+</body>
+</html>

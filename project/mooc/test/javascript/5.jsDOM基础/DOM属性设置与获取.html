@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM属性设置与获取</title>
+</head>
+<body>
+  <p id="text" class="text" align="center" data-type="title">文本</p>
+  <input type="text" name="user" value="user" id="user" validate="true">
+  <script>
+    var p=document.getElementById("text");
+    var user=document.getElementById("user");
+    console.log(p.getAttribute("data-type"));
+    console.log(p.getAttribute("class")); //等价于p.className
+    console.log(user.getAttribute("validate"));
+
+    // 给p设置一个data-color属性
+    p.setAttribute("data-color","red");
+    user.setAttribute("isRead","false");
+
+    // 删除p上的align属性
+    p.removeAttribute("align");
+  </script>
+</body>
+</html>

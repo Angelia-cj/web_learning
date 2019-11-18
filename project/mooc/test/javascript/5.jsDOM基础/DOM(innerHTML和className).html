@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM(innerHTML和className)</title>
+  <style>
+    .current{background: #cccccc;color: #f00000;}
+  </style>
+</head>
+<body>
+  <div class="box" id="box">
+    元素
+  </div>
+  <ul id="list">
+    <li><i>前端开发</i></li>
+    <li><b>服务器端开发</b></li>
+    <li>UI设计</li>
+  </ul>
+  <ol>
+    <li>JavaScript原生</li>
+    <li>JavaScript框架</li>
+  </ol>
+  <script>
+    var lis=document.getElementById("list").getElementsByTagName("li");
+    for(var i=0,len=lis.length;i<len;i++){
+      console.log(lis[i].innerHTML);
+      lis[i].innerHTML=lis[i].innerHTML+'程序';
+      lis[1].className="current";
+    }
+    console.log(document.getElementById("box").className);
+  </script>
+</body>
+</html>

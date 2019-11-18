@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>html事件</title>
+  <style>
+    .btn{
+      width: 140px;
+      height: 30px;
+      line-height: 30px;
+      background: #f00;
+      color:aqua;
+      font-size: 14px;
+      text-align: center;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="弹 出" onclick="alert('我是按钮')">
+  <!-- 鼠标划过按钮时调用mouseoverFn的函数 -->
+  <div class="btn" onmousemove="mouseoverFn(this,'blue')" onmouseout="mouseoutFn(this,'#00f')">开始</div>
+  <div class="btn" onmousemove="mouseoverFn(this,'green')" onmouseout="mouseoutFn(this,'#333')">结束</div>
+  <script>
+    function mouseoverFn(btn,bgColor) {
+      // 鼠标滑过按钮时，按钮的背景变为红色
+      btn.style.background= bgColor;
+      // console.log(btn)
+    }
+    function mouseoutFn(btn, bgColor) {
+      btn.style.background= bgColor;
+    }
+  </script>
+</body>
+</html>
+
+<!-- 
+  鼠标事件
+    onload：页面加载时触发
+    onclick：鼠标点击时触发
+    onmouseover：鼠标滑过时触发
+    onmouseout：鼠标离开时触发
+    onfoucs：获得焦点时触发
+    onblur：失去焦点时触发
+    onchange：域的内容改变时发生
+ -->

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组的栈方法</title>
+</head>
+<body>
+  <script>
+    // push
+    var colors=new Array("red","green");
+    // colors.push("blue","yellow","blank");
+    var len= colors.push("blue", "yellow", "blank");
+    console.log(len);
+    // unshift
+    var nums = [2, 5, 6, 8];
+    var size = nums.unshift(99, 66);
+    console.log(nums);
+    // pop
+    var n = nums.pop();
+    console.log(nums);
+    // shift
+    var m = colors.shift();
+    console.log(m);
+  </script>
+</body>
+</html>

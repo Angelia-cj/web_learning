@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组的转换方法</title>
+</head>
+<body>
+  <script>
+    //join
+    var nums=[2,4,5];
+    var str=nums.join(); //2,4,5
+    var words=["border","left","color"];
+    // border-left-color
+    var wordstr=words.join("-");
+    console.log(wordstr);
+
+    //reverse
+    nums.reverse();
+    console.log(nums); 
+    var strs=["a","b","c","d"];
+    // 返回dcba这个字符串
+    var newstr= strs.reverse().join("");
+    console.log(newstr);
+    // sort
+    // 29,5,24,17,32
+    var arr=[9,23,15,-99,88,12,-2];
+    // 降序
+    // arr.sort(function(a,b){return b-a});
+    // 升序
+    arr.sort(function (a, b) { return a - b });
+    console.log(arr);
+    // console.log(arr.sort());
+
+  </script>
+</body>
+</html>

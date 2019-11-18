@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>if语句</title>
+</head>
+<body>
+  <script>
+    var age=15;
+    /* if(age<18){
+      alert("您还没有成年！"); //alert():弹出警告对话框
+    } */
+
+    /* 
+      语法：prompt()
+      功能：弹出输入框
+      返回值：
+        1.点击确定，返回输入内容
+        2.点击取消，返回null
+    */
+    var age=prompt("请输入您的年龄：");
+    /* if (age < 18) {
+        alert("您还没有成年！");
+      }else {
+        alert("您已成年，请提供您的身份证号：");
+      } */
+    if(age<18){
+      alert("您还没有成年！");
+    }else if (age>=18 && age<= 59) {
+      alert("您可以进入！");
+    }
+    else{
+      alert("您已超出年龄限制！");
+    }
+    // console.log(age);
+  </script>
+</body>
+</html>

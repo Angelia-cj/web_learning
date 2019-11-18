@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>String类型属性</title>
+</head>
+<body>
+  <script>
+    /* toString()与String()
+        语法：str.toString()
+        功能：将str转换为字符串
+        返回值：str的一个副本
+        参数：str是要转换的内容，可以是数值、布尔值、对象和字符串
+      说明：
+         在不知道要转换的值是不是null活undefined的情况下，还可以使用String()函数，它能够将任何类型的值转换为字符串
+    */ 
+    var a="Hello,world!"
+    console.log(a);
+
+    var id=2345;
+    var idstr=id.toString();
+    console.log(idstr);
+
+
+    /*Boolean()类型转换：
+      1.除0之外的所有数字，转换为布尔型都为true
+      2.除" "之外的所有字符，转换为布尔型都为true
+      3.null和undefined转换为布尔型为false
+    */
+    var x=1;
+    console.log(Boolean(x));
+
+    var y = 0;
+    console.log(Boolean(y));
+
+    var str="afhjd";
+    console.log(Boolean(str));
+
+    var str1 = " ";
+    console.log(Boolean(str1));
+
+    var timer=null;
+    console.log(Boolean(null));
+
+  </script>
+</body>
+</html>
