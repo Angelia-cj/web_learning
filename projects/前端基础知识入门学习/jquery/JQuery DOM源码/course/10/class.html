@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>修改类class</title>
+  <style>
+    .box{width: 100px;height: 100x;}
+    .red{background-color: red;}
+    .b10{border: 10px solid #000000;}
+    .m10{margin: 10px;}
+    .p10{padding: 10px;}
+    .hide{display: none;}
+  </style>
+</head>
+<body>
+  <div class="box" id="demo">div</div>
+  <ul>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+  </ul>
+
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () { 
+      var element=$('#demo');
+      element.addClass('red b10 m10 p10');
+      element.removeClass('red m10 p10');
+
+      element.addClass(function (index, className) { 
+        console.log(index);
+        console.log(className);
+        return 'red';
+       })
+
+       element.removeClass(function (index, className) {
+        console.log(index);
+        console.log(className);
+        return 'box';
+      })
+
+      $('li').addClass('red');
+
+      if(element.hasClass('hide')){
+        element.removeClass('hide');
+      }else{
+        element.addClass('hide');
+      }
+
+      element.toggleClass('hide');
+
+      $('li').each(function (index) { 
+        $(this).toggleClass('red',index % 3 === 0);
+       })
+
+    })
+  </script>
+</body>
+</html>

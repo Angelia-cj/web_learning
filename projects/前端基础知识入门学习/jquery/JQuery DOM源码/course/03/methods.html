@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>methods</title>
+</head>
+<body>
+  <div id="box1">
+    <div id="box2">
+      <div id="box3">
+        <p id="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, rem?</p>
+        <ul>
+          <li class="item1">item1</li>
+          <li class="item2">item2</li>
+          <li class="item3">item3</li>
+          <li class="item4">item4</li>
+          <li class="item5">item5</li>
+          <li class="item6">item6</li>
+          <li class="item7">item7</li>
+          <li class="item8">item8</li>
+          <li class="item9">item9</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+
+  <script>
+    $(function () { 
+      var ele=$('#box3').children('ul');
+      var ele1=$('#box3').contents('ul');
+      var ele2 = $('#box3').find('.item');
+      var ele3 = $('#info').parent('#box3');
+      var ele4 = $('#info').parents('#box3');
+      var ele5 = $('#info').parentsUntil('#box2');
+      var ele6 = $('#info').closest('#info');
+
+      console.log(ele);
+      console.log(ele1);
+      console.log(ele2);
+      console.log(ele3);
+      console.log(ele4);
+      console.log(ele5);
+      console.log(ele6);
+
+      console.log($('.item4').next('li'));
+      console.log($('.item4').nextAll('li'));
+      console.log($('.item4').nextUntil('.item7'));
+
+      console.log($('.item6').prev('li'));
+      console.log($('.item6').prevAll('li'));
+      console.log($('.item6').prevUntil('.item2'));
+
+      console.log($('.item6').siblings('li'));
+      console.log($('.item6').siblings());
+
+     })
+  </script>
+
+</body>
+</html>

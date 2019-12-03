@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>筛选jQuery对象</title>
+</head>
+<body>
+  
+  <ul>
+    <li class="item-1">item-1</li>
+    <li class="item-2">item-2</li>
+    <li class="item-3">item-3</li>
+    <li class="item-4">item-4</li>
+    <li class="item-5">item-5</li>
+    <li class="item-6">item-6</li>
+    <li class="item-7">item-7</li>
+    <li class="item-8">item-8</li>
+    <li class="item-9">item-9</li>
+  </ul>
+
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      // 创建选择器
+      // 判断元素的长度
+      var elements=$('li');
+      console.log(elements.length);
+      
+      // 提取元素
+      console.log(elements[0]);
+      console.log(elements.get(-1)); //从后往前的第一个元素 返回 item-9
+
+      console.log(elements.eq(0));
+      console.log(elements.eq());
+
+      console.log(elements.first());
+      console.log(elements.last());
+      console.log(elements.toArray());
+    })
+  </script>
+</body>
+</html>

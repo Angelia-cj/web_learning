@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM对象和jQuery对象的区别、检测和转换</title>
+</head>
+<body>
+  <div id="div">div</div>  
+
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      var DOMObject=document.getElementById("div");
+      var jQueryObject=$('#div');
+
+      console.log(DOMObject);
+      console.log(jQueryObject);
+
+      // 检测
+      console.log(DOMObject.nodeType);
+      console.log(jQueryObject.jquery);
+
+      // 转换
+      console.log($(DOMObject));
+      console.log(jQueryObject.get(0));
+    })
+  </script>
+</body>
+</html>

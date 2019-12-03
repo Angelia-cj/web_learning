@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>元素的属性和特性</title>
+</head>
+<body>
+  <img id="logo" src="../logo.jpg" alt="jQuery logo" class="img-jQuery" title="jQuery logo" />
+
+  <input type="checkbox" id="check" tabindex="1" style="width: 50px; height: 50px;" title="Check this!" description="just a checkbox"  checked/>
+
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      var img = document.getElementById('logo');
+      console.log(img);
+
+      console.log(img.getAttribute('class'));
+      console.log(img.getAttribute('alt'));
+      console.log(img.getAttribute('src'));
+      console.log(img.getAttribute('title'));
+
+      var checkbox = document.getElementById('check');
+      console.log(checkbox);
+
+      console.log(checkbox.getAttribute('tabindex'));
+      console.log(checkbox.tabIndex);
+      console.log(checkbox.getAttribute('style'));
+      console.log(checkbox.style);
+      console.log(checkbox.getAttribute('checked'));
+      console.log(checkbox.checked);
+
+      checkbox.title='new title';
+      checkbox.setAttribute('title','another title');
+      console.log(checkbox.getAttribute('title')); //特性值
+      console.log(checkbox.title);  //属性值
+      console.log(checkbox.getAttribute('title') === checkbox.title);
+    })
+  </script>
+  
+
+</body>
+</html>

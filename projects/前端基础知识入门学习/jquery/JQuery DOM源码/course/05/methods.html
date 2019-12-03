@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>methods</title>
+</head>
+<body>
+
+  <div id="box1">
+    <div id="box2">
+      <div id="box3">
+        <p id="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, rem?</p>
+        <ul>
+          <li class="item1">item1</li>
+          <li class="item2">item2</li>
+          <li class="item3">item3</li>
+          <li class="item4">item4</li>
+          <li class="item5">item5</li>
+          <li class="item6">item6</li>
+          <li class="item7">item7</li>
+          <li class="item8">item8
+            <ul></ul>
+          </li>
+          <li class="item9">item9</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      
+      console.log($('#box3').children().is('p'));
+      console.log($('#box3').children().is('img'));
+
+      console.log(
+        $('#box3').find('.item4').css('color','red')
+          .end().find('.item6').css('color', 'blue')
+      );
+
+      console.log($('#box3').find('.item4').end());
+
+      console.log($('#box3').find('ul').find('li').end().end());
+
+      console.log($('.item4').nextUntil('.item6').addBack().css('color','orange'));
+    })
+  </script>
+</body>
+</html>

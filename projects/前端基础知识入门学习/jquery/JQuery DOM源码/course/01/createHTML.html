@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>如何创建HTML元素</title>
+</head>
+<body>
+  
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      var link1=$('<a>',{
+        text:'baidu',
+        href:'http://www.baidu.com',
+        target:'_blank',
+        title:'goto baidu'
+      });
+
+      link1.appendTo('body');
+
+
+      var link2=$('<a>baidu</a>').attr({
+        href: 'http://www.baidu.com',
+        target: '_blank',
+        title: 'goto baidu'
+      });
+
+      link2.appendTo('body');
+    })
+  </script>
+
+</body>
+</html>

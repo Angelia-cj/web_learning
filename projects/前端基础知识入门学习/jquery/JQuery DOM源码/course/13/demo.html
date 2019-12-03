@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>移除元素</title>
+  <style>
+    p {
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, veritatis.</p>
+  <div class="item"></div>
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+
+      var element = $('p');
+
+      // element.click(function () { 
+      //   $(this).css('fontSize','+=5');
+      //  }).data('demo','demo');
+
+      // // element.remove();
+      // element.detach();
+
+      // element.appendTo('.item');
+      // console.log(element.data());
+
+      element.empty();
+      
+    });
+  </script>
+</body>
+
+</html>

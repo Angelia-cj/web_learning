@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>通过关系查找jQuery对象</title>
+</head>
+<body>
+  
+  <div id="box">
+    <div>
+      <div>
+        <p id="info">Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      var element=$('#info').parents('div');
+      console.log(element);
+
+      var element1=$('#box').children();
+      console.log(element1);
+
+      var element2 = $('#box').contents();
+      console.log(element2);
+
+      var element3 = $('#box').find();
+      console.log(element3);
+    })
+  </script>
+</body>
+</html>

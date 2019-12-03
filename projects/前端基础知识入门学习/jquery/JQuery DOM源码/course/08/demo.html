@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+</head>
+
+<body>
+  <img id="logo" src="../logo.jpg" alt="jQuery logo" class="img-jquery" title="jQuery logo" />
+  <img id="logo2" src="../logo.jpg" alt="jQuery logo" class="img-jquery2" title="jQuery logo" />
+  <input type="checkbox" id="check" tabIndex="1" style="width:50px; height: 50px;" title="Check this!"
+    description="just a checkbox" />
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+
+      var img = $('img');
+      var checkbox = $('#check');
+
+      console.log(checkbox.prop('checked'));
+      console.log(checkbox.checked);
+      console.log(checkbox.get(0).checked);
+      console.log(checkbox.attr('checked'));
+
+      console.log(checkbox.removeProp('title'));
+      console.log(checkbox.attr('title'));
+      console.log(checkbox.prop('title'));
+
+    });
+  </script>
+</body>
+
+</html>

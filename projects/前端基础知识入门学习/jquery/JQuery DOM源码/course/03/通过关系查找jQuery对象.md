@@ -1,0 +1,16 @@
+>## 通过关系查找jQuery对象的方法
+>### children([selector])
+>### contents()
+>### find(selector)
+>### parent([selector])
+>### parents([selector])
+>### parentsUntil([selector])
+>### closest(selector)
+
+>### next([selector])
+>### nextAll([selector])
+>### nextUntil([selector])
+>### prev([selector])
+>### prevAll([selector])
+>### prevUntil([selector])
+>### siblings([selector])

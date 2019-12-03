@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>通过attr操作元素的特性</title>
+</head>
+<body>
+  <img id="logo" src="../logo.jpg" alt="jQuery logo" class="img-jquery" title="jQuery logo" />
+
+  <img id="logo2" src="../logo.jpg" alt="jQuery logo2" class="img-jquery2" title="jQuery logo2" />
+
+  <input id="check" type="checkbox" tabindex="1" style="width: 50px; height: 50px;" title="Check this!" description="just a checkbox" checked="true" />
+
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () { 
+
+      var img=$('img');
+      console.log(img.attr('title'));
+      console.log(img.attr('title','123'));
+      console.log(img.attr('title'));
+
+      img.attr('title','new title');
+      img.attr({
+        title:'new title',
+        alt:'new alt',
+        tabindex:2
+      });
+
+      img.attr('title',function (index,previousValue) { 
+        console.log(previousValue);
+        return previousValue+'new';
+       });
+
+      var checkbox=$('#check');
+      console.log(checkbox.attr('checked'));
+
+      // 删除特性
+      img.removeAttr('title');
+      console.log(img.attr('title'));
+
+     })
+  </script>
+
+
+</body>
+</html>

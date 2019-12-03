@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>获取或设置style</title>
+  <style>
+    .box{width: 100px;height: 100px;background-color: #ccc;}
+  </style>
+</head>
+<body>
+  <div class="box hide" id="demo">div</div>
+  
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () { 
+      var element=$('#demo');
+
+      element.css('width',200);
+      element.css({
+        'background-color':'red',
+        height:200,
+        border:'10px solid #000',
+        margin:60,
+        padding:30,
+        width:'-=100',
+      });
+
+      element.css('height',function (index,value) { 
+        console.log(value);
+        return parseInt(value,10) +50;
+       });
+
+      console.log(element.css('height'));
+
+      console.log(element.css(['height','width','border']));
+
+      console.log(element.width());
+      console.log(element.height());
+      console.log(element.innerWidth());
+      console.log(element.innerHeight());
+      console.log(element.outerWidth());
+      console.log(element.outerHeight());
+      console.log(element.outerWidth(true));
+      console.log(element.outerHeight(true));
+
+     })
+  </script> 
+</body>
+</html>
