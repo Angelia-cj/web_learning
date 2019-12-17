@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+</head>
+
+<body>
+  <p id="example" onclick="console.log('Click');console.log('Click2');">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis praesentium, sapiente? Earum, molestiae rem.
+    Enim, perspiciatis quisquam! A consequatur culpa error et, natus nobis placeat qui rem, suscipit tempora tenetur.
+  </p>
+  <div id="p1">
+    <div id="p1-1">
+      <div id="p1-1-1">
+        <div id="p1-1-1-1">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto beatae delectus enim ipsum iusto
+            laborum, libero minus perspiciatis quae quidem rem sed soluta velit veniam voluptatem voluptates
+            voluptatibus. Repudiandae.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <script src="../../vendor/jquery-1.12.4.js"></script> -->
+  <script>
+    document.getElementById('example').onclick=function(event){
+      console.log('Click me');
+    };
+
+     document.getElementById('example').onclick = function (event) {
+        event = event || window.event;
+        console.log('Click me2');
+      };
+      document.getElementById('p1').onclick = function (event) {
+          console.log('Click p1');
+      };
+     document.getElementById('p1-1').onclick = function (event) {
+        console.log('Click p1-1');
+      };  
+     document.getElementById('p1-1-1').onclick = function (event) {
+        console.log('Click p1-1-1');
+      };
+     document.getElementById('p1-1-1-1').onclick = function (event) {
+        console.log('Click p1-1-1-1');
+      };  
+    /* document.getElementById('p1-1-1-1').onclick = function (event) {
+      event.stopImmediatePropagation;
+      console.log('Click p1-1-1-1');
+    };  */
+    document.getElementById('p1-1-1-1').onclick = function (event) {
+      event.cancelBubble=true;
+      console.log('Click p1-1-1-1');
+    };   
+   /*  document.getElementById('example').onmouseover = function (event) {
+      event = event || window.event;
+      console.log('MouseOver: %o', event);
+    };
+    document.getElementById('example').onmouseover = function (event) {
+      console.log('MouseOver2: %o', event);
+    };
+
+    document.getElementById('p1').onclick = function () {
+      console.log('p1');
+    };
+    document.getElementById('p1-1').onclick = function () {
+      console.log('p1-1');
+    };
+    document.getElementById('p1-1-1').onclick = function () {
+      console.log('p1-1-1');
+    };
+    document.getElementById('p1-1-1-1').onclick = function (e) {
+      console.log('p1-1-1-1');
+      //        e.cancelBubble = true;
+      e.stopPropagation();
+    }; */
+  </script>
+</body>
+
+</html>

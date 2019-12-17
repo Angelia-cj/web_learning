@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+</head>
+
+<body>
+  <p id="example">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis praesentium, sapiente? Earum, molestiae rem.
+    Enim, perspiciatis quisquam! A consequatur culpa error et, natus nobis placeat qui rem, suscipit tempora tenetur.
+  </p>
+  <div id="p1">
+    <div id="p1-1">
+      <div id="p1-1-1">
+        <div id="p1-1-1-1">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto beatae delectus enim ipsum iusto
+            laborum, libero minus perspiciatis quae quidem rem sed soluta velit veniam voluptatem voluptates
+            voluptatibus. Repudiandae.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var element = document.getElementById('example');
+    element.addEventListener('click', function (event) {
+      console.log('Click1: %o', event);
+    }, false);
+    element.addEventListener('click', function (event) {
+      console.log('Click2: %o', event);
+    }, false);
+    element.addEventListener('click', function (event) {
+      console.log('Click3: %o', event);
+    }, false);
+
+    var useCapture = true;
+
+    document.getElementById('p1').addEventListener('click', function () {
+      console.log('p1');
+    }, useCapture);
+
+    document.getElementById('p1-1').addEventListener('click', function () {
+      console.log('p1-1');
+    }, useCapture);
+
+    document.getElementById('p1-1-1').addEventListener('click', function () {
+      console.log('p1-1-1');
+    }, useCapture);
+
+    document.getElementById('p1-1-1-1').addEventListener('click', function () {
+      console.log('p1-1-1-1');
+    }, useCapture);
+  </script>
+</body>
+
+</html>

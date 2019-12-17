@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>basicSelector</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<h1>h1. 标题</h1>
+<h2>h2. 标题</h2>
+
+<p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quae?</p>
+
+<ul class="list">
+    <li>list1</li>
+    <li>list2</li>
+    <ul>
+        <li>list2-1</li>
+        <li>list2-2</li>
+        <li>list2-3</li>
+    </ul>
+    <li>list3</li>
+</ul>
+
+<a href="http://www.baidu.com" target="_blank">百度</a>
+<a href="http://www.163.com">网易</a>
+<a href="#">本地</a>
+
+<p data-id="1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet fugit illum libero, minus odio quas
+    repellat
+    repellendus similique unde voluptatem.</p>
+
+<p data-id="2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet fugit illum libero, minus odio quas
+    repellat
+    repellendus similique unde voluptatem.</p>
+
+<script src="../../../vendor/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+//        console.log($('#p1').addClass('highlight'))
+//        console.log($('.list').addClass('highlight'))
+//        console.log($('.list > li').addClass('highlight'))
+//        console.log($('a[href="http://www.baidu.com"]').addClass('highlight'))
+//        console.log($('a[href*="www"]').addClass('highlight'))
+//        console.log($('a[href^="http"]').addClass('highlight'))
+//        console.log($('a[href$="com"]').addClass('highlight'))
+//        console.log($('a[href][target]').addClass('highlight'))
+//        console.log($('a[href!="http://www.baidu.com"]').addClass('highlight'))  //jQuery独有
+//
+        console.log($('p[data-id="1"]').addClass('highlight'));
+    });
+</script>
+</body>
+</html>

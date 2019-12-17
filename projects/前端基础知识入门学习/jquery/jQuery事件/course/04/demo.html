@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+</head>
+
+<body>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda debitis fugiat laboriosam magni modi
+    sequi, sint ullam! Ad consequatur cum excepturi modi nam quos. Dolor est laudantium minima ratione.</p>
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      var clicked2=function(){
+        console.log('clicked2');
+      }
+
+      $('p').on('click',function () { 
+        console.log('clicked');
+      }).on('click', clicked2);
+
+      $('p').off('click',clicked2);
+      
+    });
+  </script>
+</body>
+
+</html>

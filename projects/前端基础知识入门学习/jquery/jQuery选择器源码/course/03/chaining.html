@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>chaining</title>
+  <style>
+    body{font-size: 30px;}
+    .blue{color:blue;}
+    .bold{font-size: 40px; font-weight: bold;}
+
+  </style>
+</head>
+<body>
+  <div id="divTest" class="blue">
+    test
+  </div>
+
+  <div id="divTest2">
+    <p>123</p>
+    <p class="child">123</p>
+    <p>123</p>
+  </div>
+
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    setTimeout(function () { 
+      $('#divTest').text('Hello world!');
+      $('#divTest').removeClass('blue');
+      $('#divTest').addClass('bold');
+      $('#divTest').css('color','red');
+
+      $('#divTest')
+        .text('Hello world!')
+        .removeClass('blue')
+        .addClass('bold')
+        .css('color', 'red')
+
+      $('#divTest2')
+        .find('p.child')
+        .end()
+        .addClass('bold')
+        .css('color', 'red')
+
+    },2000)
+  </script>
+
+</body>
+</html>

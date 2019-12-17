@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>otherFilter</title>
+    <style>
+    .highlight {
+        background-color: yellow;
+    }
+    </style>
+</head>
+
+<body>
+    <p id="foo" lang="en-US">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, eius.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quo.</p>
+    <input type="text">
+    <input type="hidden">
+    <p style="display: none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, excepturi molestiae odio officiis optio praesentium recusandae similique soluta vel velit? Enim et iste neque quaerat quis quisquam quo rem vel.
+    </p>
+    <p style="visibility: hidden">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, excepturi molestiae odio officiis optio praesentium recusandae similique soluta vel velit? Enim et iste neque quaerat quis quisquam quo rem vel.
+    </p>
+    <p style="opacity: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, excepturi molestiae odio officiis optio praesentium recusandae similique soluta vel velit? Enim et iste neque quaerat quis quisquam quo rem vel.
+    </p>
+    <h1>h1. 标题</h1>
+    <h2>h2. 标题</h2>
+    <script src="../../vendor/jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+        // console.log($(':lang(en)').addClas('highlight'))
+        // console.log($('p:not(#foo)').addClas('highlight'))
+        // console.log($(':root').addClass('highlight'))
+        // console.log($('p:target').addClas('highlight'))
+        // setTimeout(function () {
+        // // 在Chrome、Firefox等浏览器中,获取url hash会延迟会儿,所以直接在document ready中获取会获取不到
+        //     console.log($(':target').addClass('highlight'))
+        // }, 1000)
+
+        // console.log($(' :hidden').addClas('highlight'))
+        // console.log($(' :visible').addClas('highlight'))
+        console.log($(' :header').addClass('highlight'));
+    });
+    </script>
+</body>
+
+</html>

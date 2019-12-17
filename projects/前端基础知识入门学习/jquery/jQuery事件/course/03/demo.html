@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+</head>
+
+<body>
+  <h2>title</h2>
+  <div class="item">
+    <p>Lorem ipsum dolor sit amet.</p>
+  </div>
+  <ul>
+    <li class="item1">新闻标题-1</li>
+    <li class="item2">新闻标题-2</li>
+    <li class="item3">新闻标题-3</li>
+    <li class="item4">新闻标题-4</li>
+    <li class="item5">新闻标题-5</li>
+    <li class="item6">新闻标题-6</li>
+    <li class="item7">新闻标题-7</li>
+    <li class="item8">新闻标题-8</li>
+    <li class="item9">新闻标题-9</li>
+  </ul>
+  <div id="p1">
+    <div id="p1-1">
+      <div id="p1-1-1">
+        <div id="p1-1-1-1">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto beatae delectus enim ipsum iusto
+            laborum, libero minus perspiciatis quae quidem rem sed soluta velit veniam voluptatem voluptates
+            voluptatibus. Repudiandae.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      /* $('p').on('click',null,null,function (event) { 
+        console.log('p Clicked');
+      }).on('click',function (event) { 
+        console.log('p clicked 2');
+      }).on('click', function (event) {
+        console.log('p clicked 3');
+      }); */
+      
+      /* $('div').on('click','#p1-1',function (event) { 
+        console.log('p clicked');
+      }); */
+
+      /* $('div').on('click', function (event) {
+        console.log('p clicked');
+      }); */
+
+      /* $('div').on('click','#p1-1',{foo:'bar'},function (event) { 
+        console.log('p clicked %o',event.data);
+      }).on('mouseover', '#p1-1', { foo: 'bar' }, function (event) {
+        console.log('p clicked %o', event.data);
+      }); */
+
+      /* $('li').on('click', function (event) {
+        console.log('%o li clicked');
+      }).on('click', function (event) {
+        console.log('%o li clicked',$(this));
+      }); */
+
+      /* $('ul').on('click', function (event) {
+        console.log('%o li clicked',$(event.target));
+      }) */
+
+      /* $('div').on('click',function (event) { 
+        event.stopPropagation();
+        console.log('%o clicked',$(this));
+      }) */
+
+      $('p').one('click', function (event) {
+        // event.stopPropagation();
+        console.log('%o clicked', $(this));
+      }) 
+
+    });
+  </script>
+</body>
+
+</html>

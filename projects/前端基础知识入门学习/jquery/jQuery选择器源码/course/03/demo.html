@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>demo</title>
+</head>
+<body>
+  
+  <form>
+    <input type="radio" name="test" value="dog">狗<br>
+    <input type="radio" name="test" value="cat" checked>猫<br>
+    <input type="radio" name="test" value="pig">猪<br>
+  </form>
+
+  <script src="../../vendor/jquery-1.12.4.js"></script>
+  
+  <!-- JavaScript代码 -->
+  <script>
+    // var checkedValue;
+    // var elements=document.getElementsByTagName('input');
+
+    // for(var i=0;i<elements.length;i++){
+    //   if(elements[i].type==='radio' && elements[i].name==='test' && elements[i].checked){
+    //     checkedValue=elements[i].value;
+    //     break;
+    //   }
+    // }
+    // console.log(checkedValue);
+  </script>
+
+  <!-- jQuery代码 -->
+  <script>
+    var checkedValue=$('input:radio[name="test"]:checked').val();
+    console.log(checkValue);
+  </script>
+
+</body>
+</html>

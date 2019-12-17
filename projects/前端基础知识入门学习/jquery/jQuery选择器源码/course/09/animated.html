@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animated</title>
+    <style>
+        div.box {
+            background: yellow;
+            border: 1px solid #aaa;
+            width: 80px;
+            height: 80px;
+            margin: 0 5px;
+            float: left;
+        }
+
+        div.colored {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+
+<button id="run">Run</button>
+
+<div class="box"></div>
+<div id="mover" class="box"></div>
+<div class="box"></div>
+
+<script src="../../../vendor/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+
+        $("#run").click(function () {
+            $("div:animated").toggleClass("colored");
+        });
+
+        function animateIt() {
+            $("#mover").slideToggle("slow", animateIt);
+        }
+
+        animateIt();
+    });
+</script>
+</body>
+</html>
