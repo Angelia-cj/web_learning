@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>求学生成绩案例</title>
+  </head>
+  <body>
+    <script>
+      // 先输入学生人数num，然后再依次输入学生成绩score，然后求总成绩和sum，最后求平均值average
+      var num = prompt("请输入学生人数");
+      var sum = 0;
+      var average = 0;
+      for (var i = 1; i <= num; i++) {
+        var score = prompt("请依次输入第" + i + "个学生的成绩");
+        sum = sum + parseFloat(score);
+      }
+      average = sum / num;
+      console.log(sum);
+      console.log(average);
+    </script>
+  </body>
+</html>

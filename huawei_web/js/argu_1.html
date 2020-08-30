@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>利用函数求任意个数的最大值</title>
+  </head>
+  <body>
+    <script>
+      function getMax() {
+        // 利用函数自带的参数arguments来获取参数的个数
+        var max = arguments[0];
+        for (var i = 1; i <= arguments.length; i++) {
+          if (arguments[i] > max) {
+            var temp = max;
+            max = arguments[i];
+            arguments[i] = temp;
+          }
+        }
+        return max;
+      }
+
+      var arr1 = getMax(1, 2, 3, 4, 5);
+      console.log(arr1);
+    </script>
+  </body>
+</html>

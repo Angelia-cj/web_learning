@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+    script(src='/javascripts/ajax.js')
+    script.
+      function f (data) {
+        console.log(data)
+      }
+    //- 跨域的链接地址
+    <script src='http://localhost:3000/ajax'></script>

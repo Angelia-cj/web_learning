@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //定义变量存放最后的累加值
+        var result = 0;
+        for (var i = 1; i < 100; i++) {
+            //个位数为3的数即与10取余（取模）等于3，注意使用continue
+            if (i % 10 == 3) {
+                continue;
+            }
+            result += i;
+        }
+        console.log(result);//结果4470
+    </script>
+</head>
+
+</html>

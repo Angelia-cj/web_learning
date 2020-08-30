@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+
+  <body>
+
+    <!-- <p id= demo ></p> -->
+    <!-- <button onclick= document.getElementById('demo').innerHTML=Date() >Try it</button> -->
+    <!-- <form name= myForm  action= demo-form.php  onsubmit= return validateForm()  method= POST >
+      姓名：<input type= text  name= fname >
+      <input type= submit  value= 提交 >
+    </form> -->
+
+    <form name= myForm  action= demo_form.asp  onsubmit= return validateForm();  method= POST >
+      Email:<input text= text  name= email >
+      <input type= submit  value= 提交 >
+    </form>
+
+    <script>
+      // function myFunction() {
+      //   alert('你好！')
+      // }
+
+      // document.getElementById('demo').innerHTML=typeof  string ;
+      // document.getElementById('demo1').innerHTML = string .constructor;
+      // document.getElementById('demo').innerHTML = String(11);
+      // document.getElementById('demo').innerHTML=Date().toString();
+      // document.getElementById('demo').innerHTML=Number( 123 );
+        //验证必填项目是否为空 
+      // function validateForm(){
+      //     var x=document.forms[ myForm ]['fname'].value;
+      //     if(x==null || x==  ){
+      //       alert( 姓名必须填写 );
+      //       return false;
+      //     }
+      //   }
+
+      function validateForm() {
+        var x=document.forms[ myForm ][ fname ].value;
+        var atpos=x.indexOf( @ );
+        var dotpos=x.lastIndexOf( . );
+        if(atpos<1 || dotpos<atpos+2 || dotpos+2 >= x.lenght){
+          alert( Not a valid e-mail address );
+          return false; 
+        }
+      }
+
+
+
+    </script>
+    
+  </body>
+</html>

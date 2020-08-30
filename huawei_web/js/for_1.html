@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for循环案例</title>
+  </head>
+  <body>
+    <script>
+      // 求1到100 之间的和
+      // var sum = 0;
+      // for (var i = 1; i <= 100; i++) {
+      //   sum = sum + i;
+      // }
+      // console.log("1到100之间的总和是：" + sum);
+
+      // 求1到100之间所有数的平均值
+      var sum = 0;
+      var average = 0;
+      for (var i = 1; i <= 100; i++) {
+        sum = sum + i;
+      }
+      average = sum / i;
+      console.log(average);
+      // 求1到100之间所有偶数和奇数的和 偶数变量值even，奇数变量值odd
+      var even = 0;
+      var odd = 0;
+      for (var i = 0; i <= 100; i++) {
+        if (i % 2 == 0) {
+          even = even + i;
+        } else {
+          odd = odd + i;
+        }
+      }
+      console.log(even);
+      console.log(odd);
+
+      // 求1到100之间所有能被3整除的数的和
+      var result = 0;
+      for (var i = 0; i <= 100; i++) {
+        if (i % 3 == 0) {
+          result = result + i;
+        }
+      }
+      console.log(result);
+    </script>
+  </body>
+</html>

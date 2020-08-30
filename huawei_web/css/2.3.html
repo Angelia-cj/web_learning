@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选择器</title> 
+  <style>
+    /* 属性选择器 */
+    /* p[title] {color: teal;} */
+    /* p[title="huawei"] {color: thistle;} */
+    /* p[title~="hua"] {color: tomato;} */
+    p[title|="hua"] {color: turquoise;}
+
+    /* 伪类选择器 */
+    a:link {color: turquoise;}
+    a:visited {color: tomato;}
+    a:hover {color: thistle;}
+    a:active {color: teal;}
+
+    /* LoVe HAte */
+  </style>
+</head>
+<body>
+  <p title="huawei hua">华为在线教育</p>
+  <p title="hua-wei ">华为在线教育</p>
+
+  <a href="https://www.huawei.com">华为</a>
+</body>
+</html>

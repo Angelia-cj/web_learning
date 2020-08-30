@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>求数组中的最小值</title>
+  </head>
+  <body>
+    <script>
+      // 1、首先声明一个最大值，然后再声明一个数组
+      // 2、将数组中的第一个元素赋值给最大值
+      // 3、for循环，将每一个数组元素与最大值进行比较，大于最大值则将该值赋值给最大值，小于则继续比较
+      var arr = [12, 34, 56, 21, 13, 65];
+      var max = arr[0];
+      for (var i = 1; i <= arr.length; i++) {
+        if (max <= arr[i]) {
+          max = arr[i];
+        }
+      }
+      console.log(max);
+    </script>
+  </body>
+</html>

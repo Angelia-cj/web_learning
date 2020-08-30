@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/nodejs/app.js",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Run node.js",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/nodejs/app.js", //这是执行文件的绝对地址，执行不同的代码需要修改该地方
+      "stopOnEntry": false,
+      "args": [],
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": ["--nolazy"],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      // "console": false,
+      "sourceMaps": false
+      // "outFiles": null
+    }
+  ]
+}

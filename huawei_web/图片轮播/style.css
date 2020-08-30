@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "微软雅黑";
+  color: #14191e;
+}
+.main {
+  width: 100%;
+  height: 600px;
+  margin: 30px, auto;
+  overflow: hidden; /* 解决图片溢出*/
+  position: relative;
+}
+/* 焦点图 */
+.banner {
+  width: 100%;
+  height: 600px;
+  overflow: hidden; /* 解决图片溢出*/
+}
+.banner-slide {
+  width: 100%;
+  height: 460px;
+  float: left;
+  display: none;/*让所有图片都隐藏*/
+}
+
+.slide-active{
+  display: block;
+}
+
+.slide1 {
+  background-image: url(imgs/banner-1.jpg);
+}
+.slide2 {
+  background-image: url(imgs/banner-2.jpg);
+}
+.slide3 {
+  background-image: url(imgs/banner-3.jpg);
+}
+.slide4 {
+  background-image: url(imgs/banner-4.jpg);
+}
+.slide5 {
+  background-image: url(imgs/banner-5.jpg);
+}
+
+/* .button {
+  position: absolute;
+  width: 40px;
+  height: 80px;
+  background: url(); center center no-repeat;
+  top: 50%;
+  margin-top:-40px;
+  transform:rotate(180deg);
+} 
+.next{
+  left:auto;
+  right:0;
+  transform:rotate(0deg);
+}
+*/
+
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 150px;
+  line-height: 12px;
+}
+
+.dots span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(7, 17, 27, 0.4);
+  margin-left: 8px;
+  /* 圆环内部阴影*/
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8) inset;
+}
+
+.dots span.active {
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(7, 17, 27, 0.4) inset;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math随机数方法</title>
+  </head>
+  <body>
+    <script>
+      console.log(Math.random());
+
+      // 取两个数之间的整数，并且包含这两个整数
+      // 公式：Math.floor(Math.random() * (max - min + 1)) + min;
+
+      function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      console.log(getRandom(1, 10));
+
+      var arr = ["张三", "张三丰", "里斯", "李四", "王五", "王武"];
+      console.log(arr[getRandom(0, arr.length - 1)]);
+    </script>
+  </body>
+</html>
