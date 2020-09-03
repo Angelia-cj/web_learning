@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>09_Vue实例_生命周期</title>
+  </head>
+  <body>
+    <!--
+1. vue对象的生命周期
+  1). 初始化显示
+    * beforeCreate()
+    * created()
+    * beforeMount()
+    * mounted()
+  2). 更新显示   this.xxx = value
+    * beforeUpdate()
+    * updated()
+  3). 销毁vue实例: vm.$destory()
+    * beforeDestory()
+    * destoryed()
+2. 常用的生命周期方法
+  created()/mounted(): 发送ajax请求, 启动定时器等异步任务
+  beforeDestory(): 做收尾工作, 如: 清除定时器
+-->
+
+    <div id="test">
+      <button @click="destoryVM">destory vm</button>
+      <p v-show="isShow">华为云</p>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#test",
+        data: {
+          isShow: true,
+        },
+
+        // 1.初始化阶段
+        beforeCreate() {
+          console.log("beforeCreate()");
+        },
+
+        created() {
+          console.log("created()");
+        },
+
+        beforeMount() {
+          console.log("beforeMount()");
+        },
+
+        // 挂载
+        mounted() {
+          //初始化显示之后立即调用（调用1次）
+          console.log("mounted()");
+          this.intervalId = setInterval(() => {
+            //箭头函数 ，回调函数作为参数，只要是回调函数就用箭头函数，箭头函数就是用来定义匿名函数的，回调函数内部没有自己的this属性，所以使用外部的this，而外部的this就是vm对象
+            console.log("--------");
+            this.isShow = !this.isShow; //更新数据
+          }, 1000);
+        },
+
+        // 2.更新阶段
+        beforeUpdate() {
+          console.log("beforeUpdate()");
+        },
+
+        updated() {
+          console.log("updated()");
+        },
+
+        // 3.死亡阶段
+        beforeDestroy() {
+          //死亡之前调用一次（1次）
+          // 清除定时器
+          clearInterval(this.intervalId);
+        },
+
+        destroyed() {
+          console.log("destroyed()");
+        },
+
+        methods: {
+          destoryVM() {
+            // 干掉vm
+            this.$destroy();
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
