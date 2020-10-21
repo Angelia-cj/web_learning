@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模板解析_一般指令</title>
+  <style>
+    .aa {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="test">
+    <p v-text='msg'></p>
+    <p v-html='msg'></p>
+    <p v-class='myClass'>新年快乐~</p>
+  </div>
+
+  <script src="js/mvvm/compile.js"></script>
+  <script src="js/mvvm/watcher.js"></script>
+  <script src="js/mvvm/mvvm.js"></script>
+  <script src="js/mvvm/observer.js"></script>
+
+  <script>
+    new MVVM({
+      el: '#test',
+      data: {
+        msg: '<a href="http://www.baidu.com">百度一下</a>',
+        myClass: 'aa'
+      }
+    })
+  </script>
+</body>
+</html>

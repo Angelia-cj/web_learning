@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模板分析_表达式_mvvm</title>
+</head>
+<body>
+  <div id="test">
+    <p>{{name}}</p>
+  </div>
+
+  <script src="js/mvvm/compile.js"></script>
+  <script src="js/mvvm/watcher.js"></script>
+  <script src="js/mvvm/mvvm.js"></script>
+  <script src="js/mvvm/observer.js"></script>
+  <script>
+    new MVVM({
+      el: '#test',
+      data: {
+        name: 'fffff'
+      }
+    })
+  </script>
+
+</body>
+</html>

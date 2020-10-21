@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>双向数据绑定</title>
+</head>
+<body>
+
+  <div id="test">
+    <input type="text" v-model="msg">
+    <p>{{msg}}</p>
+  </div>
+
+  <script src="js/mvvm/compile.js"></script>
+  <script src="js/mvvm/mvvm.js"></script>
+  <script src="js/mvvm/observer.js"></script>
+  <script src="js/mvvm/watcher.js"></script>
+  <script>
+    new MVVM({
+      el: '#test',
+      data: {
+        msg: 'huaweiyun'
+      }
+    })
+  </script>
+</body>
+</html>
