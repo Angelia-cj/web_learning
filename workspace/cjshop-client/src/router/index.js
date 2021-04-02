@@ -1,0 +1,57 @@
+/**
+ * 路由器模块对象
+*/
+
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Msite from '../pages/Msite/Msite.vue'
+import Search from '../pages/Search/Search.vue'
+import Order from '../pages/Order/Order.vue'
+import Profile from '../pages/Profile/Profile.vue'
+import Login from '../pages/Login/Login.vue'
+
+// 声明使用插件
+Vue.use(VueRouter)
+
+export default new VueRouter({
+  // 所有路由
+  routes: [
+    {
+      path: '/msite',
+      component: Msite,
+      meta: { // 添加源路由，控制显示谁
+        showFooter: true
+      }
+    },
+    {
+      path: '/search',
+      component: Search,
+      meta: { // 添加源路由，控制显示谁
+        showFooter: true
+      }
+    },
+    {
+      path: '/order',
+      component: Order,
+      meta: { // 添加源路由，控制显示谁
+        showFooter: true
+      }
+    },
+    {
+      path: '/profile',
+      component: Profile,
+      meta: { // 添加源路由，控制显示谁
+        showFooter: true
+      }
+    },
+    {
+      path: '/',
+      redirect: '/msite'
+    },
+    {
+      path: '/login',
+      component: Login
+    }
+
+  ]
+})

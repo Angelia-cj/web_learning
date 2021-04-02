@@ -1,0 +1,133 @@
+/*公共样式*/
+
+    .container {
+        /*站点导航*/
+        width: 1200px;
+        margin: 0 auto;    /*水平居中*/
+    }
+
+    a.link {
+        /*链接正常颜色*/
+        color: #4d555d;
+    }
+
+    a.link:hover {
+        /*链接经过颜色*/
+        color: #f01414 !important;
+    }
+
+     .transition {
+        -o-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+    /*下拉菜单样式dropdown*/
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      position: relative;
+      z-index: 2;
+    }
+
+    .dropdown-arrow {
+      display: inline-block;
+      /* background: no-repeat; */
+      vertical-align: middle;
+    }
+
+    .dropdown-layer {
+      display: none;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .dropdown-left {
+      left: 0;
+      right: auto;
+    }
+
+    .dropdown-right {
+      right: 0;
+      left: auto;
+    }
+
+     /* [class*="-active"]:找到含有"-active"的类 */
+    [class*="-active"] .dropdown-arrow{
+      -o-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg); /*选择180度*/
+    }
+
+    /* 图标字体 */
+   @font-face {font-family: "iconfont";
+    src: url('iconfont.eot?t=1604057266835'); /* IE9 */
+    src: url('iconfont.eot?t=1604057266835#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAKkAAsAAAAABkgAAAJaAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcApIXwE2AiQDCAsGAAQgBYRtBzkbjgUR1Ysxsr8UcHLz1wMtYYQnjPDMNidLuDnM+zYqUg2Xv8YqIxfBldTvNyKo1sie230CUF/vCUKkEFWEQXYROixkhHqhAhJYGNqYyzzi2EWoEet+9YBcIWk5vTRPwqs1YCnzvx5DA6+X/7IDfaZoSaofRIaOtEng4r9e+aoUFgA+ce/0T6BA5gPKcS8aa9KkLqAuDqRAxxoUWQll3DB2wQs8TqBSr2mx7Gzbp1xmjwvExeTMMeUFnyyzZLlQ2rA0iydQory424zH0ffj+0z0KZQkdtmu0ysnzX/KSYt/4GBAgJ+AVpcgYRqZ2NcY2yEJxkkqY9kgxyoOPuXAKo5qEuyvswurQTcUP5PEkz5qsoDH6qkR7ZOuJRoRzhf3W4inPbvSHr5HM9f9DUeprRTn514H8+DP0uXmHwSCP5mb8nr5KIN3nx0Zs2EOyvdhD/6FZGBTNmS2pciapLG90HiOikqV+I9djT5O1becOBXKtUxwlOnJkJQbJjM7jRJVZlGq3BwqTVlbXaXJJUnkCky6CRDqvUGh1lsk9TbJzH5AiVY/Uao+Wqh0IA62rDIabDJMyTMK0d9jEkjJrs2GcfEbRevc07ws4n6R1kkQr84vy8kVlaRLzKg30bUZI6sU6IDTKM8FK5WUAjuPzarniwtuetN5IAUMISXPKER/j0kgJQedbVj5/BtF69zTjoa66BdpnfSPV+eXA8iVuhzU8Civ1Jvo2oyRVQp0wCDKc8GqeVBKgZ3HEyLV84XTioeqz7fXFn+3C4Ah2IZmw9krIU280mTtqcr29vEGAA==') format('woff2'),
+    url('iconfont.woff?t=1604057266835') format('woff'),
+    url('iconfont.ttf?t=1604057266835') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url('iconfont.svg?t=1604057266835#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+  .icon {
+    font-family: "iconfont" !important;
+    font-size: 14px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+    /*menu dropdown*/
+    .menu .dropdown-toggle {
+      display: block;
+      height: 100%;
+      padding: 0 16px 0 12px;
+      border-left: 1px solid #f3f5f7;
+      border-right: 1px solid #f3f5f7;
+    }
+
+    .menu .dropdown-arrow {
+      /* width: 8px;
+      height: 6px; */
+      /* background: url(img/dropdown-arrow.png); */
+      /* background: url(../img/dropdown-arrow.png); */
+      margin-left: 8px;
+    }
+
+    .menu .dropdown-layer {
+      top: 43px;
+      background-color: #fff;
+      border: 1px solid #cdd0d4;
+    }
+
+    .menu-item {
+      display: block;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 12px;
+      color: #4d555d;
+      white-space: nowrap;
+      /* 不换行 */
+    }
+
+    .menu-item:hover {
+      background-color: #f3f5d7;
+    }
+
+    /*下拉菜单通过js和css来实现dropdown*/
+    .menu-active .dropdown-toggle {
+      background-color: #fff;
+      border-color: #cdd0d4;
+    }
+
+    /* .menu-active .dropdown-arrow {
+      background-image: url(../img/dropdown-arrow-active.png);
+    } */
+
+    .menu-active .dropdown-layer {
+      display: block;
+    }

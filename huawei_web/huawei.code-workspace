@@ -1,7 +1,10 @@
 {
-  "folders": [
-	{
-		"path": "."
-	}
-]
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\资料\\Vue课件资料\\课件资料\\files\\静态页面\\comment_page"
+		}
+	]
 }

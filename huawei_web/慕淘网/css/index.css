@@ -1,0 +1,24 @@
+/* nav-site */
+.nav-site{ /*站点导航整体设置*/
+  width: 100%;
+  background-color: #f3f5f7;
+}
+.nav-site .container{  /*站点导航内容块整体设置*/
+  height: 44px;
+  line-height: 44px;
+  border-bottom: 1px solid #cdd0d4;
+}
+.nav-site-login{ /*站点导航“亲，请登陆”设置*/
+  margin-left: 15px;
+  color: #f01414;
+}
+.nav-site-signup,
+.nav-site-mobile{ /*站点导航“注册和手机购买”设置*/
+  margin-left: 10px;
+}
+.nav-site-category{
+  margin: 0 10px;
+}
+.nav-site-service{
+  margin-right: 15px;
+}

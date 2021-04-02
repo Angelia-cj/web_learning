@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="jiantouarrow483" unicode="&#59029;" d="M512 166.13376c-13.70112 0-27.40224 5.23264-37.84704 15.6672l-328.69376 328.704c-20.91008 20.91008-20.91008 54.80448 0 75.70432 20.89984 20.89984 54.79424 20.89984 75.70432 0L512 295.36256l290.83648 290.83648c20.91008 20.89984 54.80448 20.89984 75.70432 0 20.91008-20.89984 20.91008-54.79424 0-75.70432l-328.69376-328.704C539.40224 171.35616 525.70112 166.13376 512 166.13376z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>
