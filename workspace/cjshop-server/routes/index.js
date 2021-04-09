@@ -215,9 +215,9 @@ router.get('/position/:geohash', function (req, res) {
 /*
 获取首页分类列表
  */
-router.get('/index_category', function (req, res) {
+router.get('/food_categorys', function (req, res) {
   setTimeout(() => {
-    const data = require('../data/index_category.json')
+    const data = require('../data/food_categorys.json')
     res.send({ code: 0, data })
   }, 300);
 })
