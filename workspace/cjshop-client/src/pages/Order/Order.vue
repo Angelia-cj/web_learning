@@ -1,4 +1,3 @@
-// 订单组件vue
 <template>
   <section class="order">
     <HeaderTop title="我的订单"></HeaderTop>

@@ -5,9 +5,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
 
 // 创建网站服务器
 var app = express();
@@ -21,6 +24,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: '12345',
+  cookie: { maxAge: 1000 * 60 * 60 * 24 }, //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
+  resave: false,
+  saveUninitialized: true
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -55,6 +65,18 @@ app.all("*", function (req, res, next) {
     next();
   }
 });
+/*
+app.all("*", function(req, res, next) {
+  if (!req.get("Origin")) return next();
+  // use "*" here to accept any origin
+  res.set("Access-Control-Allow-Origin", "*");
+  res.set("Access-Control-Allow-Methods", "GET");
+  res.set("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+  // res.set('Access-Control-Allow-Max-Age', 3600);
+  if ("OPTIONS" === req.method) return res.send(200);
+  next();
+});
+*/
 
 
 module.exports = app;
