@@ -1,7 +1,7 @@
 /*
   ajax请求函数模式
 */
-import axios from 'axios'
+const axios = require('axios')
 const { response } = require('express')
 
 module.exports = function ajax (url = '', data = {}, type = 'GET') {
