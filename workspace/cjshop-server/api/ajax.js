@@ -1,4 +1,7 @@
-const axios = require('axios')
+/*
+  ajax请求函数模式
+*/
+import axios from 'axios'
 const { response } = require('express')
 
 module.exports = function ajax (url = '', data = {}, type = 'GET') {
@@ -24,9 +27,12 @@ module.exports = function ajax (url = '', data = {}, type = 'GET') {
     }
 
     promise.then(response => {
+      // 返货成功的回调函数
       resolve(response.data)
     })
+
       .catch(error => {
+        // 返回失败的回调函数
         reject(error)
       })
   })
