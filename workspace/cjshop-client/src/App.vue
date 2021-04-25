@@ -8,20 +8,28 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import FooterGuide from './components/FooterGuide/FooterGuide.vue'
-// import { reqFoodTypes } from './api'
+// import { reqShops } from './api'
+// import { reqFoodCategorys } from './api'
+
 export default {
   async mounted () {
-    /*  const result = await reqFoodTypes()
-     console.log(result) */
+    // const result = await reqFoodCategorys()
+    // console.log(result)
     // this.$store.dispatch('getAddress')
-    this.$store.dispatch('getCategorys')
+    this.getAddress()
+    // this.$store.dispatch('getCategorys')
   },
-  /* mounted () {
-    reqFoodTypes().then(response => {
-      console.log(response.data)longitude, latitude
-    })
-  }, */
+  /*  mounted () {
+     reqShops().then(response => {
+       console.log(response.data)
+     })
+   }, */
+
+  methods: {
+    ...mapActions(['getAddress'])
+  },
   components: {
     FooterGuide
   }

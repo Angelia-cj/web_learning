@@ -13,11 +13,11 @@ module.exports = {
     // 跨域处理
     proxyTable: {
       '/api': { // 匹配所有以 '/api'开头的请求路径
-        target: 'http://localhost:3000', // 代理模板的基础路径
+        target: 'http://localhost:3000', // 代理模板的基础路径,服务器的地址
         // secure: true,  // 如果是https接口，需要配置这个参数
-        ws: true, // 是否代理websockets qq
+        // ws: true, // 是否代理websockets qq
         changeOrigin: true, // 支持跨域
-        pathRewirte: { // 重写路径：去掉路径中开头的'/api'
+        pathRewrite: { // 重写路径：去掉路径中开头的'/api'
           '^/api': '' //此处为问题原因，正确写法应为： '^/api': '/api'
         }
       }
