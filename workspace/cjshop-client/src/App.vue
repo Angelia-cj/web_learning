@@ -14,11 +14,12 @@ import FooterGuide from './components/FooterGuide/FooterGuide.vue'
 // import { reqFoodCategorys } from './api'
 
 export default {
-  async mounted () {
+  mounted () {
     // const result = await reqFoodCategorys()
     // console.log(result)
     // this.$store.dispatch('getAddress')
     this.getAddress()
+    this.getUserInfo()
     // this.$store.dispatch('getCategorys')
   },
   /*  mounted () {
@@ -28,7 +29,7 @@ export default {
    }, */
 
   methods: {
-    ...mapActions(['getAddress'])
+    ...mapActions(['getAddress', 'getUserInfo'])
   },
   components: {
     FooterGuide

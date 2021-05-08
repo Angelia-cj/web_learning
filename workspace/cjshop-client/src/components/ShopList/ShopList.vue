@@ -53,7 +53,7 @@ import Star from '../Star/Star'
 export default {
   data () {
     return {
-      baseImageUrl: 'https://riyugo.com/i/2021/04/13/'
+      baseImageUrl: 'https://z3.ax1x.com/2021/04/26/'
       // baseImageUrl: 'http://cangdu.org:8001/img/'
     }
   },
