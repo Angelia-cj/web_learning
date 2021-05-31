@@ -1,12 +1,141 @@
 <template>
   <div>
-    ShopGoods
+    <div class="goods">
+      <div class="menu-wrapper">
+        <ul>
+          <!-- current currentIndex -->
+          <li class="menu-item" v-for="(good,index) in goods" :key="index" :class="{current: index===currentIndex}" @click="clickMenuItem(index)">
+            <span class="text bottom-border-1px">
+              <img class="icon" :src="good.icon" v-if="good.icon">
+              {{good.name}}
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="foods-wrapper">
+        <ul ref="foodsWarpperUl">
+          <li class="food-list-hook" v-for="(good,index) in goods" :key="index">
+            <h1 class="title">{{good.name}}</h1>
+            <ul>
+              <li class="food-item bottom-border-1px" v-for="(food,index) in good.foods" :key="index">
+                <div class="icon">
+                  <img width="57" height="57" :src="food.icon">
+                </div>
+                <div class="content">
+                  <h2 class="name">{{food.name}}</h2>
+                  <p class="desc">{{food.description}}</p>
+                  <div class="extra">
+                    <span class="count">月售{{food.sellCount}}份</span>
+                    <span>好评率 {{food.rating}}%</span>
+                  </div>
+                  <div class="price">
+                    <span class="now">￥{{food.price}}</span>
+                    <span class="old" v-if="food.oldPrice">￥{{food.oldPrice}}</span>
+                  </div>
+                  <div class="cartcontrol-wrapper">
+                    CartControl
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </div>
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
+import { mapState } from 'vuex'
 export default {
+  data () {
+    return {
+      scrollY: 0, // 右侧滑动的Y轴坐标（滑动过程中实时变化）
+      tops: [] // 所有右侧分类li的top组成的数组（列表哦第一次显示就不再变化）
+    }
+  },
+  // 从后台获取数据
+  mounted () {
+    this.$store.dispatch('getShopGoods', () => { // 数据更新后执行
+      this.$nextTick(() => { // 列表数据更新显示后执行
+        // 初始化滚动
+        this._initScroll()
+        // 初始化tops
+        this._initTops()
+      })
+    })
+  },
+  methods: {
+    _initScroll () {
+      // 左侧分类列表的BScroll
+      // eslint-disable-next-line no-new
+      new BScroll('.menu-wrapper', {
+        click: true // 点击响应
+      })
+      // 右侧food列表的Bscroll
+      this.foodsScroll = new BScroll('.foods-wrapper', {
+        probeType: 2, // 手指滑动（惯性滑动和编码滑动不监视）
+        click: true // 响应点击
+      })
 
+      // 监视滑动过程
+      this.foodsScroll.on('scroll', (pos) => {
+        console.log(pos.y)
+        // 保存y
+        this.scrollY = Math.abs(pos.y)
+      })
+      // 监视滑动结束
+      this.foodsScroll.on('scrollEnd', (pos) => {
+        console.log('滑动结束', pos.y)
+        this.scrollY = Math.abs(pos.y) // 解决惯性滑动更新
+      })
+    },
+
+    _initTops () {
+      // 1.初始化tops
+      const tops = []
+      let top = 0
+      // 计算各个top,并保存到tops
+      tops.push(top)
+
+      // 2.收集
+      // 得到ul下所有的子li
+      const lis = this.$refs.foodsWarpperUl.getElementsByClassName('food-list-hook')
+      Array.prototype.slice.call(lis).forEach((li, index) => {
+        top += li.clientHeight
+        tops.push(top)
+      })
+      // 3.更新数据
+      this.tops = tops
+      console.log(this.tops)
+    },
+
+    clickMenuItem (index) {
+      // 得到滚动目标坐标
+      const top = this.tops[index]
+      // 更新目标scrollY值(让点击的分项类成为当前分类)
+      this.scrollY = top
+      // 平滑滚动到指定位置
+      this.foodsScroll.scrollTo(0, -top, 300)
+    }
+  },
+  // 读取数据
+  computed: {
+    ...mapState(['goods']),
+    // 计算得到当前分类的下标
+    currentIndex () { // 初始和相关数据发生了变化
+      // 得到条件数据
+      // const { scrollY, tops } = this
+      // 根据条件计算产生一个结果
+      return this.tops.findIndex((top, index) => {
+        // scrollY>=当前top && scrollY<下一个top
+        return this.scrollY >= top && this.scrollY < this.tops[index + 1]
+      })
+    }
+  }
 }
 </script>
 

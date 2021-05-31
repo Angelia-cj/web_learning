@@ -90,14 +90,15 @@ export default {
       cb && cb()
     }
   },
-  // 异步获取商家商品信息
-  async getShopGoods ({ commit }, cb) {
+  // 异步获取商家商品列表
+  async getShopGoods ({ commit }, callback) {
     const result = await reqShopGoods()
     if (result.code === 0) {
       const goods = result.data
       commit(RECEIVE_GOODS, { goods })
+      // 数据更新了，通知一下组件
       // 如果组件中传递了接收消息的回调函数，数据更新后，调用回调通知调用的组件
-      cb && cb()
+      callback && callback()
     }
   }
 }
