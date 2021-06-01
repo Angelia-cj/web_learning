@@ -7,7 +7,9 @@ import {
   RESET_USER_INFO,
   RECEIVE_GOODS,
   RECEIVE_RATINGS,
-  RECEIVE_INFO
+  RECEIVE_INFO,
+  INCREMENT_FOOD_COUNT,
+  DECREMENT_FOOD_COUNT
 } from './mutation-types.js'
 import {
   reqAddress,
@@ -99,6 +101,14 @@ export default {
       // 数据更新了，通知一下组件
       // 如果组件中传递了接收消息的回调函数，数据更新后，调用回调通知调用的组件
       callback && callback()
+    }
+  },
+  // 同步更新指定 food 的 count
+  updateFoodCount ({ commit }, { food, isAdd }) {
+    if (isAdd) { // 增加
+      commit(INCREMENT_FOOD_COUNT, { food })
+    } else { // 减少
+      commit(DECREMENT_FOOD_COUNT, { food })
     }
   }
 }

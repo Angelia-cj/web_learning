@@ -77,7 +77,7 @@
           </div>
           <div class="mask-footer" @click="toggleShopShow">
             <!-- <span class="iconfont icon-close"></span> -->
-            <span class="iconfont icon-close1"></span>
+            <span class="iconfont icon-close"></span>
           </div>
         </div>
         <div class="brief-modal-cover"></div>
@@ -98,7 +98,7 @@
           </ul>
           <div class="activity-sheet-close" @click="toggleSupportShow">
             <!-- <span class="iconfont icon-close"></span> -->
-            <span class="iconfont icon-close1"></span>
+            <span class="iconfont icon-close"></span>
           </div>
         </div>
         <div class="activity-sheet-cover"></div>
@@ -136,14 +136,6 @@ export default {
 }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-// 阿里字体图标设置*/
-.iconfont
-  font-family 'iconfont' !important
-  font-size 16px
-  font-style normal
-  -webkit-font-smoothing antialiased
-  -webkit-text-stroke-width 0.2px
-  -moz-osx-font-smoothing grayscale
 @import '../../common/stylus/mixins.styl'
 .shop-header
   height 100%
@@ -505,4 +497,12 @@ export default {
       top 0
       left 0
       background-color rgba(0, 0, 0, 0.5)
+// 阿里字体图标设置*/
+.iconfont
+  font-family 'iconfont' !important
+  font-size 16px
+  font-style normal
+  -webkit-font-smoothing antialiased
+  -webkit-text-stroke-width 0.2px
+  -moz-osx-font-smoothing grayscale
 </style>

@@ -34,7 +34,7 @@
                     <span class="old" v-if="food.oldPrice">￥{{food.oldPrice}}</span>
                   </div>
                   <div class="cartcontrol-wrapper">
-                    CartControl
+                    <CartControl :food="food" />
                   </div>
                 </div>
               </li>
@@ -42,20 +42,23 @@
           </li>
         </ul>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
-import BScroll from 'better-scroll'
+import BScroll from '@better-scroll/core'
 import { mapState } from 'vuex'
+import CartControl from '../../../components/CartContorl/CartContorl'
 export default {
   data () {
     return {
       scrollY: 0, // 右侧滑动的Y轴坐标（滑动过程中实时变化）
       tops: [] // 所有右侧分类li的top组成的数组（列表哦第一次显示就不再变化）
     }
+  },
+  components: {
+    CartControl
   },
   // 从后台获取数据
   mounted () {

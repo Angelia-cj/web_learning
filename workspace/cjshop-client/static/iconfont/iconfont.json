@@ -6,6 +6,41 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "7275317",
+      "name": "Add (with circle)",
+      "font_class": "zengjia_circle",
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    },
+    {
+      "icon_id": "7275377",
+      "name": "Minus (with circle)",
+      "font_class": "jianshao_circle",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "5030",
+      "name": "购物车满",
+      "font_class": "gouwuche",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "7275103",
+      "name": "Minus (with circle) ",
+      "font_class": "minus_circle",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "7275132",
+      "name": "Add (with circle) (F",
+      "font_class": "add_circle",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
       "icon_id": "1340366",
       "name": "关闭",
       "font_class": "guanbi1",
@@ -15,7 +50,7 @@
     {
       "icon_id": "1530747",
       "name": "关闭",
-      "font_class": "close1",
+      "font_class": "close",
       "unicode": "e606",
       "unicode_decimal": 58886
     },
@@ -34,25 +69,11 @@
       "unicode_decimal": 59026
     },
     {
-      "icon_id": "15686534",
-      "name": "关闭",
-      "font_class": "guanbi2",
-      "unicode": "e6c2",
-      "unicode_decimal": 59074
-    },
-    {
       "icon_id": "750737",
       "name": "close",
       "font_class": "guanbi",
       "unicode": "e650",
       "unicode_decimal": 58960
-    },
-    {
-      "icon_id": "1138742",
-      "name": "close",
-      "font_class": "close",
-      "unicode": "e645",
-      "unicode_decimal": 58949
     },
     {
       "icon_id": "3050494",
