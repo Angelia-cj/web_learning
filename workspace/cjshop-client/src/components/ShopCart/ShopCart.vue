@@ -1,12 +1,131 @@
 <template>
   <div>
-
+    <div class="shopcart">
+      <div class="content">
+        <div class="content-left" @click="toggleShow">
+          <div class="logo-wrapper">
+            <div class="logo" :class="{highlight: totalCount}">
+              <i class="iconfont icon-gouwuche" :class="{highlight: totalCount>0}">
+              </i>
+            </div>
+            <div class="num" v-if="totalCount">{{totalCount}}</div>
+          </div>
+          <div class="price" :class="{highlight: totalCount>0}">￥{{totalPrice}}</div>
+          <div class=" desc">另需配送费￥{{info.deliveryPrice}}元</div>
+        </div>
+        <div class="content-right">
+          <div class="pay" :class="payClass">{{payText}}</div>
+        </div>
+      </div>
+      <transition name="move">
+        <div class="shopcart-list" v-show="listShow">
+          <div class="list-header">
+            <h1 class="title">购物车</h1>
+            <span class="empty" @click="clear">清空</span>
+          </div>
+          <div class="list-content" id="listContent">
+            <ul>
+              <li class="food" v-for="(food,index) in shopCart" :key="index">
+                <span class="name">{{food.name}}</span>
+                <div class="price"><span>￥{{food.price}}</span></div>
+                <div class="cartcontrol-warpper">
+                  <CartControl :food="food" />
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <transition name="fade">
+      <div class="list-mask" v-show="listShow" @click="toggleShow"></div>
+    </transition>
   </div>
 </template>
 
 <script>
+import { MessageBox } from 'mint-ui'
+import CartControl from '../../components/CartContorl/CartContorl'
+import { mapState, mapGetters } from 'vuex'
+import BScroll from '@better-scroll/core'
 export default {
+  data () {
+    return {
+      isShow: false
+    }
+  },
+  computed: {
+    ...mapState(['info', 'shopCart']),
+    ...mapGetters(['totalCount', 'totalPrice']),
 
+    payClass () {
+      // 取出数据
+      const { totalPrice } = this
+      const { minPrice } = this.info
+
+      return totalPrice >= minPrice ? 'enough' : 'not-enough'
+    },
+
+    payText () {
+      const { totalPrice } = this
+      const { minPrice } = this.info
+      if (totalPrice === 0) {
+        return `￥${minPrice}元起送`
+      } else if (totalPrice < minPrice) {
+        return `还差￥${minPrice - totalPrice}元起送`
+      } else {
+        return '去结算'
+      }
+    },
+
+    // 购物车列表是否显示
+    listShow () {
+      // 如果没有数量, 直接不显示
+      if (this.totalCount === 0) {
+        // 将 isShow 改为 false
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.isShow = false
+        return false
+      }
+      if (this.isShow) {
+        this.$nextTick(() => { // 变为打开
+          // 在界面更新后创建 BScroll(只能创建一个)
+          /*
+          单例:
+            1. 在创建前, 判断是否存在,只有不存在, 才去创建
+            2. 创建后, 保存它
+          */
+          if (!this.scroll) { // 第一次打开
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            this.scroll = new BScroll('#listContent', {
+              click: true
+            })
+          } else { // 后面打开
+            // 通知 scroll 对象
+            this.scroll.refresh()
+          }
+        })
+      }
+      // 只需要看 isShow
+      return this.isShow
+    }
+  },
+  methods: {
+    // 只有总数量大于0才切换
+    toggleShow () {
+      if (this.totalCount) {
+        this.isShow = !this.isShow
+      }
+    },
+    clear () {
+      MessageBox.confirm('确定要清空购物车吗?').then(action => {
+        this.$store.dispatch('clearCart')
+      })
+    }
+  },
+  components: {
+    CartControl
+  }
 }
 </script>
 
@@ -46,7 +165,7 @@ export default {
           background #2b343c
           &.highlight
             background $green
-          .icon-shopping_cart
+          .icon-gouwuche
             line-height 44px
             font-size 24px
             color #80858a
