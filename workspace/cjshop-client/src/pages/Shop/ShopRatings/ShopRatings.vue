@@ -1,12 +1,157 @@
 <template>
-  <div>
-    ShopRatings
+  <div class="ratings" ref="ratings">
+    <div class="ratings-content">
+      <div class="overview">
+        <div class="overview-left">
+          <h1 class="score">{{info.score}}</h1>
+          <div class="title">综合评分</div>
+          <div class="rank">高于周边商家{{info.rankRate}}%</div>
+        </div>
+        <div class="overview-right">
+          <div class="score-wrapper">
+            <span class="title">服务态度</span>
+            <Star :score="info.ServiceScore" :size="36" />
+            <span class="score">{{info.ServiceScore}}</span>
+          </div>
+          <div class="score-wrapper">
+            <span class="title">商品评价</span>
+            <Star :score="info.foodScore" :size="36" />
+            <span class="score">{{info.foodScore}}</span>
+          </div>
+          <div class="delivery-wrapper">
+            <span class="title">送达时间</span>
+            <span class="delivery">{{info.deliveryTime}}分钟</span>
+          </div>
+        </div>
+      </div>
+
+      <Split />
+
+      <div class="ratingselect">
+        <div class="rating-type border-1px">
+          <span class="block positive" :class="{active: selectType===2}" @click="setSelectType(2)">
+            全部
+            <span class="count">{{ratings.length}}</span>
+          </span>
+          <span class="block positive" :class="{active: selectType===0}" @click="setSelectType(0)">
+            满意
+            <span class="count">{{positiveCount}}</span>
+          </span>
+          <span class="block positive" :class="{active: selectType===1}" @click="setSelectType(1)">
+            不满意
+            <span class="count">{{ratings.length-positiveCount}}</span>
+          </span>
+        </div>
+        <div class="switch" :class="{on: onlyContent}" @click="toggleOnlyContent">
+          <span class="iconfont icon-check_circle"></span>
+          <span class="text">只看有内容的评价</span>
+        </div>
+      </div>
+
+      <div class="rating-wrapper">
+        <ul>
+          <li class="rating-item" v-for="(rating,index) in filterRatings" :key="index">
+            <div class="avater">
+              <img width="28" height="28" src="rating.avater">
+            </div>
+            <div class="content">
+              <h1 class="name">{{rating.username}}</h1>
+              <div class="star-wrapper">
+                <Star :score="rating.score" :size="24" />
+                <span class="delivery">{{rating.deliveryTime}}</span>
+              </div>
+              <p class="text">{{rating.text}}</p>
+              <div class="recommend">
+                <span class="iconfont" :class="rating.rateType===0 ? 'icon-thumb_up':'icon-thumb_down' "></span>
+                <span class="item" v-for="(item,index) in rating.recommend" :key="index">{{item}}</span>
+              </div>
+              <div class="time">{{rating.rateTime | dateString}}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import BScroll from '@better-scroll/core'
+import Star from '../../../components/Star/Star.vue'
+import Split from '../../../components/Split/Split.vue'
 export default {
+  data () {
+    return {
+      selectType: 0,
+      onlyContent: false
+    }
+  },
+  computed: {
+    ...mapState(['info', 'ratings']),
 
+    // 好评数量
+    positiveCount (state) {
+      return state.ratings.reduce((preTotal, rating) => {
+        return preTotal + (rating.rateType === 0 ? 1 : 0)
+      }, 0)
+    },
+    // 过滤后评价数量
+    filterRatings () {
+      const ratings = this.ratings
+      if (!ratings) {
+        return []
+      }
+      const { selectType, onlyContent } = this
+      return ratings.filter(rating => {
+        const { rateType } = rating
+        /*
+          selectType: 2, //全部
+          // rating.rateType(0/1)
+          onlyContent: true // 是否只看有内容的
+          //rating.text
+
+          selectType: 0/1/2
+          如果是 0/1 需要判断是否与 rating.rateType 相等, 如果是 2 就不
+          需要
+          onlyContent: true/false
+          如果为 true 需要判断 rating.text 必须有值, 如果是 false
+          就不需要
+        */
+        if (selectType === 2) {
+          return !onlyContent || rating.text.length > 0
+        } else {
+          return selectType === rateType && (!onlyContent || rating.text.length > 0)
+        }
+      })
+    }
+  },
+  mounted () {
+    this.$store.dispatch('getShopRatings', () => {
+      this.$nextTick(() => {
+        this.scroll = new BScroll(this.$refs.ratings, {
+          click: true
+        })
+      })
+    })
+  },
+  methods: {
+    setSelectType (selectType) {
+      this.selectType = selectType
+      this.$nextTick(() => {
+        this.scroll.refresh()
+      })
+    },
+    toggleOnlyContent (onlyContent) {
+      this.onlyContent = onlyContent
+      this.$nextTick(() => {
+        this.scroll.refresh()
+      })
+    }
+  },
+  components: {
+    Star,
+    Split
+  }
 }
 </script>
 
