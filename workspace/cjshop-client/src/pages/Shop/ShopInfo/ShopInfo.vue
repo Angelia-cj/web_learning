@@ -1,12 +1,122 @@
 <template>
-  <div>
-    shopinfo
+  <div class="shop-info" ref="info">
+    <div class="info-content">
+      <section class="section">
+        <h3 class="section-title">配送信息</h3>
+        <div class="delivery">
+          <div>
+            <span class="delivery-icon">{{info.description}}</span>
+            <span>由商家配送提供配送，约{{info.deliveryTime}}分钟送达，距离
+              {{info.distance}}</span>
+          </div>
+          <div class="delivery-money">配送费￥{{info.deliveryPrice}}</div>
+        </div>
+      </section>
+
+      <Split />
+
+      <section class="section">
+        <h3 class="section-title">活动与服务</h3>
+        <div class="activity">
+          <div class="activity-item" v-for="(support,index) in info.supports" :key="index" :class="supportClasses[support.type]">
+            <span class="content-tag">
+              <span class="mini-tag">{{support.name}}</span>
+            </span>
+            <span class="activity-content">{{support.content}}</span>
+          </div>
+        </div>
+      </section>
+
+      <Split />
+
+      <section class="section">
+        <h3 class="section-title">商家实景</h3>
+        <div class="pic-wrapper" ref="pics">
+          <ul class="pic-list" ref="ul">
+            <li class="pic-item" v-for="(pic,index) in info.pics" :key="index">
+              <img src="pic" width="120" height="90">
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <Split />
+
+      <section class="section">
+        <h3 class="section-title">商家信息</h3>
+        <ul class="detail">
+          <li>
+            <span class="bold">品类</span>
+            <span>{{info.category}}</span>
+          </li>
+          <li>
+            <span class="bold">商家电话</span>
+            <span>{{info.phone}}</span>
+          </li>
+          <li>
+            <span class="bold">地址</span>
+            <span>{{info.address}}</span>
+          </li>
+          <li>
+            <span class="bold">营业时间</span>
+            <span>{{info.workTime}}</span>
+          </li>
+        </ul>
+      </section>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import Split from '../../../components/Split/Split.vue'
+import BScroll from '@better-scroll/core'
 export default {
+  data () {
+    return {
+      favorite: localStorage.getItem('favorite') === 'true',
+      supportClasses: ['activity-green', 'activity-red', 'activity-orange']
+    }
+  },
+  // 此时 info 可能是一个空对象, 也可能是一个带数据的对象
+  mounted () {
+    this.$nextTick(() => {
+      this.ratingScroll = new BScroll(this.$refs.info, { click: true })
+      this.picsScroll = new BScroll(this.$refs.pics, { click: true, scrollX: true })
+      // 指定图片 ul 的样式宽度(前提是有数据)
+      this.info.pics && this.setUlWidth()
+    })
+  },
+  watch: {
+    info () { // info 状态数据更新了, 但界面还没有真正更新
+      this.$nextTick(() => {
+        this.ratingScroll.refresh()
+        this.setUlWidth()
+        this.picsScroll.refresh()
+      })
+    }
+  },
+  computed: {
+    ...mapState(['info'])
+  },
+  methods: {
+    toggleFavorite () {
+      this.favorite = !this.favorite
+      // 保存状态
+      localStorage.setItem('favorite', this.favorite)
+    },
 
+    setUlWidth () {
+      const ul = this.$refs.ul
+      const liWidth = 120
+      const space = 6
+      const size = this.info.pics.length
+      ul.style.width = (liWidth + space) * size - space + 'px'
+    }
+  },
+  components: {
+    Split
+  }
 }
 </script>
 
