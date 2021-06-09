@@ -10,7 +10,8 @@ import {
   RECEIVE_INFO,
   INCREMENT_FOOD_COUNT,
   DECREMENT_FOOD_COUNT,
-  CLEAR_CART
+  CLEAR_CART,
+  RECEIVE_SEARCH_SHOPS
 } from './mutation-types.js'
 import {
   reqAddress,
@@ -20,7 +21,8 @@ import {
   reqLogout,
   reqShopInfo,
   reqShopRatings,
-  reqShopGoods
+  reqShopGoods,
+  reqSearchShops
 } from '../api'
 
 export default {
@@ -115,5 +117,11 @@ export default {
   // 清空购物车
   clearCart ({ commit }) {
     commit(CLEAR_CART)
+  },
+  // 异步搜索商家列表
+  async searchShop ({ commit, state }, keyword) {
+    const { longitude, latitude } = state
+    const result = await reqSearchShops(longitude + ',' + latitude, keyword)
+    commit(RECEIVE_SEARCH_SHOPS, { searchShop: result.data })
   }
 }
