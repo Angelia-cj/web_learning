@@ -12,7 +12,11 @@
         <router-link to="/shop/info">商家</router-link>
       </div>
     </div>
-    <router-view />
+    <!-- 缓存 -->
+    <keep-alive>
+      <router-view />
+    </keep-alive>
+
   </div>
 </template>
 

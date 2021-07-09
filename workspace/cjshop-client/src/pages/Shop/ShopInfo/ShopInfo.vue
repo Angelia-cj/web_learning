@@ -12,9 +12,7 @@
           <div class="delivery-money">配送费￥{{info.deliveryPrice}}</div>
         </div>
       </section>
-
       <Split />
-
       <section class="section">
         <h3 class="section-title">活动与服务</h3>
         <div class="activity">
@@ -26,9 +24,7 @@
           </div>
         </div>
       </section>
-
       <Split />
-
       <section class="section">
         <h3 class="section-title">商家实景</h3>
         <div class="pic-wrapper" ref="pics">
@@ -39,9 +35,7 @@
           </ul>
         </div>
       </section>
-
       <Split />
-
       <section class="section">
         <h3 class="section-title">商家信息</h3>
         <ul class="detail">
@@ -107,6 +101,7 @@ export default {
     },
 
     setUlWidth () {
+      // 动态计算ul的宽度
       const ul = this.$refs.ul
       const liWidth = 120
       const space = 6

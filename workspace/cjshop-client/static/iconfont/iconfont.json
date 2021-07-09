@@ -6,6 +6,41 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1174204",
+      "name": "check-circle",
+      "font_class": "check-circle",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "1231569",
+      "name": "thumb-down",
+      "font_class": "thumb-down",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "1231573",
+      "name": "thumb-up",
+      "font_class": "thumb-up",
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "11982730",
+      "name": "Dislike, unlike, thumb down",
+      "font_class": "Dislikeunlikethumbdown",
+      "unicode": "e9d7",
+      "unicode_decimal": 59863
+    },
+    {
+      "icon_id": "11982744",
+      "name": "Like, vote, thumb up",
+      "font_class": "Likevotethumbup",
+      "unicode": "e9dc",
+      "unicode_decimal": 59868
+    },
+    {
       "icon_id": "7275317",
       "name": "Add (with circle)",
       "font_class": "zengjia_circle",

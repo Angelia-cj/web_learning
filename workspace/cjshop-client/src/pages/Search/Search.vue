@@ -45,10 +45,12 @@ export default {
   },
   methods: {
     search () {
+      // 得到搜索关键字
       const keyword = this.keyword.trim()
+      // 进行搜索
       if (keyword) {
         this.emptyResult = false
-        this.$store.dispatch('searchShop', keyword)
+        this.$store.dispatch('searchShops', keyword)
       }
     }
   },

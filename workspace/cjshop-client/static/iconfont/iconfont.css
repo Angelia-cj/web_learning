@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2193644 */
-  src: url('iconfont.woff2?t=1622549232278') format('woff2'),
-       url('iconfont.woff?t=1622549232278') format('woff'),
-       url('iconfont.ttf?t=1622549232278') format('truetype');
+  src: url('iconfont.woff2?t=1623393588529') format('woff2'),
+       url('iconfont.woff?t=1623393588529') format('woff'),
+       url('iconfont.ttf?t=1623393588529') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,26 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-check-circle:before {
+  content: "\e655";
+}
+
+.icon-thumb-down:before {
+  content: "\e665";
+}
+
+.icon-thumb-up:before {
+  content: "\e666";
+}
+
+.icon-Dislikeunlikethumbdown:before {
+  content: "\e9d7";
+}
+
+.icon-Likevotethumbup:before {
+  content: "\e9dc";
 }
 
 .icon-zengjia_circle:before {

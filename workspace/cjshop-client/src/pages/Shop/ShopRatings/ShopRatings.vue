@@ -10,8 +10,8 @@
         <div class="overview-right">
           <div class="score-wrapper">
             <span class="title">服务态度</span>
-            <Star :score="info.ServiceScore" :size="36" />
-            <span class="score">{{info.ServiceScore}}</span>
+            <Star :score="info.serviceScore" :size="36" />
+            <span class="score">{{info.serviceScore}}</span>
           </div>
           <div class="score-wrapper">
             <span class="title">商品评价</span>
@@ -43,7 +43,7 @@
           </span>
         </div>
         <div class="switch" :class="{on: onlyContent}" @click="toggleOnlyContent">
-          <span class="iconfont icon-check_circle"></span>
+          <span class="iconfont icon-check-circle"></span>
           <span class="text">只看有内容的评价</span>
         </div>
       </div>
@@ -52,7 +52,7 @@
         <ul>
           <li class="rating-item" v-for="(rating,index) in filterRatings" :key="index">
             <div class="avater">
-              <img width="28" height="28" src="rating.avater">
+              <img width="28" height="28" :src="rating.avater">
             </div>
             <div class="content">
               <h1 class="name">{{rating.username}}</h1>
@@ -62,7 +62,7 @@
               </div>
               <p class="text">{{rating.text}}</p>
               <div class="recommend">
-                <span class="iconfont" :class="rating.rateType===0 ? 'icon-thumb_up':'icon-thumb_down' "></span>
+                <span class="iconfont" :class="rating.rateType===0 ? 'icon-thumb_up' : 'icon-thumb_down'"></span>
                 <span class="item" v-for="(item,index) in rating.recommend" :key="index">{{item}}</span>
               </div>
               <div class="time">{{rating.rateTime | dateString}}</div>
@@ -75,36 +75,48 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import BScroll from '@better-scroll/core'
 import Star from '../../../components/Star/Star.vue'
 import Split from '../../../components/Split/Split.vue'
 export default {
   data () {
     return {
-      selectType: 0,
-      onlyContent: false
+      selectType: 2, // 选择显示的内容（2全部，0满意，1不满意）
+      onlyContent: true // 是否只显示有文本的
     }
   },
   computed: {
     ...mapState(['info', 'ratings']),
+    ...mapGetters(['positiveCount']),
 
     // 好评数量
-    positiveCount (state) {
-      return state.ratings.reduce((preTotal, rating) => {
-        return preTotal + (rating.rateType === 0 ? 1 : 0)
-      }, 0)
-    },
+    // positiveCount (state) {
+    //   return state.ratings.reduce((preTotal, rating) => {
+    //     return preTotal + (rating.rateType === 0 ? 1 : 0)
+    //   }, 0)
+    // },
     // 过滤后评价数量
     filterRatings () {
+      // 得到相关的数据
       const ratings = this.ratings
       if (!ratings) {
         return []
       }
       const { selectType, onlyContent } = this
+      // 产生一个过滤的新数组
       return ratings.filter(rating => {
         const { rateType } = rating
         /*
+          条件1：
+            selectType: 0/1/2
+            rateType: 0/1  评价的类型
+            selectType === 2 || selectType === rateType
+          条件2：
+            onlyContent: true/false
+            text: 有值/没值
+            !onlyContent || text.length > 0
+
           selectType: 2, //全部
           // rating.rateType(0/1)
           onlyContent: true // 是否只看有内容的
@@ -259,9 +271,9 @@ export default {
       color rgb(147, 153, 159)
       font-size 0
       &.on
-        .icon-check_circle
+        .icon-check-circle
           color $green
-      .icon-check_circle
+      .icon-check-circle
         display inline-block
         vertical-align top
         margin-right 4px

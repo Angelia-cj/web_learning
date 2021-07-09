@@ -119,9 +119,9 @@ export default {
     commit(CLEAR_CART)
   },
   // 异步搜索商家列表
-  async searchShop ({ commit, state }, keyword) {
-    const { longitude, latitude } = state
-    const result = await reqSearchShops(longitude + ',' + latitude, keyword)
-    commit(RECEIVE_SEARCH_SHOPS, { searchShop: result.data })
+  async searchShops ({ commit, state }, keyword) {
+    const geohash = state.latitude + ',' + state.longitude
+    const result = await reqSearchShops(geohash, keyword)
+    commit(RECEIVE_SEARCH_SHOPS, { searchShops: result.data })
   }
 }
