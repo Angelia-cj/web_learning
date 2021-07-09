@@ -15,7 +15,7 @@ import ShopGoods from '../pages/Shop/ShopGoods/ShopGoods.vue'
 import ShopRatings from '../pages/Shop/ShopRatings/ShopRatings.vue'
 import ShopInfo from '../pages/Shop/ShopInfo/ShopInfo.vue'
 
-// 一级路由组件懒加载
+// 一级路由组件懒加载使用到import函数
 const Msite = () => import('../pages/Msite/Msite.vue')
 const Search = () => import('../pages/Search/Search.vue')
 const Order = () => import('../pages/Order/Order.vue')
