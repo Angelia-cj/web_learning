@@ -10,7 +10,7 @@ import './mock/mockServer' // 加载mockServer即可
 import '../static/iconfont/iconfont.css'
 import Split from './components/Split/Split.vue'
 import './fiters' // 加载自定义过滤器
-import loading from './common/img/loading.jpg'
+import loading from './common/img/loading.gif'
 
 // 声明使用
 Vue.use(VueLazyload, { // 内部自定义一个指令lazy
