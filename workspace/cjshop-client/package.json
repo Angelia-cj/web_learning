@@ -17,6 +17,7 @@
     "axios": "^0.21.0",
     "better-scroll": "^2.3.1",
     "cors": "^2.8.5",
+    "date-fns": "^2.22.1",
     "fastclick": "^1.0.6",
     "less": "^3.12.2",
     "less-loader": "^7.1.0",
