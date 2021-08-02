@@ -14,16 +14,17 @@
   <script type="text/javascript">
     //js
     (()=>{
-      function test1(timestamp){
-        console.log(`🚀🚀hello ~ requestAnimationFrame ${timestamp}`);
-        requestAnimationFrame(test1)
-      }
-      function test2(timestamp){
-        console.log(`🚀🚀hello ~ requestAnimationFrame ${timestamp}`);
-        requestAnimationFrame(test2)
-      }
-      requestAnimationFrame(test1)
-      requestAnimationFrame(test2)
+      const beginBtn = document.querySelector('#begin')
+      beginBtn.addEventListener('click',()=>{
+        requestAnimationFrame(test)
+      })
+      let n = 0
+      function test(){
+        n++
+        console.log(`🚀🚀hello ~ requestAnimationFrame ${n}`);
+        requestAnimationFrame(test)
+      }     
+      requestAnimationFrame(test)
     })()
 </script>
 </body>
