@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>requestAnimationFrame API</h1>
+  <button id="begin" class="begin">开始</button>
+  <button id="end" class="end">停止</button>
+
+  <script type="text/javascript">
+    //js
+    (()=>{
+      function test1(timestamp){
+        console.log(`🚀🚀hello ~ requestAnimationFrame ${timestamp}`);
+        requestAnimationFrame(test1)
+      }
+      function test2(timestamp){
+        console.log(`🚀🚀hello ~ requestAnimationFrame ${timestamp}`);
+        requestAnimationFrame(test2)
+      }
+      requestAnimationFrame(test1)
+      requestAnimationFrame(test2)
+    })()
+</script>
+</body>
+</html>
