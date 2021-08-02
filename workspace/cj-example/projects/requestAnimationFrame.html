@@ -4,27 +4,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>动画API</title>
+  <style type='text/css'>
+    #box{
+      width: 0px;
+      height: 50px;
+      background-color: darkcyan;
+    }
+  </style>
 </head>
 <body>
   <h1>requestAnimationFrame API</h1>
   <button id="begin" class="begin">开始</button>
   <button id="end" class="end">停止</button>
+  <div id="box"></div>
 
   <script type="text/javascript">
     //js
     (()=>{
       const beginBtn = document.querySelector('#begin')
+      const endBtn = document.querySelector('#end')
+      const box = document.querySelector('#box')
+      let myRef;
+
       beginBtn.addEventListener('click',()=>{
-        requestAnimationFrame(test)
+        myRef = requestAnimationFrame(test)
       })
-      let n = 0
-      function test(){
-        n++
-        console.log(`🚀🚀hello ~ requestAnimationFrame ${n}`);
-        requestAnimationFrame(test)
-      }     
-      requestAnimationFrame(test)
+
+      endBtn.addEventListener('click',()=>{
+        cancelAnimationFrame(myRef)
+      })
+
+      function test() { 
+        box.style.width = `${myRef}%`
+        myRef = requestAnimationFrame(test)
+       }
     })()
 </script>
 </body>
