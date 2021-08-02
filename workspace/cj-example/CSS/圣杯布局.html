@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圣杯布局</title>
+  <style>
+    /* 
+      浮动：搭建完整的布局框架
+      margin 为负值：调整旁边两列的位置（使三列布局到一行上）
+      使用相对定位：调整旁边两列的位置（使两列位置调整到两边）   
+     */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #header,
+    #footer {
+      height: 20px;
+      background: gray;
+      text-align: center;
+    }
+
+    #container {
+      padding: 0 200px;
+    }
+
+    #container .middle {
+      float: left;
+      width: 100%;
+      background: darkcyan;
+    }
+
+    #container .left {
+      position: relative;
+      left: -200px;
+      /* margin-left 为负值，只改变元素的边界，不改变元素的位置 */
+      margin-left: -100%;
+      float: left;
+      width: 200px;
+      background: coral;
+    }
+
+    #container .right {
+      position: relative;
+      right: -200px;
+      margin-left: -200px;
+      float: left;
+      width: 200px;
+      background: coral;
+    }
+
+    .clearfix {
+      *zoom: 1;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header">header</div>
+  <div id="container" class="clearfix">
+    <div class="middle">middle</div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+  <div id="footer">footer</div>
+</body>
+</html>
