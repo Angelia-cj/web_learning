@@ -12,14 +12,28 @@
       }
       a{
         text-decoration: none; /* 去除链接下面的下划线 */
+        color: deeppink;
+      }
+      div{
+        width: 200px;
+        height: 200px;
+        background: paleturquoise;
+        display: none;
+        text-align: center;
+        font: 50px/200px "微软雅黑"; /* 垂直居中，200px指的是行高，相当于line-height */
+      }
+      :target{
+        /* :target 代表的是一个元素，这个元素的id必须是URL片段 ，URL就是#后面的内容*/
+        display: block;
       }
     </style>
   </head>
   <body>
-    <div>
       <a href="#div1">div1</a>
       <a href="#div2">div2</a>
       <a href="#div3">div3</a>
-    </div>
+      <div id="div1">div1</div>
+      <div id="div2">div2</div>
+      <div id="div3">div3</div>
   </body>
 </html>
