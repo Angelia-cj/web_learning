@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模糊背景</title>
+  <style type='text/css'>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #wrap{
+      height: 100px;
+      background: rgba(0, 0, 0, .5);
+      position: relative;
+    }
+    #wrap #bg{
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: url("img/avatar.jpg") no-repeat;
+      z-index: -1;
+      background-size: 100% 100%;
+      filter: blur(10px); /*模糊元素*/
+    }
+    img{
+      margin: 24px 0 0 24px;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <img src="img/avatar.jpg" width="64px" height="64px">
+    <div id="bg"></div>
+  </div>
+</body>
+</html>
