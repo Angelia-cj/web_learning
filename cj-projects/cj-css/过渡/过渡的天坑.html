@@ -55,7 +55,9 @@
                 var test = document.createElement('div');
                 test.id = 'test';
                 document.documentElement.appendChild(test);
-                test.style.width = '300px';
+                setTimeout(() => {
+                    test.style.width = '300px';
+                }, 2000);
             };
         </script>
     </body>
