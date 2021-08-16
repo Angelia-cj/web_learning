@@ -42,6 +42,7 @@
       height: 100%;
       background: url(./img/home.png) no-repeat;
       border-radius: 50%;
+      transition: 1s;
     }
   </style>
 </head>
@@ -58,5 +59,61 @@
 
     </div>
   </div>
+
+  <script>
+    window.onload=function(){
+      var homeEle = document.querySelector('.home');
+      var imgs = document.querySelectorAll("#wrap > .inner > img");
+      var flag = true;
+      var c = 140;
+
+      /* 第二部分 */ 
+      function fn(){ 
+        this.style.transition="0.3s";
+        this.style.transform="rotate(-720deg) scale(1)";
+        this.style.opacity=1;
+
+        this.removeEventListener("transitionend",fn);
+       }
+
+       for (let i = 0; i < imgs.length; i++) {
+         imgs[i].onclick=function(){
+          this.style.transition="0.5s";
+          this.style.transform="rotate(-720deg) scale(2)";
+          this.style.opacity=0.1;
+          this.addEventListener("transitionend",fn);
+         }       
+       }
+
+      /* 第一部分 */ 
+      homeEle.onclick=function(){
+        if (flag) {
+          this.style.transform="rotate(-720deg)";
+          for (var i = 0; i < imgs.length; i++) {
+            imgs[i].style.transition = "1s" + (i*0.1) + "s";
+            imgs[i].style.transform="rotate(-720deg) scale(1)";
+            imgs[i].style.left = -getPoint(c,90*i/(imgs.length-1)).x+"px";
+            imgs[i].style.top = -getPoint(c,90*i/(imgs.length-1)).y+"px";
+          }
+        }else{
+          this.style.transform="rotate(0deg)";
+          for (var i = 0; i < imgs.length; i++) {
+            imgs[i].style.transition = "1s" + ((imgs.length-i-1)*0.15) + "s";
+            imgs[i].style.transform="rotate(0deg) scale(1)";
+            imgs[i].style.left = 0+"px";
+            imgs[i].style.top = 0+"px";
+          }         
+        }
+        flag = !flag;
+      }
+      // 已知第3边和一个角
+      //角度转弧度   角度*π/180 =弧度
+      function getPoint(c,deg) { 
+        var a = Math.round(c * Math.sin(deg*Math.PI/180));
+        var b = Math.round(c * Math.cos(deg*Math.PI/180));
+        return {x:a,y:b};
+      }
+    }
+  </script>
 </body>
 </html>
