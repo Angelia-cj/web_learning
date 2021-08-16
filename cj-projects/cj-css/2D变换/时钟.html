@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>时钟</title>
+  <style type='text/css' id="css">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #wrap{
+      position: relative;
+      margin: 200px auto;
+      width: 200px;
+      height: 200px;
+      border: 1px solid;
+      border-radius: 50%;
+    }
+    #list{
+      list-style: none;
+    }
+    #list li{
+      position: absolute;
+      left: 99px;
+      top: 0;
+      width: 2px;
+      height: 6px;
+      background: black; 
+      transform-origin: center 100px;
+    }
+    /* #list li:nth-of-type(1){
+      transform: rotate(0);
+    }
+    #list li:nth-of-type(2){
+      transform: rotate(6deg);
+    }
+    #list li:nth-of-type(3){
+      transform: rotate(12deg);
+    }
+    #list li:nth-of-type(4){
+      transform: rotate(18deg);
+    }
+    #list li:nth-of-type(5){
+      transform: rotate(24deg);
+    }
+    #list li:nth-of-type(6){
+      transform: rotate(30deg);
+    } */
+    #list li:nth-of-type(5n+1){
+      height: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <ul id="list">
+      
+    </ul>
+    <div id="hour"></div>
+    <div id="min"></div>
+    <div id="sec"></div>
+    <div id="icon"></div>
+  </div>
+  <script>
+    var listNode = document.getElementById("list");
+    listNode.style.display="none";
+    var cssNode = document.getElementById('css');
+    var liText = "";
+    var cssText = "";
+    for (let i = 0; i < 60; i++) {
+      liText += "<li></li>";
+      cssText += "#list li:nth-of-type("+(i+1)+"){transform: rotate("+ i*6 +"deg);}"
+    }
+    list.innerHTML = liText;
+    listNode.style.display="block";
+    css.innerHTML += cssText;
+
+    var hour = document.getElementById("hour");
+    var min = document.getElementById("min");
+    var sec = document.getElementById("sec");
+
+
+
+  </script>
+</body>
+</html>
