@@ -51,6 +51,42 @@
     #list li:nth-of-type(5n+1){
       height: 10px;
     }
+    #hour{
+      position: absolute;
+      left: 96px;
+      top: 65px;
+      width: 8px;
+      height: 35px;
+      background: black;
+      transform-origin: center bottom;
+    }
+    #min{
+      position: absolute;
+      left: 98px;
+      top: 45px;
+      width: 4px;
+      height: 55px;
+      background: gray;
+      transform-origin: center bottom;
+    }
+    #sec{
+      position: absolute;
+      left: 99px;
+      top: 25px;
+      width: 2px;
+      height: 75px;
+      background: rgb(82, 2, 16);
+      transform-origin: center bottom;
+    }
+    #icon{
+      position: absolute;
+      left: 90px;
+      top: 90px;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
   </style>
 </head>
 <body>
@@ -64,8 +100,12 @@
     <div id="icon"></div>
   </div>
   <script>
+    var hourNode = document.getElementById("hour");
+    var minNode = document.getElementById("min");
+    var secNode = document.getElementById("sec");
+
     var listNode = document.getElementById("list");
-    listNode.style.display="none";
+    // listNode.style.display="none";
     var cssNode = document.getElementById('css');
     var liText = "";
     var cssText = "";
@@ -73,16 +113,24 @@
       liText += "<li></li>";
       cssText += "#list li:nth-of-type("+(i+1)+"){transform: rotate("+ i*6 +"deg);}"
     }
-    list.innerHTML = liText;
-    listNode.style.display="block";
-    css.innerHTML += cssText;
+    listNode.innerHTML = liText;
+    // listNode.style.display="block";
+    cssNode.innerHTML += cssText;
+    document.head.appendChild(cssNode);
+    
 
-    var hour = document.getElementById("hour");
-    var min = document.getElementById("min");
-    var sec = document.getElementById("sec");
+    move();
+    setInterval(move, 1000);
+    function move() {
+      var date = new Date();
+      var sec = date.getSeconds();
+      var min = date.getMinutes() + sec/60;
+      var hour = date.getHours() + min/60;
 
-
-
+      hourNode.style.transform = "rotate("+30*hour+"deg)";
+      minNode.style.transform = "rotate("+6*min+"deg)";
+      secNode.style.transform = "rotate("+6*sec+"deg)";
+    }
   </script>
 </body>
 </html>
