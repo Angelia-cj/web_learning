@@ -74,16 +74,16 @@
         this.style.opacity=1;
 
         this.removeEventListener("transitionend",fn);
-       }
+      }
 
-       for (let i = 0; i < imgs.length; i++) {
-         imgs[i].onclick=function(){
+      for (let i = 0; i < imgs.length; i++) {
+        imgs[i].onclick=function(){
           this.style.transition="0.5s";
           this.style.transform="rotate(-720deg) scale(2)";
           this.style.opacity=0.1;
           this.addEventListener("transitionend",fn);
-         }       
-       }
+        }       
+      }
 
       /* 第一部分 */ 
       homeEle.onclick=function(){
