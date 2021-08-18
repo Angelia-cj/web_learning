@@ -33,13 +33,19 @@
       border-radius: 50%;
       text-align: center;
       font: 20px/100px "微软雅黑";
-      /* transition: 3s; */
+      /* 动画内的属性 */
       animation-name: move;
       animation-duration: 3s;
+      animation-timing-function: linear;
+        /* 反转的是关键帧和animation-timing-function */
+      animation-direction: reverse;
+      /* 动画外的属性 */
+      animation-delay: 1s;
+      /* 只作用于动画内的属性 */
+        /* 重复的是关键帧 */
+      animation-iteration-count: 3;
+
     }
-    /* #wrap:hover #inner{
-      transform: rotate(360deg);
-    } */
     @keyframes move {
       from{
         transform: rotate(0deg);
