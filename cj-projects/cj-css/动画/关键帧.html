@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关键帧</title>
+  <style type='text/css'>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #wrap{
+      /* 居中 */
+      position: relative;
+      margin: 200px auto;
+      width: 300px;
+      height: 300px;
+      border: 1px solid;
+    }
+    #inner{
+      /* 居中 */
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      /* transform: translate3d(-50%,-50%,0); */
+      margin-left: -50px;
+      margin-top: -50px;
+
+      width: 100px;
+      height: 100px;
+      background: pink;
+      border-radius: 50%;
+      text-align: center;
+      font: 20px/100px "微软雅黑";
+
+      /* 动画内的属性 */
+      animation-name: move;
+      animation-duration: 2s;
+      animation-timing-function: linear;
+        /* 反转的是关键帧和animation-timing-function */
+      /* from --> to */
+      /* animation-direction: normal;   */
+      /* to --> from */
+      /* animation-direction: reverse;  */
+      /* from --> to -->from*/
+      animation-direction: alternate; 
+      /* to --> from --> to */
+      /* animation-direction: alternate-reverse;  */
+      /* 动画外的属性 */ 
+      animation-delay: 2s;
+      /* 只作用于动画内的属性 */
+        /* 重复的是关键帧 */
+      animation-iteration-count: 3;
+
+      /* 元素在动画外的状态 from之前to之后
+        backwards：from之前的状态与from的状态保持一致
+        forwards：to之后的状态与to的状态保持一致
+        both：backwards + forwards
+      */
+      animation-fill-mode: both;
+      animation-play-state: running;
+    }
+    @keyframes move {
+      /* 百分比是时间的百分比 */
+      0%{
+        transform: translateY(-100px);
+      }
+      50%{
+        transform: translateY(-50px);
+      }
+      100%{
+        transform: translateY(100px);
+      }
+    }
+    /* #wrap:hover #inner{
+      animation-play-state: paused;
+    } */
+
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="inner">
+      常小默
+    </div>
+  </div>
+</body>
+</html>
