@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动画</title>
+  <style type='text/css'>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #wrap{
+      /* 居中 */
+      position: relative;
+      margin: 200px auto;
+      width: 300px;
+      height: 300px;
+      border: 1px solid;
+    }
+    #inner{
+      /* 居中 */
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      /* transform: translate3d(-50%,-50%,0); */
+      margin-left: -50px;
+      margin-top: -50px;
+
+      width: 100px;
+      height: 100px;
+      background: pink;
+      border-radius: 50%;
+      text-align: center;
+      font: 20px/100px "微软雅黑";
+      /* transition: 3s; */
+      animation-name: move;
+      animation-duration: 3s;
+    }
+    /* #wrap:hover #inner{
+      transform: rotate(360deg);
+    } */
+    @keyframes move {
+      from{
+        transform: rotate(0deg);
+      }
+      to{
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="inner">
+      常小默
+    </div>
+  </div>
+</body>
+</html>
