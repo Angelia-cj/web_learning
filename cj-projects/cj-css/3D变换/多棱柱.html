@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多棱柱</title>
+  <style type='text/css'>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #wrap{
+      /* 居中 */
+      position: relative;
+      margin: 150px auto;
+      border: 1px solid;
+      width: 300px;
+      height: 300px;
+      perspective: 200px;
+      /* transform-style: preserve-3d; */
+    }
+    #wrap > .box{
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 100px;
+      height: 100px;
+      transition: 10s transform;
+      transform-style: preserve-3d;
+      /* transform-origin: center center -28.867513459481287px; */
+    }
+    #wrap > .box > div{
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: pink;
+      /* background: rgba(123, 321, 333, .3); */
+      text-align: center;
+      font: 50px/100px "微软雅黑";
+      /* transform-origin: center center -28.867513459481287px; */
+      /* 隐藏背面 */
+      backface-visibility: hidden;
+
+    }
+    /* #wrap > .box > div:nth-child(1){
+    } */
+    /* #wrap > .box > div:nth-child(2){
+      transform: rotateY(120deg);
+    }
+    #wrap > .box > div:nth-child(3){
+        transform: rotateY(240deg);
+    } */
+    #wrap:hover .box{
+      transform: rotateY(360deg);
+      /* transform: rotate3d(1,2,3,720deg); */
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="box">
+      
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // n：棱数
+    window.onload=function () { 
+      createZ(10);
+    }
+    function createZ(n) { 
+      // div 页面的个数
+      var divText = "";
+      var boxText = document.querySelector("#wrap > .box");
+      
+      // 自己创建一个style标签
+      var styleText = document.createElement("style");
+      var cssText = "";
+      
+      // 内角
+      var innerDeg = 180 - 360/n;
+      // 外角
+      var outDeg = 360/n;
+      
+
+      for (let i = 0; i < n; i++) {
+        divText += "<div>"+(i+1)+"</div>";
+        cssText += "#wrap > .box > div:nth-child("+(i+1)+"){transform: rotateY("+(i*outDeg)+"deg);}"
+      }
+
+      boxText.innerHTML = divText;
+      // 查找div选择器
+      var divNode = document.querySelector("#wrap > .box > div");
+      // 获取每个页面的宽度
+      var length = divNode.offsetWidth;
+
+      // 弧度 = 角度 * Π / 180
+      cssText +="#wrap > .box{transform-origin: center center -"+(length/2 * Math.tan((innerDeg/2)*Math.PI/180))+"px;}";
+      cssText +="#wrap > .box > div{transform-origin: center center -"+(length/2 * Math.tan((innerDeg/2)*Math.PI/180))+"px;}";
+
+      styleText.innerHTML = cssText;
+      // 将style标签存放到head标签中
+      document.head.appendChild(styleText);
+    }
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
