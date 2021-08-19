@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开机动画(2d版本)</title>
+  <style type='text/css'>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      height: 100%;
+      overflow: hidden;
+    }
+    #wrap{
+      height: 100%;
+      position: relative;
+      background: gray;
+    }
+    #wrap > .inner{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%,-50%,0);
+      white-space: nowrap;
+      text-align: center;
+    }
+    #wrap > .inner > span{
+      /* 
+        span 不是块级元素，不能使用transform
+        不能使用absolute，因为会使元素叠加到一起，改变了位置
+      */
+      position: relative;
+      /* animation: move 1s linear infinite alternate; */
+    }
+    @keyframes move {
+      from{
+        top: 0;
+      }
+      to{
+        top: -20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="inner">
+      <span>几</span>
+      <span>百</span>
+      <span>斤</span>
+      <span>的</span>
+      <span>人</span>
+      <span>了</span>
+      <span>还</span>
+      <span>要</span>
+      <span>装</span>
+      <span>可</span>
+      <span>爱</span>
+    </div>
+  </div>
+  <script>
+    window.onload=function(){
+      var spanNodes = document.querySelectorAll("#wrap > .inner > span");
+      var colors = ["red","pink","orange","yellow","green","blue","indigo","lightblue","lightpink","lightsalmon","lightseagreen"]
+      for (let i = 0; i < spanNodes.length; i++) {
+        // 添加延迟
+        spanNodes[i].style.animation = "move .3s "+(i*50)+"ms linear infinite alternate";  
+        spanNodes[i].style.color = colors[i];
+      }
+    }
+  </script>
+</body>
+</html>
