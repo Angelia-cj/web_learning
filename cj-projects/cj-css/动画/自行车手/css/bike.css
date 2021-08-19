@@ -1,0 +1,19 @@
+.bike{
+  position: absolute;
+  top: 180px;
+  left: 45%;
+  margin-left: 0px;
+  width: 130px;
+  height: 130px;
+  background: url(../img/bike.png);
+}
+.bikeAni{
+  -webkit-animation: bikeAni 7s steps(99) infinite;
+  animation: bikeAni 7s steps(99) infinite;
+
+}
+
+@keyframes bikeAni {
+  0%{background-position: 0 12870px;}
+  99%{background-position: 0 0;}
+}
