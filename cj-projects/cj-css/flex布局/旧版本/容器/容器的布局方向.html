@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>容器的布局方向 old</title>
+  <style type='text/css'>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #wrap{
+      width: 400px;
+      height: 400px;
+      border: 1px solid;
+      margin: 200px auto;
+      display: -webkit-box;
+      /* -webkit-box-orient：控制主轴和侧轴分别是那一根 */
+      -webkit-box-orient: horizontal;
+    }
+    #wrap > .item{
+      width: 50px;
+      height: 50px;
+      background: pink;
+      text-align: center;
+      line-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+  </div>
+</body>
+</html>
