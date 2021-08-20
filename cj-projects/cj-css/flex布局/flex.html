@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>与flex的初次邂逅</title>
+  <style type='text/css'>
+  /* 
+    flex容器    
+    flex项目
+    
+    主轴
+    侧轴
+
+    项目永远在主轴的正方向上排列
+  */
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #wrap{
+      width: 400px;
+      height: 300px;
+      border: 1px solid;
+      margin: 200px auto;
+      /* （容器行排列）方式二： */
+      display: flex;
+      /* （容器行排列）方式四：-webkit- 代表旧版本flex */
+      display: -webkit-flex;
+      /* （容器行排列）方式三： */
+      /* display: -webkit-box; */
+    }
+    #wrap > .item{
+      width: 100px;
+      height: 100px;
+      background: pink;
+      text-align: center;
+      line-height: 100px;
+      /* （容器行排列）方式一： */
+      /* float: left; */
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+  </div>
+</body>
+</html>
