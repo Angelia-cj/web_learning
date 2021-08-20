@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>项目新增-flex-grow</title>
+  <style type='text/css'>
+    /* 
+      flex-grow 和 box-flew 默认值都为0
+
+      flex-grow： 没有 flex-basis 时，flex-basis = width
+        可用空间 = (容器大小 - 所有相邻项目flex-basis的总和)
+            400 - 5*50 = 150
+            400 - 5*0 = 400
+        可扩展空间 = (可用空间/所有相邻项目flex-grow的总和)
+            150 / 8 = 18.75
+            400 / 8 = 50
+        每项伸缩大小 = (伸缩基准值 + (可扩展空间 x flex-grow值))
+            50 + 18.74*4 = 125
+            50 + 18.74*1 = 68.75
+
+            0 + 50*4 = 200
+            0 + 50*1 = 50            
+    */
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #wrap{
+      width: 400px;
+      height: 300px;
+      border: 1px solid;
+      margin: 100px auto;
+      display: flex;
+      flex-direction: row;
+      justify-self: flex-start;
+      align-items: flex-start;
+    }
+    #wrap > .item{
+      width: 50px;
+      height: 50px;
+      background: pink;
+      text-align: center;
+      line-height: 50px;
+      /*弹性因子*/
+      flex-grow: 1; 
+      flex-basis: 0;
+    }
+    #wrap > .item:nth-child(1){
+      flex-flow: 4;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+  </div>
+</body>
+</html>
