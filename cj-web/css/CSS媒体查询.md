@@ -18,7 +18,11 @@
 	width			   （可加max min前缀）
 	height			   （可加max min前缀）
 	device-width	   （可加max min前缀）
+		pc端：分辨率
+        移动端：具体看机器的参数
 	device-pixel-ratio（可加max min前缀，需要加webkit前缀）
+		pc端：1
+        移动端：具体看机器的参数
 	orientation   portrait竖屏
 				  landscape横屏
 
