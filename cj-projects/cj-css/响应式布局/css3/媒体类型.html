@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>媒体类型</title>
+  <style type='text/css'>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #wrap{
+      width: 100px;
+      height: 100px;
+      border: 1px solid;
+      margin: 100px auto;
+    }
+
+    /* 
+      all           所有媒体（默认值）
+      screen        彩色屏幕
+      print         打印预览
+
+      projection    手持设备
+      tv            电视
+      braille       盲文触觉设备
+      embossed      盲文打印机
+      speech        “听觉”类似的媒体设备
+      tty           不适用像素的设备
+    */
+    @media screen {
+      /* 媒体查询里面写规则：选择器 + 声明块 */
+      #wrap{
+        border: 10px solid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+
+  </div>
+</body>
+</html>
