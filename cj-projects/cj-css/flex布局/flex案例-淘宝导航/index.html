@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>淘宝导航页</title>
+  <style type='text/css'>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    a{
+      /* 去除链接的下划线 */
+      text-decoration: none;
+      color:rgb(58, 56, 56);
+      display: block;
+    }
+    #nav > .row{
+      display: flex;
+    }
+    #nav > .row > .item{
+      /* 等分布局 */
+      flex: 1;
+      text-align: center;
+    }
+    #nav > .row > .item > a::before{
+      content: "";
+      display: block;
+      width: 86px;
+      height: 86px;
+      /* 块级元素居中 */
+      margin: 0 auto;
+    }
+    #nav > .row:nth-child(1) > .item:nth-child(1) > a::before{
+      background: url(./img/01.png) no-repeat;
+    }
+    #nav > .row:nth-child(1) > .item:nth-child(2) > a::before{
+      background: url(./img/02.png) no-repeat;
+    }
+    #nav > .row:nth-child(1) > .item:nth-child(3) > a::before{
+      background: url(./img/03.png) no-repeat;
+    }
+    #nav > .row:nth-child(1) > .item:nth-child(4) > a::before{
+      background: url(./img/04.png) no-repeat;
+    }
+    #nav > .row:nth-child(1) > .item:nth-child(5) > a::before{
+      background: url(./img/05.png) no-repeat;
+    }
+
+    #nav > .row:nth-child(2) > .item:nth-child(1) > a::before{
+      background: url(./img/06.png) no-repeat;
+    }
+    #nav > .row:nth-child(2) > .item:nth-child(2) > a::before{
+      background: url(./img/07.png) no-repeat;
+    }
+    #nav > .row:nth-child(2) > .item:nth-child(3) > a::before{
+      background: url(./img/08.png) no-repeat;
+    }
+    #nav > .row:nth-child(2) > .item:nth-child(4) > a::before{
+      background: url(./img/09.png) no-repeat;
+    }
+    #nav > .row:nth-child(2) > .item:nth-child(5) > a::before{
+      background: url(./img/10.png) no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <div id="nav">
+    <div class="row">
+      <div class="item">
+        <a href="javascript:;">天猫</a>
+      </div>
+      <div class="item">
+        <a href="javascript:;">聚划算</a>
+      </div>
+      <div class="item">
+        <a href="javascript:;">天猫国际</a>
+      </div>
+      <div class="item">
+        <a href="javascript:;">外卖</a>
+      </div>
+      <div class="item">
+        <a href="javascript:;">天猫超市</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="item">
+        <a href="javascript:;">充值中心</a>
+      </div>
+      <div class="item">
+        <a href="javascript:;">飞猪旅行</a>
+      </div>
+      <div class="item">
+        <a href="javascript:;">领金币</a>
+      </div>
+      <div class="item">
+        <a href="javascript:;">拍卖</a>
+      </div>
+      <div class="item">
+        <a href="javascript:;">分类</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
