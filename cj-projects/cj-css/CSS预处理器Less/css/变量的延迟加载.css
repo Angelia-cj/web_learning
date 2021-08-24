@@ -1,0 +1,7 @@
+/* 这个是想暴露出去的注释 会被编译 */
+.class {
+  one: 1;
+}
+.class .brass {
+  three: 3;
+}
