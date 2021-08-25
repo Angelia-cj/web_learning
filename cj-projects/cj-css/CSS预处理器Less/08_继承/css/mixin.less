@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+@import url(mixin/center.less);
+// @import "mixin/center.less";
+#wrap{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 100px auto;
+  border: 1px solid;
+  .inner{
+    
+    &:nth-child(1){
+      .center(100px,100px,deeppink);
+    }
+    &:nth-child(2){
+      .center(50px,50px,yellow);
+    }
+  }
+}
