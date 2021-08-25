@@ -1,0 +1,22 @@
+.juzhong(){
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%,-50%,0);
+  width: 100px;
+  height: 100px;
+  background: pink;
+}
+#wrap{
+  position: relative;
+  margin: 100px auto;
+  width: 300px;
+  height: 400px;
+  border: 1px solid;
+  .inner{
+    .juzhong
+  }
+  .inner2{
+    .juzhong
+  }
+}
