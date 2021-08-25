@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+@import url(mixin/center-extend.less);
+// @import "mixin/center.less";
+#wrap{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 100px auto;
+  border: 1px solid;
+  .inner{   
+    &:extend(.center-extend all);
+    &:nth-child(1){
+      width: 100px;
+      height: 100px;
+      background: purple;
+    }
+    &:nth-child(2){
+      width: 50px;
+      height: 50px;
+      background: plum;
+    }
+  }
+}

@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-@import url(mixin/center.less);
+@import url(mixin/center-mixin.less);
 // @import "mixin/center.less";
 #wrap{
   position: relative;
@@ -14,10 +14,10 @@
   .inner{
     
     &:nth-child(1){
-      .center(100px,100px,deeppink);
+      .center-mixin(100px,100px,pink);
     }
     &:nth-child(2){
-      .center(50px,50px,yellow);
+      .center-mixin(50px,50px,yellow);
     }
   }
 }
