@@ -1,0 +1,33 @@
+.triangle(@_){
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.triangle(T,@w,@c){
+  border-width: @w;
+  border-style: solid dashed  dashed dashed; 
+  /* 上 右 下 左 */
+  /* border-color: transparent transparent transparent brown; */
+  border-color: @c transparent  transparent transparent ;
+}
+.triangle(R,@w,@c){
+  border-width: @w;
+  border-style:  dashed solid dashed dashed; 
+  /* 上 右 下 左 */
+  /* border-color: transparent transparent transparent brown; */
+  border-color:  transparent @c transparent transparent ;
+}
+.triangle(B,@w,@c){
+  border-width: @w;
+  border-style:  dashed  dashed solid dashed; 
+  /* 上 右 下 左 */
+  /* border-color: transparent transparent transparent brown; */
+  border-color:  transparent  transparent @c transparent ;
+}
+.triangle(L,@w,@c){
+  border-width: @w;
+  border-style:  dashed  dashed dashed solid; 
+  /* 上 右 下 左 */
+  /* border-color: transparent transparent transparent brown; */
+  border-color:  transparent  transparent transparent @c;
+}

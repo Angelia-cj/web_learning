@@ -1,0 +1,7 @@
+#wrap .inner {
+  border-width: 40px;
+  border-style: dashed  dashed dashed solid;
+  /* 上 右 下 左 */
+  /* border-color: transparent transparent transparent brown; */
+  border-color: transparent transparent transparent #dda0dd;
+}
