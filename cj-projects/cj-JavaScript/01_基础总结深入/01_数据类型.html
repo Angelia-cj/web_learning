@@ -1,30 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JS高级-数据类型</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS高级-数据类型</title>
 </head>
+
 <body>
-  <script type="text/javascript">
-    // 1.基本(值)类型
-    // typeof 返回数据类型的字符串表达
-    var a
-    console.log(a, typeof a, typeof a==='undefined',a===undefined); // undefined 'undefined' true true
-    console.log(undefined==='undefined'); // false  
-    a = 3
-    console.log(typeof a==='number'); // true
-    a = 'changxm'
-    console.log(typeof a==='string'); // true
-    a = true
-    console.log(typeof a==='boolean'); // true
-    a = null
-    console.log(typeof a, a===null); // 'object' true
+    <script type="text/javascript">
+        // 1.基本(值)类型
+        // typeof 返回数据类型的字符串表达
+        console.log("------- 基本(值)类型 -------");
+        var a
+        console.log(a, typeof a, typeof a === 'undefined', a === undefined); // undefined 'undefined' true true
+        console.log(undefined === 'undefined'); // false  
+        a = 3
+        console.log(typeof a === 'number'); // true
+        a = 'changxm'
+        console.log(typeof a === 'string'); // true
+        a = true
+        console.log(typeof a === 'boolean'); // true
+        a = null
+        console.log(typeof a, a === null); // 'object' true
 
+        // 2.对象(引用)类型
+        console.log("------- 对象(引用)类型 -------");
+        var b1 = {
+            b2: [1, 'abc', console.log],
+            b3: function() {
+                console.log('b3');
+                return function() {
+                    return 'changxm'
+                }
+            }
+        }
+        console.log(b1 instanceof Object, b1 instanceof Array); // true false
+        console.log(b1.b2 instanceof Array, b1.b2 instanceof Object); // true true
+        console.log(b1.b3 instanceof Function, b1.b3 instanceof Object); // true true
 
-    // 2.对象(引用)类型
-  </script>
-  
+        console.log(typeof b1.b3 === 'function'); // true
+
+        console.log(typeof b1.b2[2] === 'function'); // true
+        b1.b2[2](4)
+        console.log(b1.b3()()); // 执行函数可以之间使用()
+    </script>
+
 </body>
+
 </html>
