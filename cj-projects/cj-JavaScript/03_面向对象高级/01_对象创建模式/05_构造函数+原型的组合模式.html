@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_构造函数+原型的组合模式.html</title>
+</head>
+
+<body>
+    <!-- 
+方式5: 构造函数+原型的组合模式
+  * 套路: 自定义构造函数, 属性在函数中初始化, 方法添加到原型上
+  * 适用场景: 需要创建多个类型确定的对象
+  -->
+    <script type='text/javascript'>
+        //  一个人：name:"Tom",age:12
+        function Person(name, age) { // 在构造函数中初始化一般属性
+            // 定义类型
+            this.name = name
+            this.age = age
+        }
+
+        Person.prototype.setName = function(name) {
+            this.name = name
+        }
+
+        // 创建实例
+        var p1 = new Person('Tom', 12)
+        var p2 = new Person('Jack', 13)
+        console.log(p1, p1);
+    </script>
+
+</body>
+
+</html>
