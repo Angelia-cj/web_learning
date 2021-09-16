@@ -72,6 +72,42 @@
             }
         }
         fun(1, 4, 5, 'abc')
+
+        /* let obj = {
+            username: 'kobe',
+            age: 39
+        }
+        for (let i of obj) {
+            console.log(i); // 错误：Uncaught TypeError: obj is not iterable
+        } */
+
+        // 等同于在指定的数据内结构上部署了iterator接口
+        // 当使用for of 去遍历某一个数据结构的时候,
+        // 首先去找Symbol.iterator,找到了就去遍历,没有找到的化不能遍历 xxx is not iterator
+        let targetData = {
+            [Symbol.iterator]: function() {
+                let nextIndex = 0; // 记录指针的位置
+                return { //遍历器对象
+                    next: function() {
+                        return nextIndex < this.length ? {
+                            value: this[nextIndex++],
+                            done: false
+                        } : {
+                            value: undefined,
+                            done: true
+                        }
+                    }
+                }
+            }
+        }
+
+        // 使用三点运算符, 解构赋值,默认去调用iterator接口
+        let arr2 = [1, 6]
+        let arr3 = [2, 3, 4, 5]
+        arr2 = [1, ...arr3, 6]
+        console.log(arr2);
+        let [a, b] = arr2
+        console.log(a, b);
     </script>
 </body>
 
