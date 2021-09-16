@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>09_Promise对象</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 定义获取新闻的功能函数
+        function getNews(url) {
+            let promise = new Promise((resolve, reject) => {
+                // 状态：初始化
+                // 异步执行任务
+                // 1.创建xmlHttp实例对象
+                let xmlHttp = new XMLHttpRequest();
+                // 绑定监听 readyState
+                xmlHttp.onreadystatechange = function() {
+                    if (xmlHttp.readyState === 4) { // 请求成功
+                        if (xmlHttp.status == 200) {
+                            // 修改状态
+                            resolve(xmlHttp.responseText); // 修改promise 的状态为成功状态
+                        } else { // 请求失败
+                            reject('暂时没有新闻内容'); // 修改promise的状态为失败状态
+                        }
+                    }
+                };
+                //  open 设置请求的方式以及url
+                xmlHttp.open('GET', url);
+                // 发送
+                xmlHttp.send()
+            })
+            return promise
+        }
+        getNews('http://localhost:3000/news?id=2')
+            .then((data) => {
+                console.log(data);
+                // 发送请求获取评论内容准备url
+                let commentsUrl = JSON.parse(data).commentsUrl
+                let url = 'http://localhost:3000' + commentsUrl;
+                // 发送请求
+                return getNews(url)
+            }, (error) => {
+                console.log(error);
+            })
+            .then((data) => {
+                console.log(data);
+            }, (error) => {
+                console.log(error);
+            })
+    </script>
+
+</body>
+
+</html>
