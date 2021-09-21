@@ -73,11 +73,12 @@
             $.get(url, function(data) {
                 console.log(data);
                 let url = 'http://localhost:3000' + data.commentsUrl
+                SX.next(url)
             })
         }
 
         function* sendXML() {
-            yield getNews('http://localhost:3000/news?id=3')
+            let url = yield getNews('http://localhost:3000/news?id=3')
             yield getNews(url)
         }
 
