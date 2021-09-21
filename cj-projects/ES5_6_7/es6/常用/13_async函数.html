@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>async函数</title>
+    <meta charset="UTF-8">
+    <title>async函数</title>
 </head>
+
 <body>
 
-<!--
+    <!--
   async函数(源自ES2017)
   概念： 真正意义上去解决异步回调的问题，同步流程表达异步操作
   本质： Generator的语法糖
@@ -22,12 +24,70 @@
     4、语意上更为明确，使用简单，经临床验证，暂时没有任何副作用
 
 -->
-<script type="text/javascript" src="./js/jquery-1.10.1.min.js"></script>
-<script type="text/javascript">
+    <script type="text/javascript" src="./js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        // async 基本使用
+        async function foo() {
+            return new Promise(resolve => {
+                /* setTimeout(function() {
+                    resolve()
+                }, 2000) */
+                setTimeout(resolve, 2000)
+            })
+        }
 
-    
+        /* async function test() {
+            console.log('开始执行', new Date().toTimeString());
+            await foo()
+            console.log('执行完毕', new Date().toTimeString());
+        }
+        test() */
 
-</script>
+        // async里 await的返回值
+        /* function test2() {
+            return 'xxxx'
+        }
+        async function asyncPrint() {
+            // let result = await test2()
+            // let result = await Promise.resolve()
+            let result = await Promise.resolve('promise')
+            console.log(result);
+            result = await Promise.reject('失败了')
+            console.log(result);
+        }
+        asyncPrint() */
+
+        // 获取新闻内容
+        async function getNews(url) {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    method: 'GET',
+                    // url: url, // ES6中，同名属性值可以省略不写，简写如下：
+                    url,
+                    /* success: function(data) {
+                        resolve(); // 修改成功状态：fullfilled
+                    }, */
+                    success: data => resolve(data), //箭头函数
+                    /* error: function(error) {
+                        reject(); //修改失败状态：rejected
+                    } */
+                    error: error => reject()
+                })
+            })
+        }
+
+        async function sendXML() {
+            let result = await getNews('http://localhost:3000/news?id=7')
+            console.log(result);
+            if (!result) {
+                alert('暂时没有新闻推送。。。。')
+            }
+            result = await getNews('http://localhost:3000' + result.commentsUrl) // 上面的执行成功了，才执行这个
+            console.log(result);
+        }
+        sendXML()
+    </script>
 
 </body>
+
 </html>
