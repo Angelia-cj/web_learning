@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>05_Set和Map数据结构</title>
+    <meta charset="UTF-8">
+    <title>05_Set和Map数据结构</title>
 </head>
+
 <body>
-<!--
+    <!--
 1. Set容器 : 无序不可重复的多个value的集合体
   * Set()
   * Set(array)
@@ -25,10 +27,26 @@
   * size
 -->
 
-<script type="text/javascript">
+    <script type="text/javascript">
+        let set = new Set([1, 2, 3, 4, 5, 2, 3, 6])
+        console.log(set);
+        set.add(8)
+        console.log(set.size, set);
+        console.log(set.has(8)); //true
+        console.log(set.has(7)); // false
+        set.clear()
+        console.log(set);
 
-
-</script>
+        let map = new Map([
+            ['aaa', 'username'],
+            [23, 'ddd']
+        ])
+        console.log(map);
+        map.set(78, 'haha')
+        console.log(map);
+        map.delete(78)
+        console.log(map);
+    </script>
 </body>
 
 </html>
