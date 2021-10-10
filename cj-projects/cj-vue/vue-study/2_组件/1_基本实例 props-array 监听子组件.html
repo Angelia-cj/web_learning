@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_基本实例 props-array 监听</title>
+    <style type='text/css'>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            /* text-align: center; */
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="blog-posts-event-demo" class="demo">
+        <div :style="{fontSize:postFontSize + 'em'}">
+            <blog-post v-for="post in posts" :key="post.id" :title="post.title" @enlarge-text="postFontSize += 0.1"></blog-post>
+        </div>
+        <blog-post v-for="post in posts" :key="post.id" :title="post.title"></blog-post>
+    </div>
+    <script src="../js/vue.js"></script>
+
+    <script type='text/javascript'>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    return: {
+                        posts: [{
+                            id: 1,
+                            title: 'My journey with Vue'
+                        }, {
+                            id: 2,
+                            title: 'Blogging with Vue'
+                        }, {
+                            id: 3,
+                            title: 'Why Vue is so fun'
+                        }],
+                        postFontSize: 1
+                    }
+                }
+            },
+        })
+
+        app.component('blog-post', {
+            props: ['title'],
+            template: `
+            <div class="blog-post">
+            <h4>{{title}}</h4>
+            <button @click="$emit('enlargeText')">Enlarge text</button>
+            </div>
+            `
+        })
+
+        app.$mount('blog-posts-event-demo')
+    </script>
+</body>
+
+</html>

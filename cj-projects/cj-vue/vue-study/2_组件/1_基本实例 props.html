@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2_处理用户输入</title>
+    <title>1_基本实例 props</title>
     <style type='text/css'>
         .demo {
             font-family: sans-serif;
@@ -24,12 +24,22 @@
 </head>
 
 <body>
+    <div id="blog-post-demo" class="demo">
+        <blog-post title="My journey with Vue"></blog-post>
+        <blog-post title="Blogging with Vue"></blog-post>
+        <blog-post title="Why Vue is so fun"></blog-post>
+    </div>
     <script src="../js/vue.js"></script>
 
     <script type='text/javascript'>
-        new Vue({
-            el: "#",
+        const app = Vue.createApp({})
+
+        app.component('blog-post', {
+            props: ['title'],
+            template: `<h4>{{title}}</h4>`
         })
+
+        app.$mount('blog-post-demo')
     </script>
 </body>
 
