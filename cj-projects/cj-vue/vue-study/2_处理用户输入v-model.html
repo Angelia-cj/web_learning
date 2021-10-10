@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_处理用户输入</title>
+    <style type='text/css'>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="two-way-binding" class="demo">
+        <p>{{message}}</p>
+        <input v-model="message">
+    </div>
+
+
+    <script src="./js/vue.js"></script>
+    <script type='text/javascript'>
+        new Vue({
+            el: "#two-way-binding",
+            data() {
+                return {
+                    message: "Hello Chang.jia!"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
