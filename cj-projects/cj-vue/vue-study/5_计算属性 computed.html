@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5_计算属性</title>
+    <style type='text/css'>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            text-align: center;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="computed-basics" class="demo">
+        <p>Has published books:</p>
+        <span>{{publishedBooksMessage}}</span>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script type='text/javascript'>
+        new Vue({
+            el: "#computed-basics",
+            data() {
+                return {
+                    author: {
+                        name: 'John Doe',
+                        books: [
+                            'Vue 2 - Advanced Guide',
+                            'Vue 3 - Basic Guide',
+                            'Vue 4 - The Mystery'
+                        ]
+                    }
+                }
+            },
+            computed: {
+                //计算属性是基于它们的响应依赖关系缓存的。计算属性只在相关响应式依赖发生改变时它们才会重新求值。
+                // 计算属性的 getter
+                publishedBooksMessage() {
+                    // `this` 指向 vm 实例
+                    return this.author.books.length > 0 ? 'Yes' : 'No'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
