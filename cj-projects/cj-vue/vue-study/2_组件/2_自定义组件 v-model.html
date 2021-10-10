@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_自定义组件 v-model</title>
+    <style type='text/css'>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            /* text-align: center; */
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="v-model-example" class="demo">
+        <p>First name: {{firstName}} </p>
+        <p>Last name: {{lastName}} </p>
+        <user-name v-model:first-name="firstName" v-model:last-name="lastName"></user-name>
+    </div>
+    <script src="../js/vue.js"></script>
+
+    <script type='text/javascript'>
+        const UserName = {
+            props: {
+                firstName: String,
+                lastName: String
+            },
+            template: `
+            <input type="text" :value="firstName" @input="$emit('update:firstName',$event.target.value)">
+            <input type="text" :value="lastName" @input="$emit('update:lastName',$event.target.value)">
+            `
+        }
+
+        const HelloVueApp = {
+            components: {
+                UserName,
+            },
+            data() {
+                return {
+                    firstName: 'Join',
+                    lastName: 'Doe'
+                }
+            },
+        }
+
+        Vue.createApp(HelloVueApp).mount('#v-model-example')
+    </script>
+</body>
+
+</html>
