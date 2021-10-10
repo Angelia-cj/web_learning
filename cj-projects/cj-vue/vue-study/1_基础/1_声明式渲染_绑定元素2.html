@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2_处理用户输入</title>
+    <title>1_声明式渲染_绑定元素</title>
     <style type='text/css'>
         .demo {
             font-family: sans-serif;
@@ -21,19 +21,19 @@
 </head>
 
 <body>
-    <div id="two-way-binding" class="demo">
-        <p>{{message}}</p>
-        <input v-model="message">
+    <div id="bind-attribute" class="demo">
+        <span v-bind:title="message">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
     </div>
 
-
-    <script src="./js/vue.js"></script>
+    <script src="../js/vue.js"></script>
     <script type='text/javascript'>
         new Vue({
-            el: "#two-way-binding",
+            el: "#bind-attribute",
             data() {
                 return {
-                    message: "Hello Chang.jia!"
+                    message: 'You loaded this page on' + new Date().toLocaleString()
                 }
             }
         })

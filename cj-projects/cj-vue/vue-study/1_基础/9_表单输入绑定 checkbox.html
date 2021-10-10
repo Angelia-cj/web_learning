@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8_监听事件 v-on</title>
+    <title>9_表单输入绑定 textarea</title>
     <style type='text/css'>
         .demo {
             font-family: sans-serif;
@@ -24,18 +24,26 @@
 </head>
 
 <body>
-    <div id="basic-event" class="demo">
-        <button @click="counter += 1">Add 1</button>
-        <p>The button above has been clicked {{ counter }} times.</p>
+    <div id="v-model-multiple-checkboxes" class="demo">
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames" />
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
+        <label for="mike">Mike</label>
+        <br />
+        <span>Checked names: {{ checkedNames }}</span>
     </div>
-    <script src="./js/vue.js"></script>
+
+
+    <script src="../js/vue.js"></script>
 
     <script type='text/javascript'>
         new Vue({
-            el: "#basic-event",
+            el: "#v-model-multiple-checkboxes",
             data() {
                 return {
-                    counter: 0
+                    checkedNames: []
                 }
             },
         })

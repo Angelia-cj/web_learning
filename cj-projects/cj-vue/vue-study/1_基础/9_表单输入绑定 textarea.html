@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2_处理用户输入</title>
+    <title>9_表单输入绑定 textarea</title>
     <style type='text/css'>
         .demo {
             font-family: sans-serif;
             border: 1px solid #eee;
             border-radius: 2px;
             padding: 20px 30px;
+            margin-left: 200px;
+            margin-right: 200px;
             margin-top: 1em;
             margin-bottom: 40px;
+            /* text-align: center; */
             user-select: none;
             overflow-x: auto;
         }
@@ -21,24 +24,22 @@
 </head>
 
 <body>
-    <div id="event-handling" class="demo">
-        <p>{{message}}</p>
-        <button v-on:click="reverseMessage">反转 Message</button>
+    <div id="v-model-textarea" class="demo">
+        <span>Multiline message is:</span>
+        <p style="white-space: pre-line;">{{message}}</p>
+        <br>
+        <textarea v-model="message" placeholder="add multiple lines"></textarea>
     </div>
 
 
-    <script src="./js/vue.js"></script>
+    <script src="../js/vue.js"></script>
+
     <script type='text/javascript'>
         new Vue({
-            el: "#event-handling",
+            el: "#v-model-textarea",
             data() {
                 return {
-                    message: "Hello Chang.jia!"
-                }
-            },
-            methods: {
-                reverseMessage() {
-                    this.message = this.message.split('').reverse().join('')
+                    message: ''
                 }
             },
         })

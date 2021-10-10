@@ -13,10 +13,9 @@
         Counter: {{counter}}
     </div>
 
-    <script src="./js/vue.js"></script>
+    <script src="../js/vue.js"></script>
     <script type='text/javascript'>
-        new Vue({
-            el: "#counter",
+        const Counter = {
             data() {
                 return {
                     counter: 0
@@ -27,7 +26,9 @@
                     this.counter++
                 }, 1000);
             },
-        })
+        }
+
+        Vue.createApp(Counter).mount('#counter')
     </script>
 </body>
 

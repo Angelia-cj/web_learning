@@ -5,18 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9_表单输入绑定 select-dynamic</title>
+    <title>3_条件与循环</title>
     <style type='text/css'>
         .demo {
             font-family: sans-serif;
             border: 1px solid #eee;
             border-radius: 2px;
             padding: 20px 30px;
-            margin-left: 200px;
-            margin-right: 200px;
             margin-top: 1em;
             margin-bottom: 40px;
-            /* text-align: center; */
             user-select: none;
             overflow-x: auto;
         }
@@ -24,31 +21,25 @@
 </head>
 
 <body>
-    <div id="v-model-select-dynamic" class="demo">
-        <select v-model="selected">
-            <option v-for="option in options" :value="option.value">{{option.text}}</option>
-        </select>
-        <span>Selected: {{ selected }}</span>
+    <div id="list-rendering" class="demo">
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
     </div>
-
-
-    <script src="./js/vue.js"></script>
-
+    <script src="../js/vue.js"></script>
     <script type='text/javascript'>
         new Vue({
-            el: "#v-model-select-dynamic",
+            el: "#list-rendering",
             data() {
                 return {
-                    selected: 'A',
-                    options: [{
-                        text: 'One',
-                        value: 'A'
+                    todos: [{
+                        text: 'Learn JavaScript'
                     }, {
-                        text: 'Two',
-                        value: 'B'
+                        text: 'Learn Vue'
                     }, {
-                        text: 'Three',
-                        value: 'C'
+                        text: 'Build something awesome'
                     }]
                 }
             },

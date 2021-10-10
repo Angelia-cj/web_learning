@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9_表单输入绑定 textarea</title>
+    <title>9_表单输入绑定 radio</title>
     <style type='text/css'>
         .demo {
             font-family: sans-serif;
@@ -24,26 +24,26 @@
 </head>
 
 <body>
-    <div id="v-model-multiple-checkboxes" class="demo">
-        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
-        <label for="jack">Jack</label>
-        <input type="checkbox" id="john" value="John" v-model="checkedNames" />
-        <label for="john">John</label>
-        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
-        <label for="mike">Mike</label>
+    <div id="v-model-radio" class="demo">
+        <input type="radio" id="one" value="One" v-model="picked" />
+        <label for="one">One</label>
+        <input type="radio" id="two" value="Two" v-model="picked" />
+        <label for="two">Two</label>
+        <input type="radio" id="three" value="Three" v-model="picked" />
+        <label for="three">Three</label>
         <br />
-        <span>Checked names: {{ checkedNames }}</span>
+        <span>Picked: {{ picked }}</span>
     </div>
 
 
-    <script src="./js/vue.js"></script>
+    <script src="../js/vue.js"></script>
 
     <script type='text/javascript'>
         new Vue({
-            el: "#v-model-multiple-checkboxes",
+            el: "#v-model-radio",
             data() {
                 return {
-                    checkedNames: []
+                    picked: ''
                 }
             },
         })

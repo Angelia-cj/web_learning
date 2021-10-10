@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1_声明式渲染_绑定元素</title>
+    <title>2_处理用户输入</title>
     <style type='text/css'>
         .demo {
             font-family: sans-serif;
@@ -21,21 +21,26 @@
 </head>
 
 <body>
-    <div id="bind-attribute" class="demo">
-        <span v-bind:title="message">
-            鼠标悬停几秒钟查看此处动态绑定的提示信息！
-        </span>
+    <div id="event-handling" class="demo">
+        <p>{{message}}</p>
+        <button v-on:click="reverseMessage">反转 Message</button>
     </div>
 
-    <script src="./js/vue.js"></script>
+
+    <script src="../js/vue.js"></script>
     <script type='text/javascript'>
         new Vue({
-            el: "#bind-attribute",
+            el: "#event-handling",
             data() {
                 return {
-                    message: 'You loaded this page on' + new Date().toLocaleString()
+                    message: "Hello Chang.jia!"
                 }
-            }
+            },
+            methods: {
+                reverseMessage() {
+                    this.message = this.message.split('').reverse().join('')
+                }
+            },
         })
     </script>
 </body>

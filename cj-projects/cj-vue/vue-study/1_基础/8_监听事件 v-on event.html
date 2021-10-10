@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5_计算属性</title>
+    <title>8_监听事件 v-on</title>
     <style type='text/css'>
         .demo {
             font-family: sans-serif;
             border: 1px solid #eee;
             border-radius: 2px;
             padding: 20px 30px;
+            margin-left: 200px;
+            margin-right: 200px;
             margin-top: 1em;
             margin-bottom: 40px;
-            text-align: center;
+            /* text-align: center; */
             user-select: none;
             overflow-x: auto;
         }
@@ -22,30 +24,29 @@
 </head>
 
 <body>
-    <div id="computed-basics" class="demo">
-        <p>Has published books:</p>
-        <span>{{calculateBooksMessage()}}</span>
+    <div id="event-with-method" class="demo">
+        <!-- `greet` 是在下面定义的方法名 -->
+        <button @click="greet">Greet</button>
     </div>
+    <script src="../js/vue.js"></script>
 
-    <script src="./js/vue.js"></script>
     <script type='text/javascript'>
         new Vue({
-            el: "#computed-basics",
+            el: "#event-with-method",
             data() {
                 return {
-                    author: {
-                        name: 'John Doe',
-                        books: [
-                            'Vue 2 - Advanced Guide',
-                            'Vue 3 - Basic Guide',
-                            'Vue 4 - The Mystery'
-                        ]
-                    }
+                    name: 'Vue.js'
                 }
             },
             methods: {
-                calculateBooksMessage() {
-                    return this.author.books.length > 0 ? 'Yes' : 'No'
+                greet(event) {
+                    // `methods` 内部的 `this` 指向当前活动实例
+                    alert('Hello' + this.name + '!')
+
+                    // `event` 是原生 DOM event
+                    if (event) {
+                        alert(event.target.tagName)
+                    }
                 }
             },
         })
