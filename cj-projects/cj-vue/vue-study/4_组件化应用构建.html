@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_组件化应用构建</title>
+    <style type='text/css'>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="todo-list-app" class="demo">
+        <ol>
+            <todo-list v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-list>
+        </ol>
+    </div>
+
+
+    <script src="./js/vue.js"></script>
+    <script type='text/javascript'>
+        const TodoList = {
+            data() {
+                return {
+                    groceryList: [{
+                        id: 0,
+                        text: 'Vegetables'
+                    }, {
+                        id: 1,
+                        text: 'Cheese'
+                    }, {
+                        id: 2,
+                        text: 'Whatever else humans are supposed to eat'
+                    }]
+                }
+            }
+        }
+
+        const app = Vue.createApp(TodoList)
+
+        app.component('todo-item', {
+            props: ['todo'],
+            template: `<li>{{ todo.text }}</li>`
+        })
+
+        app.mount('#todo-list-app')
+    </script>
+</body>
+
+</html>
