@@ -37,7 +37,12 @@
             }
         })
 
-        AttributeBinding.mount('#bind-attribute')
+        // AttributeBinding.mount('#bind-attribute')
+
+        // 创建实例对象
+        const vm = AttributeBinding.mount('#bind-attribute')
+
+        console.log(vm.message);
     </script>
 </body>
 
