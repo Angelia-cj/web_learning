@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6_侦听器</title>
+    <style type='text/css'>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            text-align: center;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="watch-example" class="demo">
+        <p>
+            Ask a yes/no question:
+            <input v-model="question" />
+        </p>
+        <p>{{ answer }}</p>
+    </div>
+
+    <!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
+    <!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type='text/javascript'>
+        new Vue({
+            el: "#watch-example",
+            data() {
+                return {
+                    question: '',
+                    answer: 'Questions usually contain a question mark. ;-)'
+                }
+            },
+            watch: {
+                question(newQuestion, oldQuestion) {
+                    if (newQuestion.indexOf('?') > -1) {
+                        this.getAnswer()
+                    }
+                }
+            },
+            methods: {
+                getAnswer() {
+                    this.answer = 'Thinking....'
+                    axios.get('https://yesno.wtf/api').then(res => {
+                            this.answer = res.data.answer
+                        })
+                        .catch(error => {
+                            this.answer = 'Error! Could not reach the API. ' + error
+                        })
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
