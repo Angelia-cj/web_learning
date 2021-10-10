@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9_表单输入绑定 textarea</title>
+    <style type='text/css'>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            /* text-align: center; */
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="v-model-multiple-checkboxes" class="demo">
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames" />
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
+        <label for="mike">Mike</label>
+        <br />
+        <span>Checked names: {{ checkedNames }}</span>
+    </div>
+
+
+    <script src="./js/vue.js"></script>
+
+    <script type='text/javascript'>
+        new Vue({
+            el: "#v-model-multiple-checkboxes",
+            data() {
+                return {
+                    checkedNames: []
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
