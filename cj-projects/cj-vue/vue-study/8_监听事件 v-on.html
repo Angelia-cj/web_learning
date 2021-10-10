@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8_监听事件 v-on</title>
+    <style type='text/css'>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            /* text-align: center; */
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="basic-event" class="demo">
+        <button @click="counter += 1">Add 1</button>
+        <p>The button above has been clicked {{ counter }} times.</p>
+    </div>
+    <script src="./js/vue.js"></script>
+
+    <script type='text/javascript'>
+        new Vue({
+            el: "#basic-event",
+            data() {
+                return {
+                    counter: 0
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
