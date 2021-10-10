@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7_列表渲染 v-for</title>
+    <style type='text/css'>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            margin-left: 200px;
+            margin-right: 200px;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="v-for-object" class="demo">
+        <li v-for="(value,name,index) in myObject">
+            {{index}} : {{name}} : {{value}}
+            <!-- {{name}} : {{value}} -->
+            <!-- {{value}} -->
+        </li>
+    </ul>
+
+    <script src="./js/vue.js"></script>
+    <script type='text/javascript'>
+        new Vue({
+            el: "#v-for-object",
+            data() {
+                return {
+                    myObject: {
+                        title: 'How to do lists in Vue',
+                        author: 'Jane Doe',
+                        publishedAt: '2021-10-10'
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
