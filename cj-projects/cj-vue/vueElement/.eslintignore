@@ -1,0 +1,7 @@
+/build/
+/config/
+/dist/
+/*.js
+
+/* eslint-disable */
+// eslint-disable-next-line
