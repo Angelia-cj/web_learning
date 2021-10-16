@@ -3,7 +3,8 @@ const eltable = {
     path: "table",
     component: () =>
         import ("@/pages/element/eltable/index"),
-    meta: { index: 0, title: "表格增删改" }
+    // 添加源路由，控制显示谁
+    meta: { index: 0, title: "表格增删改", showFooter: true }
 };
 
 export default eltable;
