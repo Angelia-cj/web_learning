@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5_ajax_解析json数据</title>
+    <title>6_ajax_处理IE浏览器-get请求缓存问题</title>
     <style type="text/css">
         #content {
             width: 300px;
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <h3>该页面是测试：5_ajax_解析json数据</h3>
+    <h3>该页面是测试：6_ajax_处理IE浏览器-get请求缓存问题</h3>
     <button id="btn">点我发送请求(原生js-ajax-get)</button>
     <div id="content"></div>
 
@@ -25,7 +25,7 @@
         let btn = document.getElementById('btn')
         let content = document.getElementById('content')
 
-        btn.click = () => {
+        btn.onclick = () => {
             // 创建实例xhr
             let xhr = new XMLHttpRequest()
 
@@ -38,9 +38,8 @@
                             name,
                             age,
                             sex
-                        } = JSON.parse(xhr.response) // JSON.parse() 解析为对象类型
-                            // console.log(result);
-                        content.innerHTML(`
+                        } = xhr.response // JSON.parse() 解析为对象类型
+                        content.innerHTML = (`
                         <ul>
                             <li>姓名：${name}</li>
                             <li>年龄：${age}</li>
