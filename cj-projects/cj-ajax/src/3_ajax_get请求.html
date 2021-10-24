@@ -33,21 +33,18 @@
 
             //  绑定监听
             xhr.onreadystatechange = () => {
-                if (xhr.readyState === 4) {
-                    if (xhr.status >= 200 && xhr.status <= 300) {
-                        console.log(xhr.response);
-                        content.innerHTML = `<h3>${xhr.response}</h3>`
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status <= 300) {
+                            console.log(xhr.response);
+                            content.innerHTML = `<h3>${xhr.response}</h3>`
+                        }
                     }
                 }
-            }
-
-            //#region 
-            /* 
-            1.形如：key=value&key=value 就是query参数的urlencoded编码形式
-            2.形如：/xx/xxx/小常/18 就是params参数
-            */
-            //get请求头只有2种参数：query、params
-            //#endregion
+                /* 
+                1.形如：key=value&key=value 就是query参数的urlencoded编码形式
+                2.形如：/xx/xxx/小常/18 就是params参数
+                */
+                //get请求头只有2种参数：query、params
 
             // 2.指定发送请求的：method,url,参数
             // xhr.open('GET', 'http://127.0.0.1:8080/test_get?name=小常&age=16') // 携带query参数
