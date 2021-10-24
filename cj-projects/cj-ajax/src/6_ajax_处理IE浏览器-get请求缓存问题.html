@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5_ajax_解析json数据</title>
+    <style type="text/css">
+        #content {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>该页面是测试：5_ajax_解析json数据</h3>
+    <button id="btn">点我发送请求(原生js-ajax-get)</button>
+    <div id="content"></div>
+
+    <script type="text/javascript">
+        let btn = document.getElementById('btn')
+        let content = document.getElementById('content')
+
+        btn.click = () => {
+            // 创建实例xhr
+            let xhr = new XMLHttpRequest()
+
+            // 绑定监听
+            xhr.onreadystatechange = () => {
+                // 判断监听状态
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        let {
+                            name,
+                            age,
+                            sex
+                        } = JSON.parse(xhr.response) // JSON.parse() 解析为对象类型
+                            // console.log(result);
+                        content.innerHTML(`
+                        <ul>
+                            <li>姓名：${name}</li>
+                            <li>年龄：${age}</li>
+                            <li>性别：${sex}</li>
+                        </ul>
+                        `)
+                    }
+                }
+            }
+
+            // 配置请求：指定发送的请求方式，方法，传递的参数
+            xhr.open('GET', 'http://127.0.0.1:8080/get_person')
+
+            // 自动解析为json字符串
+            // responseType：用于指定返回数据的格式
+            xhr.responseType = 'json'
+
+            // 发送请求
+            xhr.send()
+        }
+    </script>
+</body>
+
+</html>

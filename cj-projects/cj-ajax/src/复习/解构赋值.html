@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let obj = {
+            a: 1,
+            b: {
+                c: 2
+            }
+        }
+
+        /* const {
+            c
+        } = obj.b */ //标准的解构赋值
+
+        // 连续解构赋值
+        /* const {
+            b: {
+                c
+            }
+        } = obj
+        console.log(c); */
+
+        const {
+            b: {
+                c: value // 连续解构赋值 + 给c重命名 
+            }
+        } = obj
+        console.log(value);
+    </script>
+</body>
+
+</html>
