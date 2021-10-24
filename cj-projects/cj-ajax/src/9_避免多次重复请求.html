@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9_避免多次重复请求</title>
+    <style type="text/css">
+        #content {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>该页面是测试：避免多次重复请求</h3>
+    <button id="btn">点我发送请求(原生js-ajax-get)</button>
+    <div id="content"></div>
+
+    <script type="text/javascript">
+        let btn = document.getElementById('btn')
+        let btn2 = document.getElementById('btn2')
+        let content = document.getElementById('content')
+        let xhr
+        let isLoading
+        btn.onclick = () => {
+            // 取消请求
+            if (isLoading) xhr.abort()
+
+            // 创建实例xhr
+            xhr = new XMLHttpRequest()
+
+            // 绑定监听
+            xhr.onreadystatechange = () => {
+                // 判断监听状态
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        isLoading = false
+                            // 解构赋值
+                        let {
+                            name,
+                            age,
+                            sex
+                        } = xhr.response // JSON.parse() 解析为对象类型
+                        content.innerHTML = (`
+                        <ul>
+                            <li>姓名：${name}</li>
+                            <li>年龄：${age}</li>
+                            <li>性别：${sex}</li>
+                        </ul>
+                        `)
+                    }
+                }
+            }
+
+            // 配置请求：指定发送的请求方式，方法，传递的参数
+            // xhr.open('GET', 'http://127.0.0.1:8080/get_person')
+            xhr.open('GET', 'http://127.0.0.1:8080/get_person_delay')
+
+            // 自动解析为json字符串
+            // responseType：用于指定返回数据的格式
+            xhr.responseType = 'json'
+
+            // 发送请求
+            xhr.send()
+            isLoading = true
+
+        }
+    </script>
+</body>
+
+</html>

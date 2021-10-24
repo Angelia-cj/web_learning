@@ -84,5 +84,6 @@ app.listen(8080, (err) => {
         console.log('http://127.0.0.1:8080/6_ajax_处理IE浏览器-get请求缓存问题.html');
         console.log('http://127.0.0.1:8080/7_ajax请求的异常与超时处理.html');
         console.log('http://127.0.0.1:8080/8_ajax取消请求.html');
+        console.log('http://127.0.0.1:8080/9_避免多次重复请求.html');
     }
 })
