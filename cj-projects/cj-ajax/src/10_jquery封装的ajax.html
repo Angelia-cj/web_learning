@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_jQuery封装的ajax</title>
+    <style type="text/css">
+        #content {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>该页面是测试：jQuery封装的ajax</h3>
+    <button id="btn1">点我发送请求(jQuery-ajax-get)</button>
+    <button id="btn2">点我发送请求(jQuery-ajax-post)</button>
+    <div id="content"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        let btn1 = $('#btn1')
+        let btn2 = $('#btn2')
+        let content = $('#content')
+
+        btn1.click(() => {
+            //使用jQuery发送ajax-get请求（完整版写法）
+            $.ajax({
+                url: "http://127.0.0.1:8080/test_jquery_get", // 请求地址
+                method: "GET", // 请求方式(默认值是GET)
+                data: { // 携带的数据
+                    school: 'TingHua'
+                },
+                dataType: "json", //配置响应数据格式
+                timeout: 2000, // 超时处理（指定超时的时间）
+                success: (result, responseText, xhr) => { // 有三个参数，一般只用第一个参数
+                    console.log(result, responseText, xhr);
+                    content.append(`<div>汽车名：${result.name},价格名：${result.price}</div>`)
+                }, //成功的回调
+                error: (xhr) => {
+                        console.log("请求出错了！", xhr);
+                    } // 失败的回调
+            })
+
+            //使用jQuery发送ajax-get请求（精简版写法）
+            /* $.get('http://127.0.0.1:8080/test_jquery_get', {
+                school: 'TingHua' // query参数
+            }, (data) => {
+                console.log(data);
+                content.append(`<div>汽车名：${data.name},价格名：${data.price}</div>`)
+            }, 'json') */
+
+            /* $.get('http://127.0.0.1:8080/test_jquery_get/TingHua', { // params参数
+            }, (data) => {
+                console.log(data);
+                content.append(`<div>汽车名：${data.name},价格名：${data.price}</div>`)
+            }, 'json') */
+        })
+
+        btn2.click(() => {
+            //使用jQuery发送ajax-post请求（完整版写法）
+            $.ajax({
+                url: "http://127.0.0.1:8080/test_jquery_post", // 请求地址
+                method: "POST", // 请求方式(默认值是GET)
+                data: { // 携带的数据
+                    school: 'TingHua'
+                },
+                dataType: "json", //配置响应数据格式
+                timeout: 2000, // 超时处理（指定超时的时间）
+                success: (result, responseText, xhr) => { // 有三个参数，一般只用第一个参数
+                    console.log(result, responseText, xhr);
+                    content.append(`<div>汽车名：${result.name},价格名：${result.price}</div>`)
+                }, //成功的回调
+                error: (xhr) => {
+                        console.log("请求出错了！", xhr);
+                    } // 失败的回调
+            })
+
+            //使用jQuery发送ajax-post请求（精简版写法）
+            /* $.post('http://127.0.0.1:8080/test_jquery_post', {
+                school: 'TingHua' // query参数
+            }, (data) => {
+                console.log(data);
+                content.append(`<div>汽车名：${data.name},价格名：${data.price}</div>`)
+            }, 'json') */
+
+            /* $.post('http://127.0.0.1:8080/test_jquery_post/TingHua', { // params参数
+            }, (data) => {
+                console.log(data);
+                content.append(`<div>汽车名：${data.name},价格名：${data.price}</div>`)
+            }, 'json') */
+        })
+    </script>
+</body>
+
+</html>
