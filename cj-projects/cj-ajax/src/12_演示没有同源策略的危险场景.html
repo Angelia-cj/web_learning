@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_演示没有同源策略的危险场景</title>
+</head>
+
+<body>
+    <iframe id="baidu" src="https://www.baidu.com"></iframe>
+
+    <script type="text/javascript">
+        let iframe = window.frames['baidu']
+            // console.log(iframe);
+        let inputNode = iframe.document.getElementById('输入敏感信息的input的id')
+        console.log(inputNode.value)
+    </script>
+</body>
+
+</html>
