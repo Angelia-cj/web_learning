@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_jquery封装的jsonp</title>
+</head>
+
+<body>
+    <h3>当前页面一定不要用服务器去打开,因为要制作跨域问题,用jquery封装的jsonp去解决</h3>
+    <button id="btn">点我获取数据</button>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        let btn = $('#btn')
+        btn.click(() => {
+            // 第一个?:携带查询字符串参数(query参数)  第二个?:占位符,query参数值,jQuery知道该值
+            $.getJSON('http://127.0.0.1:8080/test_jsonp?callback=?', {}, (data) => {
+                console.log(data);
+            })
+        })
+    </script>
+</body>
+
+</html>

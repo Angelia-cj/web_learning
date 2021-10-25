@@ -91,6 +91,7 @@ app.get('/test_jsonp', (request, response) => {
     // response.send(alert(1))
     // 解构赋值
     let { callback } = request.query // 等价于 let a = request.query.a
+    console.log(callback);
     let person = [{ name: 'tom', age: 17 }, { name: 'Jim', age: 16 }]
 
     // 动态获取函数名
