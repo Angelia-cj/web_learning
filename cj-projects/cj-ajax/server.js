@@ -86,6 +86,18 @@ app.post('/test_jquery_post', (request, response) => {
     response.send(JSON.stringify(car))
 })
 
+// 响应get请求 --- jsonp
+app.get('/test_jsonp', (request, response) => {
+    // response.send(alert(1))
+    // 解构赋值
+    let { callback } = request.query // 等价于 let a = request.query.a
+    let person = [{ name: 'tom', age: 17 }, { name: 'Jim', age: 16 }]
+
+    // 动态获取函数名
+    response.send(`${callback}(${JSON.stringify(person)})`)
+})
+
+
 // 监听
 app.listen(8080, (err) => {
     if (!err) {
@@ -101,5 +113,6 @@ app.listen(8080, (err) => {
         console.log('http://127.0.0.1:8080/9_避免多次重复请求.html');
         console.log('http://127.0.0.1:8080/10_jQuery封装的ajax.html');
         console.log('http://127.0.0.1:8080/11_演示回调地狱.html');
+        // console.log('http://127.0.0.1:8080/11_演示回调地狱.html');
     }
 })

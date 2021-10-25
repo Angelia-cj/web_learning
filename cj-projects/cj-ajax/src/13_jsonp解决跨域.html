@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13_jsonp解决跨域</title>
+</head>
+
+<body>
+    <h3>当前页面一定不要用服务器去打开,因为要制作跨域问题,用jsonp去解决</h3>
+    <button id="btn">点我获取数据</button>
+
+    <script type="text/javascript">
+        // function demo(data) {
+        //     console.log(data);
+        // }
+
+        // 有一种前端定义函数,后端调用函数的感觉
+        let btn = document.getElementById('btn')
+        btn.onclick = () => {
+            // 1.创建script节点
+            let scriptNode = document.createElement('script')
+
+            // 2.给节点指定src属性(请求地址)
+            scriptNode.src = 'http://127.0.0.1:8080/test_jsonp?callback=demo'
+
+            // 3.将节点放入页面
+            document.body.appendChild(scriptNode)
+
+            // 4.准备好一个函数
+            window.demo = (callback) => {
+                console.log(callback);
+            }
+
+            // 5.移除已经使用过的script节点
+            document.body.removeChild(scriptNode)
+        }
+    </script>
+    <!-- <script type="text/javascript" src="http://127.0.0.1:8080/test_jsonp"></script> -->
+
+</body>
+
+</html>
