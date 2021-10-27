@@ -1,0 +1,55 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-10-27 14:50:01
+ * @LastEditTime: 2021-10-27 16:23:05
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \cj-React\ruanyifeng\5_demo.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7_获取真实的DOM节点</title>
+    <script src="./build/react.development.js"></script>
+    <script src="./build/react-dom.development.js"></script>
+    <script src="./build/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="demo"></div>
+
+    <script type="text/babel">
+        class MyComponent extends React.Component {
+            constructor(props) {
+                super(props)
+                this.myTextInput = React.createRef();
+                this.handleClick = this.handleClick.bind(this)
+            }
+
+            handleClick(){ 
+                this.myTextInput.current.focus()
+            }
+
+            render() { 
+                return(
+                    <div>
+                        <input type="text" ref={this.myTextInput} />
+                        <input type="button" value="Focus the text input" onClick={this.handleClick} />
+                    </div> 
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <MyComponent />,
+            document.getElementById('demo')
+        )
+
+    </script>
+</body>
+
+</html>
