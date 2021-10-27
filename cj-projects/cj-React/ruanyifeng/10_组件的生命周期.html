@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-27 14:50:01
- * @LastEditTime: 2021-10-27 16:50:44
+ * @LastEditTime: 2021-10-27 17:05:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \cj-React\ruanyifeng\5_demo.html
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9_表单</title>
+    <title>10_组件的生命周期</title>
     <script src="./build/react.development.js"></script>
     <script src="./build/react-dom.development.js"></script>
     <script src="./build/babel.min.js"></script>
@@ -23,37 +23,39 @@
     <div id="demo"></div>
 
     <script type="text/babel">
-    // 定义组件
-        class Input extends React.Component{
-            // 定义数据
+        class Hello extends React.Component{
             constructor(props){
                 super(props)
                 this.state = {
-                    value: "hello!"
+                    opacity: 1.0
                 }
-                this.handleClick = this.handleClick.bind(this)
             }
 
             // 函数体
-            handleClick(event){
-                // event.target.value 读取用户输入的值
-                this.setState({value: event.target.value})
+            componentDidMount(){
+                this.timer = setInterval(function () {  
+                    var opacity =this.state.opacity
+                    opacity -= 0.5
+                    if (opacity < 0.1) {
+                        opacity = 1.0
+                    }
+                    this.setState({opacity:opacity})
+                }.bind(this),100)
             }
+
             // 渲染
             render(){
-                var value = this.state.value
                 return(
-                    <div>
-                        <input type="text" value={value} onClick={this.handleClick} />
-                        <p> {value} </p>    
+                    // React 组件样式是一个对象，所以第一重大括号表示这是 JavaScript 语法，第二重大括号表示样式对象
+                    <div style={{opacity: this.state.opacity}}>
+                        Hello {this.props.name}
                     </div>
                 )
             }
         }
 
-        // 调用react
         ReactDOM.render(
-            <Input />,
+            <Hello name="world"/>,
             document.getElementById('demo')
         )
 
