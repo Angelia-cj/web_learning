@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-27 14:50:01
- * @LastEditTime: 2021-10-27 17:09:00
+ * @LastEditTime: 2021-10-27 17:27:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \cj-React\ruanyifeng\5_demo.html
@@ -13,49 +13,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10_组件的生命周期</title>
+    <title>11_ajax</title>
     <script src="./build/react.development.js"></script>
     <script src="./build/react-dom.development.js"></script>
     <script src="./build/babel.min.js"></script>
+    <script src="./build/jquery.min.js"></script>
 </head>
 
 <body>
     <div id="demo"></div>
 
     <script type="text/babel">
-        class Hello extends React.Component{
+        class UserGist extends React.Component{
             constructor(props){
                 super(props)
                 this.state = {
-                    opacity: 1.0
+                    userName: '',
+                    lastGistUrl:''
                 }
             }
 
-            // 函数体
-            componentDidMount(){
-                this.timer = setInterval(function () {  
-                    var opacity =this.state.opacity
-                    opacity -= 0.5
-                    if (opacity < 0.1) {
-                        opacity = 1.0
-                    }
-                    this.setState({opacity:opacity})
-                }.bind(this),100)
+            // 进入状态之后挂载
+            componentDidMount() {
+                $.get(this.props.source, function(result) {
+                    var lastGist = result[0];
+                        this.setState({
+                            username: lastGist.owner.login,
+                            lastGistUrl: lastGist.html_url
+                        });
+                    }.bind(this));
             }
 
             // 渲染
             render(){
-                return(
-                    // React 组件样式是一个对象，所以第一重大括号表示这是 JavaScript 语法，第二重大括号表示样式对象
-                    <div style={{opacity: this.state.opacity}}>
-                        Hello {this.props.name}
+                return (
+                    <div>
+                        {this.state.username}'s last gist is <a href={this.state.lastGistUrl}>here</a>.
                     </div>
-                )
+                );
             }
         }
 
         ReactDOM.render(
-            <Hello name="world"/>,
+            <UserGist source="https://api.github.com/users/octocat/gists"/>,
             document.getElementById('demo')
         )
 
