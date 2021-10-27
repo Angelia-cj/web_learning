@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>初始React</title>
+    <title>2_demo</title>
     <!-- <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
     <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
     <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js "></script> -->
@@ -21,8 +21,12 @@
     <div id="demo"></div>
 
     <script type="text/babel">
-        ReactDOM.render(
-        <h1>Hello,World!</h1>, document.getElementById("demo") );
+        var names=['Alice','Emily','Kate']; ReactDOM.render(
+        <div>
+            { names.map(function (name,index) { return
+            <div key={index}> Hello,{name}!</div>
+            }) }
+        </div>, document.getElementById('demo') );
     </script>
 </body>
 
