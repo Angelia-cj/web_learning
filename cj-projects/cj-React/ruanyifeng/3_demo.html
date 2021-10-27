@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3_demo</title>
+    <script src="./build/react.development.js"></script>
+    <script src="./build/react-dom.development.js"></script>
+    <script src="./build/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="demo"></div>
+
+    <script type="text/babel">
+        var arr=[
+        <h1>Hello World!</h1>,
+        <h2>Welcome to React!</h2>
+        ]; ReactDOM.render(
+        <div>{arr}</div>, document.getElementById('demo') )
+
+    </script>
+</body>
+
+</html>
