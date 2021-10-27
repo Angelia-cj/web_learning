@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象类型转换成url</title>
+</head>
+<body>
+  <script type="text/javascript">
+      const data = {page:1,count:2,type:'video'}
+	    let str = '' 
+	    for (let key in data) {
+			  str += `${key}=${data[key]}&` // page=1&count=2&type=video
+	    }
+	    console.log(str.splice(0,-1));
+  </script>
+</body>
+</html>
