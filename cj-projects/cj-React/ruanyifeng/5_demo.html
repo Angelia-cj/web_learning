@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_demo</title>
+    <script src="./build/react.development.js"></script>
+    <script src="./build/react-dom.development.js"></script>
+    <script src="./build/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="demo"></div>
+
+    <script type="text/babel">
+        /* var HelloMessage=React.createClass({ render:function(){ return
+        <h1>Hello {this.props.name}</h1>
+        } }); */ class HelloMessage extends React.Component{ render(){ return
+        <h1>Hello {this.props.name}</h1>
+        } } ReactDOM.render(
+        <HelloMessage name="Join" />, document.getElementById('demo') )
+
+    </script>
+</body>
+
+</html>
