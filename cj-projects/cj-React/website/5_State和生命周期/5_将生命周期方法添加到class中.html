@@ -1,0 +1,81 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-10-28 15:32:44
+ * @LastEditTime: 2021-10-28 17:05:01
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \cj-React\website\5_State和生命周期\5_封装Clock组件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5_将生命周期方法添加到class中</title>
+  <script src="../js/react.development.js"></script>
+  <script src="../js/react-dom.development.js"></script>
+  <script src="../js/babel.min.js"></script>
+</head>
+<body>
+  <!-- 
+    1.state 是私有的，并且完全受控于当前组件。
+    2.Class 组件应该始终使用 props 参数来调用父类的构造函数。
+  -->
+  <div id="root"></div>
+
+  <script type="text/babel">
+    /* 
+        1、当 Clock 组件第一次被渲染到 DOM 中的时候，就为其设置一个计时器。这在 React 中被称为“挂载（mount）”
+        2、当 DOM 中 Clock 组件被删除的时候，应该清除计时器。这在 React 中被称为“卸载（unmount）”。
+        3、不要直接修改 State
+            ①.构造函数是唯一可以给 this.state 赋值的地方
+        4、State 的更新可能是异步的
+        5、State 的更新会被合并
+        
+    */
+      // class组件
+      class Clock extends React.Component{
+        // class构造函数：将props传递到父类的构造函数中
+        constructor(props) {
+          super(props)
+          this.state = {date: new Date()}
+        }
+
+        // 挂载：componentDidMount() 方法会在组件已经被渲染到 DOM 中后运行
+        componentDidMount() {
+          this.timerID = setInterval(
+            () => this.tick(),
+            1000
+          )
+        }
+
+        // 卸载：componentWillUnmount() 生命周期方法中清除计时器
+        componentWillUnmount() {
+          clearInterval(this.timerID)
+        }
+
+        // tick()方法，Clock 组件每秒都会调用它
+        tick(){
+          this.setState({date: new Date()})
+        }
+        
+        render(){
+          return(
+            <div>
+              <h1>Hello, ChangJia !</h1>
+              <h2>It is {this.state.date.toLocaleTimeString()}.</h2>  
+            </div>
+          )
+        }
+      }
+
+      ReactDOM.render(
+        <Clock />,
+        document.getElementById('root')
+      )  
+      
+  </script>
+  
+</body>
+</html>

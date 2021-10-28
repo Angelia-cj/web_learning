@@ -1,0 +1,48 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-10-28 15:32:44
+ * @LastEditTime: 2021-10-28 15:41:15
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \cj-React\website\5_State和生命周期\5_封装Clock组件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5_封装Clock组件</title>
+  <script src="../js/react.development.js"></script>
+  <script src="../js/react-dom.development.js"></script>
+  <script src="../js/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+      // 函数组件
+      function Clock(props) {
+          return(
+            <div>
+              <h1>Hello, ChangJia !</h1>
+              <h2>It is {props.date.toLocaleTimeString()}.</h2>  
+            </div>
+          )
+      }
+
+      // 封装
+      function tick() {
+        // 渲染
+        ReactDOM.render(
+          <Clock date={new Date()}/>,
+          document.getElementById('root')
+        )  
+      }
+
+      setInterval(tick, 1000);
+      
+  </script>
+  
+</body>
+</html>

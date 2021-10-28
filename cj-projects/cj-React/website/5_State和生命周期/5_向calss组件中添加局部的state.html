@@ -1,0 +1,60 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-10-28 15:32:44
+ * @LastEditTime: 2021-10-28 16:17:44
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \cj-React\website\5_State和生命周期\5_封装Clock组件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5_向class组件中添加局部的state</title>
+  <script src="../js/react.development.js"></script>
+  <script src="../js/react-dom.development.js"></script>
+  <script src="../js/babel.min.js"></script>
+</head>
+<body>
+  <!-- 
+    1.state 是私有的，并且完全受控于当前组件。
+    2.Class 组件应该始终使用 props 参数来调用父类的构造函数。
+  -->
+  <div id="root"></div>
+
+  <script type="text/babel">
+    /*  
+      通过以下三步将 date 从 props 移动到 state 中：
+        1、把 render() 方法中的 this.props.date 替换成 this.state.date
+        2、添加一个 class 构造函数，然后在该函数中为 this.state 赋初值
+        3、移除 <Clock /> 元素中的 date 属性
+    */
+      // class组件
+      class Clock extends React.Component{
+        // class构造函数：将props传递到父类的构造函数中
+        constructor(props) {
+          super(props)
+          this.state = {date: new Date()}
+        }
+        
+        render(){
+          return(
+            <div>
+              <h1>Hello, ChangJia !</h1>
+              <h2>It is {this.state.date.toLocaleTimeString()}.</h2>  
+            </div>
+          )
+        }
+      }
+
+      ReactDOM.render(
+        <Clock />,
+        document.getElementById('root')
+      )  
+      
+  </script>
+  
+</body>
+</html>
