@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSX_babel</title>
+  <script src="../js/react.development.js"></script>
+  <script src="../js/react-dom.development.js"></script>
+  <script src="../js/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+      // Babel 会把 JSX 转译成一个名为 React.createElement() 函数调用
+
+      // JSX 里的 class 变成了 className
+      const element1 = (
+          <h1 className="greeting">
+            Hello, world!
+          </h1>
+      ) 
+      // 等价于
+      const element2 = React.createElement(
+          'h1',
+          {className: 'greeting'}, 
+          'Hello, world!'
+      )
+      // React.createElement() 会预先执行一些检查，以帮助你编写无错代码，但实际上它创建了一个这样的对象
+      const element = {
+        type: 'h1',
+        props: {
+          className: 'greeting',
+          children: 'Hello, world!'
+        }
+      }
+      
+      ReactDOM.render(
+        element,
+        document.getElementById('root')
+      )
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSX_指定属性</title>
+  <script src="../js/react.development.js"></script>
+  <script src="../js/react-dom.development.js"></script>
+  <script src="../js/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+      // JSX 标签里能够包含很多子元素:
+      const element = (
+        // tabindex 变为 tabIndex
+        <div tabIndex="0"></div>,
+        <img src={user.avatarUrl}></img>,
+
+        <div>
+          <h1>Hello!</h1>
+          <h2>Good to see you here.</h2>
+        </div>
+      )
+
+      // const element1 = <div tabIndex="0"></div>
+
+      // const element2 = <img src={user.avatarUrl}></img>
+
+      ReactDOM.render(
+        element1,
+        element2,
+        document.getElementById('root')
+      )
+  </script>
+</body>
+</html>
