@@ -1,0 +1,50 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-10-28 14:22:51
+ * @LastEditTime: 2021-10-28 14:50:08
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \cj-React\website\4_组件和Props\4_函数组件与class组件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4_渲染组件</title>
+  <script src="../js/react.development.js"></script>
+  <script src="../js/react-dom.development.js"></script>
+  <script src="../js/babel.min.js"></script>
+</head>
+<body>
+  <!-- 
+    渲染组件：
+      1.当 React 元素为用户自定义组件时，它会将 JSX 所接收的属性（attributes）以及子组件（children）转换为单个对象传递给组件，
+      这个对象被称之为 “props”。
+      2.组件名称必须以大写字母开头。
+  --> 
+  <div id="root"></div>
+
+  <script type="text/babel">
+      // class组件 
+      /* class Welcome extends React.Component{
+        render(){
+          return <h1>Hello, {this.props.name}</h1>
+        }
+      } */
+      // 等价于  函数组件
+      function Welcome(props) {
+          return <h1>Hello, {props.name} !</h1>
+      }
+
+      const element = <Welcome name = "Chang jia" />
+
+      ReactDOM.render(
+        element,
+        document.getElementById("root")
+      )
+  </script>
+
+</body>
+</html>

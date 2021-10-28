@@ -1,0 +1,55 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-10-28 14:22:51
+ * @LastEditTime: 2021-10-28 14:49:30
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \cj-React\website\4_组件和Props\4_函数组件与class组件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4_组合组件</title>
+  <script src="../js/react.development.js"></script>
+  <script src="../js/react-dom.development.js"></script>
+  <script src="../js/babel.min.js"></script>
+</head>
+<body>
+  <!-- 
+      组合组件：
+        1.组件可以在其输出中引用其他组件。
+        2.按钮，表单，对话框，甚至整个屏幕的内容：在 React 应用程序中，这些通常都会以组件的形式表示。
+  --> 
+  <div id="root"></div>
+
+  <script type="text/babel">
+      // 创建一个可以多次渲染 Welcome 组件的 App 组件：
+      function App() {
+          return(
+            <div>
+              <Welcome name = "Chang jia" />
+              <Welcome name = "Chang bing" />
+              <Welcome name = "Chang niu" />
+              <Welcome name = "Chang zhu" />
+            </div>
+          )
+      }
+      
+      // 函数组件
+      function Welcome(props) {
+          return <h1>Hello, {props.name} !</h1>
+      }
+
+      // const element = <Welcome name = "Chang jia" />
+
+      ReactDOM.render(
+        <App />,
+        document.getElementById('root')
+      )
+  </script>
+
+</body>
+</html>
