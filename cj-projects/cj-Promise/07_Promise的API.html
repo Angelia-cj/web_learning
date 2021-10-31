@@ -10,7 +10,7 @@
 					executor函数: 是同步执行的，(resolve, reject) => {}
 					resolve函数: 调用resolve将Promise实例内部状态改为成功(fulfilled)。
 					reject函数: 调用reject将Promise实例内部状态改为失败(rejected)。
-					说明: excutor函数会在Promise内部立即同步调用,异步代码放在excutor函数中。
+					说明: executor函数会在Promise内部立即同步调用,异步代码放在executor函数中。
 
     2. Promise.prototype.then方法: Promise实例.then(onFulfilled,onRejected)
 					onFulfilled: 成功的回调函数 (value) => {}

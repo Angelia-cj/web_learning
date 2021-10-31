@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-10-31 16:21:43
+ * @LastEditTime: 2021-10-31 16:33:16
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \cj-Promise\8_Promise的几个关键问题1.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8_Promise的几个关键问题1</title>
+</head>
+<body>
+  <!-- 
+    1.如何该百年一个Promise实例的状态？
+      ① 执行resolve(value)：如果当前是pending就会变成fulfilled
+      ② 执行reject(value)：如果当前是pending就会变成rejected
+      ③ 执行器函数(executor)抛出异常：如果当前是pending就会变成rejected
+  -->
+
+  <script type="text/javascript">
+      const promise = new Promise((resolve,reject)=>{
+        /* setTimeout(() => {
+          // resolve('a')
+          reject('a')
+        }, 1000); */
+        // resolve(800)
+        console.log(a); // 引擎抛异常
+        // throw 900 // 编码抛异常
+      })
+
+      promise.then(
+        value =>{console.log('成功了！',value);},
+        reason =>{console.log('失败了！',reason);}
+      )
+  </script>
+</body>
+</html>
