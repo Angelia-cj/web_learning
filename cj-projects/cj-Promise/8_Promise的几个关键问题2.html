@@ -1,0 +1,55 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-10-31 16:21:43
+ * @LastEditTime: 2021-10-31 16:48:51
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \cj-Promise\8_Promise的几个关键问题1.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8_Promise的几个关键问题2</title>
+</head>
+<body>
+  <!-- 
+    改变Promise实例的状态和指定回调函数谁先谁后？
+      1.都有可能，正常情况下是先指定回调函数再改变状态，但也可以先改变状态再改变指定回调
+      2.如何先改变状态再指定回调？
+        延迟一会再调用then()
+      3.Promise实例什么时候才能得到数据？
+        如果先指定的回调，那当状态发生改变时，回调函数就会调用，得到数据
+        如果先改变的状态，那当指定回调时，回调函数就会调用，得到数据
+  -->
+
+  <script type="text/javascript">
+      // 先指定回调，后改变状态(最常见)
+      /* const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('a')
+        }, 1000);
+      })
+
+      promise.then(
+        value => {console.log('成功了',value)},
+        reason => {console.log('失败了',reason)}
+      ) */
+
+      // 先改变状态，后指定回调
+      /* const promise = new Promise((resolve, reject) => {
+        resolve('a')
+      })
+
+      setTimeout(() => {
+        promise.then(
+          value => {console.log('成功了',value)},
+          reason => {console.log('失败了',reason)}
+        )
+      }, 2000); */
+      
+  </script>
+</body>
+</html>
