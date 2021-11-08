@@ -1,0 +1,63 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-11-05 20:31:39
+ * @LastEditTime: 2021-11-08 12:16:10
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \cj-axios\src\4_axios中的拦截器.htm
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>axios中的拦截器</title>
+    <script type="text/javascript" src="./js/axios.min.js"></script>
+  </head>
+  <body>
+    <button class="btn">点我获取所有人</button>
+    <!-- 
+				axios请求拦截器
+					1.是什么？
+							在真正发请求前执行的一个回调函数
+					2.作用：
+							对所有的请求做统一的处理：追加请求头、追加参数、界面loading提示等等
+				
+				axios响应拦截器
+					1.是什么？
+							得到响应之后执行的一组回调函数
+					2.作用：
+							若请求成功，对成功的数据进行处理
+							若请求失败，对失败进行统一的操作
+		-->
+    <script type="text/javascript">
+			const btn = document.getElementById('btn')
+
+			// 请求拦截器：接收一个配置对象，并返回配置对象
+			axios.interceptors.request.use((config)=>{
+				if (Date.now() % 2 === 0) {
+					config.headers.token = 'xxxxx'
+				}
+				return config
+			})
+
+			// 响应拦截器
+			axios.interceptors.response.use(
+				response => {
+					console.log("响应拦截器成功的回调执行了！",response);
+					if (Date.now() % 2 === 0) return response.data 
+					else return "时间戳时偶数，不能给你数据！"
+				},
+				error => {
+					console.log("响应拦截器成功的回调执行了！",error);
+					alert(error)
+					return new Promise(()=>{})
+				}
+			)
+
+			btn.onclick = async() => {
+				const result = await axios.get('http://localhost:5000/persons')
+				console.log(result);
+			}
+    </script>
+  </body>
+</html>
