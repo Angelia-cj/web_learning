@@ -1,0 +1,31 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-17 13:29:59
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-17 14:21:16
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>HJ86 求最大连续bit数</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let num = '01010101111110001100'
+    let result = num.match(/1+/g)
+    console.log(result) // 数组
+    console.log(result.length); // 数字
+    console.log(...result); // 数组
+    let max = Math.max(...result) // 数字
+    console.log(max);
+    console.log((max + '').length);
+    console.log((max + '')); // 数组
+  </script>
+</body>
+
+</html>

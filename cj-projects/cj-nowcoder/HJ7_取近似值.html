@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ7_取近似值</title>
+</head>
+<body>
+  <!-- 
+    描述
+      写出一个程序，接受一个正浮点数值，输出该数值的近似整数值。如果小数点后数值大于等于 0.5 ,向上取整；小于 0.5 ，则向下取整。
+
+    数据范围：保证输入的数字在 32 位浮点数范围内
+    输入描述：
+    输入一个正浮点数值
+
+    输出描述：
+    输出该数值的近似整数值
+
+    round():四舍五入
+    ceil():向上取整
+    floor():向下取整
+  -->
+
+  <input type="text" id="float_num" placeholder="请输入一个正浮点数值">
+  <button id="btn">确定</button>
+
+  <script type="text/javascript" >
+    const btn = document.getElementById('btn')
+    const floatNum = document.getElementById("float_num")
+
+    btn.onclick = () =>{
+      // 
+      const result = Math.round(floatNum.value)
+      console.log(result);
+    }
+
+  </script>
+</body>
+</html>

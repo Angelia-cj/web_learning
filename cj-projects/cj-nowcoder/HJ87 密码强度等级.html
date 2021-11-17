@@ -1,0 +1,122 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-17 14:21:42
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-17 16:18:06
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ87 密码强度等级</title>
+</head>
+<script type="text/javascript">
+  // let str = '38$@NoNoNo'
+  // let str = '123'
+  let str = '~^2s8,.'
+
+  // console.log(str.length); // 数字 10
+  // let digit = str.match(/\d/g)
+  // console.log(digit); // 数组 
+  // console.log(digit.length); // 2
+  // let letter = str.match(/[A-Z]/g)
+  // console.log(letter);
+  // let lower = str.match(/[a-z]/g)
+  // console.log(lower);
+  // let mixin = str.match(/[a-zA-Z]/g)
+  // console.log(mixin);
+  // let symbol = str.match(/[\W|^_]/g)
+  // console.log(symbol);
+  let len = str.length
+  let num = str.match(/[0-9]/g)
+  let number
+  if (num !== null) {
+    number = num.length
+  }
+  let daxie = str.match(/[A-Z]/g)
+  let letter
+  if (daxie !== null) {
+    letter = daxie.length
+  }
+  let xiaoxie = str.match(/[a-z]/g)
+  let lower
+  if (xiaoxie !== null) {
+    lower = xiaoxie.length
+  }
+  // let mix = str.match(/[a-zA-Z]/g)
+  // let mixin
+  // if (mix !== null) {
+  //   mixin = mix.length
+  // }
+  let fuhao = str.match(/[\W|^_]/g)
+  let symbol
+  if (fuhao !== null) {
+    symbol = fuhao.length
+  }
+
+  let score
+  let letterScore
+  let numScore
+  let symbolScore
+  let s
+
+  // 判断密码的长度
+  if (len > 0 && len <= 4) score = 5
+  else if (len >= 5 && len <= 7) score = 10
+  else score = 25
+  console.log(score);
+
+  // 判断字母个数
+  if (letter > 0 && lower > 0) letterScore = 20
+  else if ((letter > 0 && xiaoxie === null) || (daxie === null && lower > 0)) letterScore = 10
+  else letterScore = 0
+  console.log(letterScore);
+
+  // 判断数字的个数
+  if (number > 1) numScore = 20
+  else if (number === 1) numScore = 10
+  else numScore = 0
+  console.log(numScore);
+
+  //判断符号的个数
+  if (symbol > 1) symbolScore = 25
+  else if (symbol === 1) symbolScore = 10
+  else symbolScore = 0
+  console.log(symbolScore);
+
+  // 奖励
+  if ((letter > 0 && number > 0 && fuhao === null) || (lower > 0 && number > 0) && fuhao === null) s = 2
+  else if (letter > 0 && lower > 0 && number > 0 && symbol > 0) s = 5
+  else if ((letter > 0 && number > 0 && symbol > 0) || (lower > 0 && number > 0 && symbol > 0)) s = 3
+  else s = 0
+  console.log(s);
+
+  let result = score + letterScore + numScore + symbolScore + s
+  console.log(result);
+
+  if (result >= 0 && result < 25) {
+    console.log('VERY_WEAK')
+  } else if (result >= 25 && result < 50) {
+    console.log('WEAK')
+  } else if (result >= 50 && result < 60) {
+    console.log('AVERAGE')
+  } else if (result >= 60 && result < 70) {
+    console.log('STRONG')
+  } else if (result >= 70 && result < 80) {
+    console.log('VERY_STRONG')
+  } else if (result >= 80 && result < 90) {
+    console.log('SECURE')
+  } else {
+    console.log('VERY_SECURE')
+  }
+</script>
+
+<body>
+
+</body>
+
+</html>
