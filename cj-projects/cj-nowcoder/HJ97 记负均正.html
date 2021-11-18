@@ -1,0 +1,37 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-18 15:11:24
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-18 15:27:46
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ97 记负均正</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let arr = str.split(' ')
+    let count = 0
+    let sum = 0;
+    let c = 0
+    let avg
+    arr.forEach(item => item < 0 ? count++ : 0)
+    arr.forEach(item => {
+      if (item > 0) {
+        c++
+        sum += parseInt(item)
+        avg = (sum / c).toFixed(1) // 小数的个数
+      }
+    })
+    console.log(count, avg);
+  </script>
+</body>
+
+</html>
