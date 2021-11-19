@@ -3,7 +3,7 @@
  * @Author: changjia
  * @Date: 2021-11-19 14:02:06
  * @LastEditors: changjia
- * @LastEditTime: 2021-11-19 14:17:45
+ * @LastEditTime: 2021-11-19 14:21:47
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@
     let k = 0
 
     function fn(num) {
-      for (let i = 2; i <= Math.sqrt(num); i++) {
+      for (let i = 2; i <= Math.sqrt(num); i++) { // 质因子的范围为2到√X
         if (num % i === 0) {
           arr.push(i)
           num = num / i
