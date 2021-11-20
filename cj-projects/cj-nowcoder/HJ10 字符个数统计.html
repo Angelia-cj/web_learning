@@ -1,0 +1,33 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-20 21:33:05
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-20 21:39:55
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ10 字符个数统计</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let str = 'absba'
+    console.log(str.split('')); // ['a', 'b', 's', 'b', 'a']
+    console.log(str.split(' ')); // ['absba']
+    let arr = []
+    str.split('').forEach((item, index) => {
+      if (arr.indexOf(item) === -1) {
+        arr.push(item)
+      }
+    })
+    console.log(arr.length)
+  </script>
+</body>
+
+</html>
