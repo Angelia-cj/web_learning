@@ -3,7 +3,7 @@
  * @Author: changjia
  * @Date: 2021-11-21 18:52:05
  * @LastEditors: changjia
- * @LastEditTime: 2021-11-21 20:57:49
+ * @LastEditTime: 2021-11-21 21:32:10
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +36,7 @@
           a = 'a'
         } else {
           a = a.toLowerCase().charCodeAt(0) + 1 * 1
-          a = String.fromCharCode(a)
+          a = String.fromCharCode(a) // fromCharCode() 可接受一个指定的 Unicode 值，然后返回一个字符串
         }
         newArr.push(a)
       } else if (/[a-z]/.test(a)) {

@@ -1,0 +1,44 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-21 21:36:18
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-21 21:57:09
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ21 简单密码</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let str = 'YUANzhi1987'
+    let arr = ['abc', 2, 'def', 3, 'ghi', 4, 'jkl', 5, 'mno', 6, 'pqrs', 7, 'tuv', 8, 'wxyz', 9]
+
+
+    str = str.replace(/[a-z]/g, item => {
+      for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] === 'string' && arr[i].indexOf(item) !== -1) {
+          return arr[i + 1] // 9 4 4 
+        }
+      }
+    })
+
+    str = str.replace(/[A-Z]/g, item => {
+      if (item === 'Z') {
+        return 'a'
+      } else {
+        return String.fromCharCode(item.toLowerCase().charCodeAt(0) + 1) // z v b o
+      }
+    })
+
+    console.log(str);
+  </script>
+</body>
+
+</html>
