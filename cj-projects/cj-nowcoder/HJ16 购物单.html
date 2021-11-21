@@ -1,0 +1,61 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-20 21:57:37
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-21 14:52:29
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ16 购物单</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let str = '1000 5'
+    let arr = str.split(' ')
+    console.log(arr); // ['1000', '5']
+    var m = parseInt(arr[0]) / 10 // 总钱数
+    console.log(m); // 100
+    var n = parseInt(arr[1]) // 希望购买物品的件数
+    console.log(n); // 5
+    let s1 = '800 2 0',
+      s2 = '400 5 1',
+      s3 = '300 5 1',
+      s4 = '400 3 0',
+      s5 = '500 2 0'
+
+    let a1 = s1.split(' ').map(value => parseInt(value)), // [800, 2, 0]
+      a2 = s2.split(' ').map(value => parseInt(value)), // [400, 5, 1]
+      a3 = s3.split(' ').map(value => parseInt(value)), // [300, 5, 1]
+      a4 = s4.split(' ').map(value => parseInt(value)), // [400, 3, 0]
+      a5 = s5.split(' ').map(value => parseInt(value)) // [500, 2, 0]
+    console.log(a1); //  [800, 2, 0]
+
+    // let goods = []
+    // let count = 1
+
+    // 第j行数据表示编号j-1的物品基本数据，价格，重要度 主附件（0 主件 > 0 附件值为其所属主件的编号）
+    // let array = [
+    //   [800, 2, 0],
+    //   [400, 5, 1],
+    //   [300, 5, 1],
+    //   [400, 3, 0],
+    //   [500, 2, 0]
+    // ]
+    // console.log(array);
+
+
+    // // 第j行数据表示编号j-1的物品基本数据，价格，重要度 主附件（0 主件 > 0 附件值为其所属主件的编号）
+    // while (count < n) {
+    //   let item
+    // }
+  </script>
+</body>
+
+</html>
