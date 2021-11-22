@@ -3,5 +3,47 @@
  * @Author: changjia
  * @Date: 2021-11-22 14:22:56
  * @LastEditors: changjia
- * @LastEditTime: 2021-11-22 14:22:56
+ * @LastEditTime: 2021-11-22 19:40:52
 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ35 蛇形矩阵</title>
+</head>
+
+<body>
+  <!-- 
+    每一行是一个等差数列
+    1.先找到每一行的第一个值
+    2.然后在第二层循环里面打印每一行
+    3.第一个y值为1，第二个y值为y+yCount,求得第二个y值后，yCount要加一，用于求下一个y值
+    4.第一行的前两列等差值xCount为1+1，第二行的前两列等差值xCount为2+1，所以第i行前两列等差值xCount为i+1
+  -->
+  <script type="text/javascript">
+    function fn(num) {
+      let x = 1 // 每一行的第一个值
+      let y = 1 // 每一行的第一列值
+      let xCount = 0 // 每一行之间的等差值
+      let yCount = 1 // 第一列中，相邻行之间的等差值
+      for (let i = 1; i <= num; i++) {
+        let str = ''
+        x = y // 把得到的每一行的第一例值赋值给x 1
+        xCount = i + 1 // 每一行，相邻项之间的等差值 2
+        for (let j = 1; j <= num - i + 1; j++) {
+          str += x + ' ' // 1 3 6 10
+          x += xCount // 3 6 10
+          xCount++ // 3 4 5 
+        }
+        console.log(str);
+        y += yCount++ // 2 
+      }
+    }
+    fn(4)
+  </script>
+</body>
+
+</html>
