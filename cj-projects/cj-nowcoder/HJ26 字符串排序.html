@@ -1,0 +1,39 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-22 12:45:39
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-22 13:49:16
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ26 字符串排序</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let str = 'A Famous Saying: Much Ado About Nothing (2012/8).'
+    let arr = str.split('')
+    let result = []
+    for (let i = 0; i < 26; i++) {
+      for (let j = 0; j < arr.length; j++) {
+        if (arr[j].charCodeAt(0) === 65 + i || arr[j].charCodeAt(0) === 97 + i) {
+          result.push(arr[j])
+        }
+      }
+    }
+    for (let i = 0; i < arr.length; i++) {
+      if (!/[A-Za-z]/g.test(arr[i])) {
+        result.splice(i, 0, arr[i]) // i:新元素的位置 0:应删除多少元素 arr[i]:新元素值
+      }
+    }
+    console.log(result.join(''));
+  </script>
+</body>
+
+</html>
