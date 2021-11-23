@@ -1,0 +1,45 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-23 20:13:43
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-23 21:20:30
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ36 字符串加密</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let line = 'nihaoin'
+    let str = 'ni'
+    let set = new Set() // 里面的元素都是唯一的集合
+    let arr = []
+
+    line = line.toUpperCase() + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' // 把密钥单词与大写字符连成一个字符串
+    console.log(line);
+    // 遍历key是否有重复字母
+    line.split('').forEach(i => { // 遍历字符串
+      set.add(i) // 唯一值集合，字符有重复的，也只添加一个
+    })
+    let key = new Array(...set) // 把字符串变成数组
+    console.log(set);
+
+    str.split('').forEach(i => { // 遍历要加密的字符串
+      if (/[A-Z]/g.test(i)) {
+        arr.push(key[i.charCodeAt(0) - 97])
+      } else {
+        arr.push(key[i.charCodeAt(0) - 97].toLowerCase())
+      }
+    })
+    console.log(arr.join(''));
+  </script>
+</body>
+
+</html>
