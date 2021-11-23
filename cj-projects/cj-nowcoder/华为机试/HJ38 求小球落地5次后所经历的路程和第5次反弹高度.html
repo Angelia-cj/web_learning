@@ -1,0 +1,40 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-23 21:24:35
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-23 22:58:15
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ38 求小球落地5次后所经历的路程和第5次反弹高度</title>
+</head>
+
+<body>
+  <!-- 
+      起始高度n米，经过m次 ，每次的高度为 n/2**m 
+
+  -->
+  <script type="text/javascript">
+    let num = 1 // 起始高度
+    let counter = 5
+    let height
+
+    let sum = 0
+    for (let i = 1; i < counter; i++) {
+      height = num / Math.pow(2, i) //2的m次
+      sum += height * 2
+    }
+    sum = sum + num
+    console.log(sum);
+    height = num / Math.pow(2, 5)
+    console.log(height);
+  </script>
+</body>
+
+</html>
