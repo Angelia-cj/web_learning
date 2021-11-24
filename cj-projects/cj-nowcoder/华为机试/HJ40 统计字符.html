@@ -1,0 +1,30 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-24 13:18:00
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-24 13:55:11
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ40 统计字符</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let str = '1qazxsw23 edcvfr45tgbn hy67uj m,ki89ol.\\/;p0-=\\]['
+
+    let letters = str.match(/[a-z]/gi) ? str.match(/[a-z]/gi).length : 0
+    let space = str.match(/\s+/gi) ? str.match(/\s+/gi).length : 0
+    let number = str.match(/[\d]/gi) ? str.match(/[\d]/gi).length : 0
+    let symbol = str.length - letters - space - number
+    console.log(letters + '\n' + space + '\n' + number + '\n' + symbol)
+  </script>
+</body>
+
+</html>
