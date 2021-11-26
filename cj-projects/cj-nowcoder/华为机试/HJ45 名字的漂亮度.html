@@ -1,0 +1,44 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-26 20:18:23
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-26 20:40:17
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ45 名字的漂亮度</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    // let num = 2
+    let str = 'zhangsan'
+    let array = new Array(26).fill(0) // 一位数组，每项值都为0
+      // console.log(array);
+    let result = 0
+    let arr = str.toLowerCase().split('')
+      // console.log(arr);
+      // console.log('a'.charCodeAt(0)); // 97
+      // console.log('z'.charCodeAt(0)); // 122
+    arr.forEach(i => {
+      // console.log(i.charCodeAt(0));
+      // console.log(i.charCodeAt(0) - 97);
+      // console.log(array[i.charCodeAt(0) - 97]);
+      array[i.charCodeAt(0) - 97]++
+        // console.log(array[i.charCodeAt(0) - 97]++);
+    })
+    array.sort((a, b) => b - a)
+    for (let i = 0; i < 26; i++) {
+      result += array[i] * (26 - i)
+    }
+    console.log(result);
+  </script>
+</body>
+
+</html>
