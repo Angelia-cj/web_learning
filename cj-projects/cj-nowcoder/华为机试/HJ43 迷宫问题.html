@@ -1,0 +1,81 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-24 13:59:14
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-26 20:16:37
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ43 迷宫问题</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    // let str = '5 5'
+    // let [n, m] = str.split(' ').map(v => parseInt(v)) // 5 5
+
+    // // 0表示没走过， 1表示已走
+    // let test = Array(n).fill(0).map(v => Array(m).fill(0)) // 5 x 5的二位数组 
+    // let arr = [] // 0 表示空地，1表示阻挡
+    // let arrX = [1, 0, -1, 0]
+    // let arrY = [0, 1, 0, -1]
+    // let target = []
+    // for (let i = 0; i < n; i++) {
+    //   arr.push()
+
+    // }
+
+    // console.log(n, m);
+    // console.log(Array(n).fill(0)); // [0, 0, 0, 0, 0]
+    // console.log(test);
+    while (line = readline()) {
+      let [n, m] = line.split(' ').map(x => parseInt(x));
+      let test = Array(n).fill(0).map(x => Array(m).fill(0)); // 0表示没走过， 1表示已走
+      let arr = []; // 0 表示空地，1表示阻挡
+      let arrX = [1, 0, -1, 0];
+      let arrY = [0, 1, 0, -1];
+      let target = [];
+      for (let i = 0; i < n; i++) {
+        arr.push(readline().split(' ').map(x => parseInt(x)));
+      }
+      dfs(0, 0, [{
+        x: 0,
+        y: 0
+      }]);
+      for (let item of target) {
+        print(`(${item.y},${item.x})`);
+      }
+
+      function dfs(x, y, points) {
+        points = JSON.parse(JSON.stringify(points));
+        if (x == m - 1 && y == n - 1) {
+          return target = points;
+        }
+        for (let key = 0; key <= 3; key++) {
+          let pointX = x + arrX[key];
+          let pointY = y + arrY[key];
+          if (pointX >= 0 && pointX < m && pointY >= 0 && pointY < n) {
+            if (arr[pointY][pointX] == 0 && test[pointY][pointX] == 0) {
+              test[pointY][pointX] = 1;
+              points.push({
+                x: pointX,
+                y: pointY
+              })
+              dfs(pointX, pointY, points);
+              points.pop();
+              test[pointY][pointX] = 0;
+            }
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
