@@ -1,0 +1,53 @@
+<!--
+ * @description: 
+ * @Author: changjia
+ * @Date: 2021-11-29 20:51:45
+ * @LastEditors: changjia
+ * @LastEditTime: 2021-11-29 21:59:32
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HJ52 计算字符串的距离</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let str1 = 'abcde'
+    let str2 = 'bcdef'
+    let str = str1 + str2
+    let set = new Set()
+    let arr = []
+    let arr1 = []
+    let length
+
+    // 把str1和str2 相同项组成一个数组
+    str1.split('').forEach(i => {
+      if (str2.split('').indexOf(i) !== -1) {
+        arr1.push(i)
+      }
+    })
+    console.log(arr1);
+    // 没有相同项的唯一集合
+    str.split('').forEach(i => {
+      set.add(i)
+    })
+    console.log(set);
+    arr = new Array(...set) // 把字符串变成数组
+    console.log(arr.length);
+
+    // 先判断两个字符串长度是否相等，以及出现单个字符的个数
+    if (str1.length === str2.length && str.length - arr1.length <= 1) {
+      length = str1.length - arr1.length
+    } else {
+      length = arr.length - arr1.length
+    }
+    console.log(length);
+  </script>
+</body>
+
+</html>
