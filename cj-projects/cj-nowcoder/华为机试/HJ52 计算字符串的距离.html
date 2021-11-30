@@ -3,7 +3,7 @@
  * @Author: changjia
  * @Date: 2021-11-29 20:51:45
  * @LastEditors: changjia
- * @LastEditTime: 2021-11-29 21:59:32
+ * @LastEditTime: 2021-11-30 16:26:24
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -16,37 +16,40 @@
 </head>
 
 <body>
+  <!-- 动态规划 -->
   <script type="text/javascript">
     let str1 = 'abcde'
     let str2 = 'bcdef'
-    let str = str1 + str2
-    let set = new Set()
-    let arr = []
-    let arr1 = []
-    let length
 
-    // 把str1和str2 相同项组成一个数组
-    str1.split('').forEach(i => {
-      if (str2.split('').indexOf(i) !== -1) {
-        arr1.push(i)
+    function minDistance(s1, s2) {
+      let len1 = s1.length
+      let len2 = s2.length
+      let matrix = []
+      for (let i = 0; i <= len1; i++) {
+        // 构造二位数组
+        matrix[i] = new Array()
+        for (let j = 0; j <= len2; j++) {
+          // 初始化
+          if (i === 0) {
+            matrix[i][j] = j
+          } else if (j === 0) {
+            matrix[i][j] = i
+          } else {
+            // 进行最小值分析
+            let num = 0
+            if (s1[i - 1] !== s2[j - 1]) {
+              // 相同为0，不同置1
+              num = 1
+            }
+            let temp = matrix[i - 1][j - 1] + num
+            matrix[i][j] = Math.min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, temp)
+          }
+        }
       }
-    })
-    console.log(arr1);
-    // 没有相同项的唯一集合
-    str.split('').forEach(i => {
-      set.add(i)
-    })
-    console.log(set);
-    arr = new Array(...set) // 把字符串变成数组
-    console.log(arr.length);
-
-    // 先判断两个字符串长度是否相等，以及出现单个字符的个数
-    if (str1.length === str2.length && str.length - arr1.length <= 1) {
-      length = str1.length - arr1.length
-    } else {
-      length = arr.length - arr1.length
+      return matrix[len1][len2] // 返回右下角的值
     }
-    console.log(length);
+
+    console.log(minDistance(str1, str2));
   </script>
 </body>
 
